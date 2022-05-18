@@ -1,18 +1,5 @@
 // Some frontend developers prefer to keep layout styles in a partial, like this.
 
-.content-container {
-	margin: 0 auto;
-	max-width: 900px;
-	padding: 1em;
-
-	@media screen and (min-width: 768px) {
-		display: grid;
-		grid-gap: 3em;
-		grid-template-columns: repeat(3, 1fr);
-		padding: 2em 1em 5em;
-	}
-}
-
 .page-heading {
 	grid-column: span 3;
 }

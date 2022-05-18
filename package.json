@@ -62,7 +62,7 @@
     "http-server": "^13.0.1",
     "image-webpack-loader": "^7.0.1",
     "mini-css-extract-plugin": "^2.2.0",
-    "node-sass": "^7.0.0",
+    "node-sass": "^7.0.1",
     "optimize-css-assets-webpack-plugin": "^6.0.1",
     "postcss": "^8.3.6",
     "postcss-loader": "^6.1.1",
@@ -75,10 +75,10 @@
     "webpack": "^5.51.1",
     "webpack-cli": "^4.8.0",
     "webpack-merge": "^5.8.0",
-    "webpackbar": "^5.0.0-3"
+    "webpackbar": "^5.0.2"
   },
   "dependencies": {
     "normalize.css": "^8.0.1",
-    "webpack-dev-server": "^4.0.0"
+    "webpack-dev-server": "^4.9.0"
   }
 }
