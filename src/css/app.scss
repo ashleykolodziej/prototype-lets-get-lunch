@@ -7,6 +7,38 @@
 	object-fit: cover;
 }
 
-.profile-friend img {
+.item-media img {
 	border-radius: 50%;
+}
+
+.item-attendees {
+	display: flex;
+}
+
+.virtual-list ul {
+	height: auto !important;
+}
+
+.item-dish {
+	width: 75px;
+	height: 95px;
+
+	img {
+		object-fit: cover;
+		width: 100%;
+		height: 100%;
+	}
+}
+
+.card-media {
+	overflow: hidden;
+	img {
+		transform: scale(1.2);
+	}
+}
+
+.card-meta {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
 }

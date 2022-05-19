@@ -1,7 +1,10 @@
+// import our store
+import store from './store.js';
+
 const locationIds = [
 	//799571,
-	779266,
-	//755898,
+	//779266,
+	755898,
 	//801423,
 	//126,
 	//779588,
@@ -88,9 +91,36 @@ fetch(`https://api.thelevelup.com/v15/apps/1/locations?fulfillment_types=in_stor
   		});
   });
 
+document.body.addEventListener( 'click', function(e) {
+	const $this = e.target;
+	const $delegated = $this.closest('.swiper-slide');
 
-const pickit = function () {
-	const swiper = this.swiper.create('.swiper', {
+	if ( $delegated ) {
+		const $icon = $delegated.querySelector('.icon');
+		$icon.textContent = ($icon.textContent === 'heart_fill' ? 'heart' : 'heart_fill');
+
+		const theFaved = { ...$delegated.dataset };
+
+		const alreadyFaved = store.state.products.some(element => {
+		  if (element.dishId === theFaved.dishId) {
+		    return true;
+		  }
+
+		  return false;
+		});
+
+		if (alreadyFaved) {
+			store.state.products = store.state.products.filter(object => {
+			  return object.dishId !== theFaved.dishId;
+			});
+		} else {
+			store.state.products = [...store.state.products, theFaved];
+		}
+	}
+} );
+
+const pickit = function (page) {
+	const swiper = page.app.swiper.create('.swiper', {
 		// Optional parameters
 		direction: 'horizontal',
 		loop: false
@@ -101,6 +131,7 @@ const pickit = function () {
 		  .then(response => response.json())
 		  .then(item => {
 	  			const restaurant = item.location.name ? item.location.name : item.location.merchant_name;
+	  			const dataRestaurantId = item.location.id;
 	  			if (
 	  			 	null !== item.location.delivery_menu_url &&
 	  			 	null !== restaurant
@@ -111,7 +142,6 @@ const pickit = function () {
 					  		Object.values(data).forEach(item => {
 					  			item.categories.forEach(item => {
 					  				const category = item.category.name;
-					  				console.log(category);
 
 					  				if ('Beverages' === category) {
 					  					return;
@@ -140,14 +170,28 @@ const pickit = function () {
 												return;
 											}
 
-											swiper.appendSlide(`<div class="swiper-slide">
+											swiper.appendSlide(`<div
+													data-restaruant-id="${dataRestaurantId}"
+													data-dish-id="${dish.item.id}"
+													data-dish-name="${name}"
+													data-dish-location="${restaurant}"
+													data-dish-img="${img}?density=1&height=300&width=420"
+													class="swiper-slide">
 													<div class="card">
-													<img src="${img}?density=1&height=300&width=420">
-													<div class="card-content card-content-padding">
-													<div class="tags">
-														${ isVeg ? '<span class="badge">vegetarian</span>' : '' }
-														${ isVegan ? '<span class="badge">vegan</span>' : '' }
+													<div class="card-media">
+														<img src="${img}?density=1&height=300&width=420">
 													</div>
+													<div class="card-content card-content-padding">
+													<div class="card-meta">
+														<div class="tags">
+															${ isVeg ? '<span class="badge">vegetarian</span>' : '' }
+															${ isVegan ? '<span class="badge">vegan</span>' : '' }
+														</div>
+														<div class="card-favorite">
+															<i class="icon f7-icons if-not-md">heart</i>
+		            									<i class="icon material-icons if-md">heart</i>
+	            									</div>
+            									</div>
 													<h3>${name}</h3>
 													<p>${description}</p>
 													</div>

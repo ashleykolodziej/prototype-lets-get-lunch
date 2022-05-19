@@ -38,19 +38,55 @@
 </template>
 <script>
 export default (props, { $f7, $el, $theme, $on }) => {
-	let items = [];
-
-	fetch('https://randomuser.me/api/?results=10')
-	  .then(response => response.json())
-	  .then(data => {
-	  		data.results.forEach(user => {
-	  			items.push({
-		        title: `${user.name.first} ${user.name.last}`,
-		        image: user.picture.large,
-		        location: `${user.location.city}, ${user.location.state}`
-		      });
-	  		});
-	  });
+	let items = [
+		{
+			title: 'Lunch in Boston',
+			date: "Wednesday, May 22nd 2022",
+			attendees: [
+				'https://via.placeholder.com/50x50',
+				'https://randomuser.me/api/portraits/women/73.jpg',
+				'https://randomuser.me/api/portraits/women/80.jpg',
+			]
+		},
+		{
+			title: 'Draaaaaanks',
+			date: 'Undecided',
+			attendees: [
+				'https://via.placeholder.com/50x50',
+				'https://randomuser.me/api/portraits/women/73.jpg',
+				'https://randomuser.me/api/portraits/women/80.jpg',
+				'https://randomuser.me/api/portraits/men/55.jpg',
+				'https://randomuser.me/api/portraits/women/22.jpg',
+				'https://randomuser.me/api/portraits/men/46.jpg',
+				'https://randomuser.me/api/portraits/women/55.jpg',
+				'https://randomuser.me/api/portraits/men/10.jpg',
+				'https://randomuser.me/api/portraits/men/15.jpg',
+			]
+		},
+		{
+			title: "Jen's B-Day",
+			date: 'Undecided',
+			attendees: [
+				'https://via.placeholder.com/50x50',
+				'https://randomuser.me/api/portraits/women/73.jpg',
+				'https://randomuser.me/api/portraits/women/80.jpg',
+				'https://randomuser.me/api/portraits/men/55.jpg',
+				'https://randomuser.me/api/portraits/women/22.jpg',
+				'https://randomuser.me/api/portraits/men/46.jpg',
+				'https://randomuser.me/api/portraits/women/55.jpg',
+				'https://randomuser.me/api/portraits/men/10.jpg',
+				'https://randomuser.me/api/portraits/men/15.jpg',
+				'https://randomuser.me/api/portraits/women/73.jpg',
+				'https://randomuser.me/api/portraits/women/80.jpg',
+				'https://randomuser.me/api/portraits/men/55.jpg',
+				'https://randomuser.me/api/portraits/women/22.jpg',
+				'https://randomuser.me/api/portraits/men/46.jpg',
+				'https://randomuser.me/api/portraits/women/55.jpg',
+				'https://randomuser.me/api/portraits/men/10.jpg',
+				'https://randomuser.me/api/portraits/men/15.jpg',
+			]
+		}
+	];
 
     $on('pageInit', () => {
       const virtualList = $f7.virtualList.create({
@@ -71,14 +107,17 @@ export default (props, { $f7, $el, $theme, $on }) => {
           return `
           <li>
             <a href="#" class="item-link item-content">
-            <div class="profile-friend item-media"><img src="${item.image}"
-                  width="50" /></div>
               <div class="item-inner">
                 <div class="item-title-row">
                   <div class="item-title">${item.title}</div>
                 </div>
-                <div class="item-subtitle">${item.location}</div>
-              </div>
+                <div class="item-subtitle">${item.date}</div>
+                <div>${item.attendees.length} attendees</div>
+                <div class="item-attendees">` +
+                	[...item.attendees].map((x, i) =>
+					    `<div class="item-profile"><img src=${x} width="25" /></div>`
+					  ).join('')
+              + `</div></div>
             </a>
           </li>`;
         },

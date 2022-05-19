@@ -3,20 +3,29 @@
     <div class="navbar">
       <div class="navbar-bg"></div>
       <div class="navbar-inner sliding">
-        <div class="title">Catalog</div>
+        <div class="title">Favorites</div>
       </div>
     </div>
     <div class="page-content">
-      <div class="list links-list">
+      <div class="list media-list inset">
         <ul>
           ${products.value.map((product) => $h`
-            <li><a href="/product/${product.id}/">${product.title}</a></li>
+            <li>
+            	<div class="item-content">
+            		<div class="item-dish item-media">
+            			<img src="${product.dishImg}"/>
+            		</div>
+            		<div class="item-inner">
+            			${product.dishName}
+            		</div>
+            	</div>
+            </li>
           `)}
         </ul>
       </div>
-      ${products.value.length === 3 && $h`
+      ${products.value.length === 0 && $h`
         <div class="block">
-          <button class="button button-fill" @click=${addProduct}>Add Product</Button>
+          <button class="button button-fill" @click=${addProduct}>No favorites yet</Button>
         </div>
       `}
     </div>

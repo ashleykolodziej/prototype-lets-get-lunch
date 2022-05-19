@@ -1,4 +1,3 @@
-
 import HomePage from '../pages/home.f7';
 import FriendsPage from '../pages/friends.f7';
 import PlansPage from '../pages/plans.f7';
@@ -11,10 +10,18 @@ import DynamicRoutePage from '../pages/dynamic-route.f7';
 import RequestAndLoad from '../pages/request-and-load.f7';
 import NotFoundPage from '../pages/404.f7';
 
+// Import Store
+import pickit from './pickit.js';
+
 var routes = [
   {
     path: '/',
     component: HomePage,
+    on: {
+     pageInit: function (e, page) {
+       pickit(page);
+     },
+   }
   },
   {
     path: '/plans/',
