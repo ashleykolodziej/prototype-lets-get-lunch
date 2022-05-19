@@ -33,4 +33,4 @@ const app = new Framework7({
   routes: routes
 });
 
-app.on('init', pickit)
+app.on('pageInit', pickit)

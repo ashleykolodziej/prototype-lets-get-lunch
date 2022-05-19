@@ -45,7 +45,7 @@
             <i class="icon material-icons if-md">home</i>
             <span class="tabbar-label">Home</span>
           </a>
-          <a href="#view-home" class="tab-link">
+          <a href="#view-plans" class="tab-link">
             <i class="icon f7-icons if-not-md">calendar</i>
             <i class="icon material-icons if-md">home</i>
             <span class="tabbar-label">Plans</span>
@@ -76,6 +76,11 @@
       <!-- Catalog View -->
       <div id="view-catalog" class="view view-init tab" data-name="catalog" data-url="/catalog/">
         <!-- Catalog page will be loaded here dynamically from /catalog/ route -->
+      </div>
+
+      <!-- Plans View -->
+      <div id="view-plans" class="view view-init tab" data-name="plans" data-url="/plans/">
+        <!-- Catalog page will be loaded here dynamically from /plans/ route -->
       </div>
 
       <!-- Friends View -->

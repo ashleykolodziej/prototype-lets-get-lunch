@@ -136,7 +136,7 @@ const pickit = function () {
 												isVegan = checkVegan(allOfIt);
 											}
 
-											if (!isVegan) {
+											if (!isVeg) {
 												return;
 											}
 
