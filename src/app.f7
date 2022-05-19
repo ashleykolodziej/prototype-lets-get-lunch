@@ -45,6 +45,16 @@
             <i class="icon material-icons if-md">home</i>
             <span class="tabbar-label">Home</span>
           </a>
+          <a href="#view-home" class="tab-link">
+            <i class="icon f7-icons if-not-md">calendar</i>
+            <i class="icon material-icons if-md">home</i>
+            <span class="tabbar-label">Plans</span>
+          </a>
+          <a href="#view-friends" class="tab-link">
+            <i class="icon f7-icons if-not-md">person_2</i>
+            <i class="icon material-icons if-md">home</i>
+            <span class="tabbar-label">Friends</span>
+          </a>
           <a href="#view-catalog" class="tab-link">
             <i class="icon f7-icons if-not-md">square_list_fill</i>
             <i class="icon material-icons if-md">view_list</i>
@@ -66,6 +76,11 @@
       <!-- Catalog View -->
       <div id="view-catalog" class="view view-init tab" data-name="catalog" data-url="/catalog/">
         <!-- Catalog page will be loaded here dynamically from /catalog/ route -->
+      </div>
+
+      <!-- Friends View -->
+      <div id="view-friends" class="view view-init tab" data-name="friends" data-url="/friends/">
+        <!-- Catalog page will be loaded here dynamically from /friends/ route -->
       </div>
 
       <!-- Settings View -->
