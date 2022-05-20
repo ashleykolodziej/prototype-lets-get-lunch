@@ -34,12 +34,14 @@
 export default (props, { $f7, $el, $theme, $on }) => {
 	let items = [];
 
-	fetch('https://randomuser.me/api/?results=10')
+	//fetch('https://randomuser.me/api/?results=10')
+	fetch('js/data/users.json')
 	  .then(response => response.json())
 	  .then(data => {
 	  		data.results.forEach(user => {
 	  			//console.log(user);
 	  			items.push({
+		        id: `${user.login.md5}`,
 		        title: `${user.name.first} ${user.name.last}`,
 		        image: user.picture.large,
 		        location: `${user.location.city}, ${user.location.state}`
@@ -65,7 +67,7 @@ export default (props, { $f7, $el, $theme, $on }) => {
         renderItem(item) {
           return `
           <li>
-            <a href="#" class="item-link item-content">
+            <a href="/friends/${item.id}/" class="item-link item-content">
             <div class="item-profile item-media"><img src="${item.image}"
                   width="50" /></div>
               <div class="item-inner">

@@ -1,5 +1,6 @@
 import HomePage from '../pages/home.f7';
 import FriendsPage from '../pages/friends.f7';
+import FriendPage from '../pages/friend.f7';
 import PlanListingPage from '../pages/planlisting.f7';
 import FormPage from '../pages/form.f7';
 import FavoritesPage from '../pages/favorites.f7';
@@ -32,6 +33,10 @@ var routes = [
   {
     path: '/friends/',
     component: FriendsPage,
+  },
+  {
+    path: '/friends/:id/',
+    component: FriendPage,
   },
   {
     path: '/form/',
