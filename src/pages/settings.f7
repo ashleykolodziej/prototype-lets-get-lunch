@@ -3,7 +3,7 @@
   <div class="navbar">
     <div class="navbar-bg"></div>
     <div class="navbar-inner sliding">
-      <div class="title">Settings</div>
+      <div class="title-large"><div class="title-large-text">My Profile</div></div>
     </div>
   </div>
   <div class="page-content">

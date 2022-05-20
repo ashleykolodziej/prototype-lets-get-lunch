@@ -101,7 +101,7 @@ document.body.addEventListener( 'click', function(e) {
 
 		const theFaved = { ...$delegated.dataset };
 
-		const alreadyFaved = store.state.products.some(element => {
+		const alreadyFaved = store.state.favorites.some(element => {
 		  if (element.dishId === theFaved.dishId) {
 		    return true;
 		  }
@@ -110,16 +110,17 @@ document.body.addEventListener( 'click', function(e) {
 		});
 
 		if (alreadyFaved) {
-			store.state.products = store.state.products.filter(object => {
+			store.state.favorites = store.state.favorites.filter(object => {
 			  return object.dishId !== theFaved.dishId;
 			});
 		} else {
-			store.state.products = [...store.state.products, theFaved];
+			store.state.favorites = [...store.state.favorites, theFaved];
 		}
 	}
 } );
 
 const pickit = function (page) {
+	console.log(page.app)
 	const swiper = page.app.swiper.create('.swiper', {
 		// Optional parameters
 		direction: 'horizontal',

@@ -3,13 +3,7 @@
   <div class="navbar">
     <div class="navbar-bg"></div>
     <div class="navbar-inner sliding">
-      <div class="left">
-        <a href="#" class="link back">
-          <i class="icon icon-back"></i>
-          <span class="if-not-md">Back</span>
-        </a>
-      </div>
-      <div class="title">Friends</div>
+      <div class="title-large"><div class="title-large-text">Friends</div></div>
       <div class="subnavbar">
       	<form data-search-container=".virtual-list" data-search-item="li" data-search-in=".item-title"
             class="searchbar searchbar-init">
@@ -32,7 +26,7 @@
           <li>Nothing found</li>
         </ul>
       </div>
-      <div class="list virtual-list media-list searchbar-found"></div>
+      <div class="list virtual-list media-list searchbar-found friends-list"></div>
   </div>
 </div>
 </template>

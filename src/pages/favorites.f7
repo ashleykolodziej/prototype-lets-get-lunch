@@ -3,29 +3,33 @@
     <div class="navbar">
       <div class="navbar-bg"></div>
       <div class="navbar-inner sliding">
-        <div class="title">Favorites</div>
+        <div class="title-large"><div class="title-large-text">Favorites</div></div>
       </div>
     </div>
     <div class="page-content">
       <div class="list media-list inset">
         <ul>
-          ${products.value.map((product) => $h`
+          ${favorites.value.map((product) => $h`
             <li>
             	<div class="item-content">
             		<div class="item-dish item-media">
             			<img src="${product.dishImg}"/>
             		</div>
             		<div class="item-inner">
-            			${product.dishName}
+            			${product.dishName} at ${product.dishLocation}
             		</div>
+            		<div class="card-favorite little-favorite">
+							<i class="icon f7-icons if-not-md">heart_fill</i>
+							<i class="icon material-icons if-md">heart</i>
+						</div>
             	</div>
             </li>
           `)}
         </ul>
       </div>
-      ${products.value.length === 0 && $h`
+      ${favorites.value.length === 0 && $h`
         <div class="block">
-          <button class="button button-fill" @click=${addProduct}>No favorites yet</Button>
+          <button class="button button-fill">No favorites yet</Button>
         </div>
       `}
     </div>
@@ -33,15 +37,7 @@
 </template>
 <script>
   export default (props, { $store }) => {
-    const products = $store.getters.products;
-
-    const addProduct = () => {
-      $store.dispatch('addProduct', {
-        id: '4',
-        title: 'Apple iPhone 12',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi tempora similique reiciendis, error nesciunt vero, blanditiis pariatur dolor, minima sed sapiente rerum, dolorem corrupti hic modi praesentium unde saepe perspiciatis.'
-      });
-    }
+    const favorites = $store.getters.favorites;
 
     return $render;
   }

@@ -35,16 +35,6 @@
 </template>
 <script>
   export default (props, { $store }) => {
-    const products = $store.getters.products;
-
-    const addProduct = () => {
-      $store.dispatch('addProduct', {
-        id: '4',
-        title: 'Apple iPhone 12',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi tempora similique reiciendis, error nesciunt vero, blanditiis pariatur dolor, minima sed sapiente rerum, dolorem corrupti hic modi praesentium unde saepe perspiciatis.'
-      });
-    }
-
     return $render;
   }
 </script>

@@ -1,0 +1,45 @@
+<template>
+  <div class="page" data-name="home">
+    <!-- Top Navbar -->
+    <div class="navbar navbar-large">
+      <div class="navbar-bg"></div>
+      <div class="navbar-inner sliding">
+      	<div class="left">
+          <a href="/plans" class="link back">
+            <i class="icon icon-back"></i>
+            <span class="if-not-md">Back</span>
+          </a>
+        </div>
+        <div class="title-large">
+          <div class="title-large-text">${currentPlan.dishLocation} Menu</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scrollable page content-->
+    <div class="page-content">
+    	<div class="swiper">
+        <div class="swiper-wrapper">
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+    </div>
+  </div>
+</template>
+<script>
+  export default (props, { $f7route, $store }) => {
+    const plans = $store.getters.favorites;
+    console.log(plans)
+    console.log($f7route.params.id)
+    const favorites = $store.getters.favorites;
+    const planId = $f7route.params.id;
+    let currentPlan = 0;
+    plans.value.forEach((plan) => {
+      if (plan.restaruantId === planId) {
+        currentPlan = plan;
+      }
+    });
+
+    return $render;
+  };
+</script>

@@ -1,0 +1,71 @@
+<template>
+<div class="page" data-name="plans">
+  <div class="navbar">
+    <div class="navbar-bg"></div>
+    <div class="navbar-inner sliding">
+      <div class="title-large"><div class="title-large-text">Plans</div></div>
+    </div>
+  </div>
+  <div class="searchbar-backdrop"></div>
+  <div class="page-content">
+  	<div class="block-title block-title-medium">Invited</div>
+		<div class="list simple-list searchbar-not-found">
+        <ul>
+          <li>Nothing found</li>
+        </ul>
+      </div>
+      <div class="list virtual-list media-list searchbar-found"></div>
+		<div class="block-title block-title-medium">Accepted</div>
+      <div class="block-title block-title-medium">Declined</div>
+  </div>
+</div>
+</template>
+<script>
+export default (props, { $store, $f7, $el, $theme, $on }) => {
+	const plans = $store.getters.plans;
+	let items = plans.value;
+
+    $on('pageInit', () => {
+      const virtualList = $f7.virtualList.create({
+        // List Element
+        el: $el.value.find('.virtual-list'),
+        // Pass array with items
+        items,
+        // Custom search function for searchbar
+        searchAll: function (query, items) {
+          var found = [];
+          for (var i = 0; i < items.length; i++) {
+            if (items[i].title.toLowerCase().indexOf(query.toLowerCase()) >= 0 || query.trim() === '') found.push(i);
+          }
+          return found; //return array with mathced indexes
+        },
+        // List item render
+        renderItem(item) {
+          return `
+          <li>
+            <a href="/plans/${item.id}/" class="item-link item-content">
+              <div class="item-inner">
+                <div class="item-title-row">
+                	<div class="item-profile item-media"><img src=${item.organizer.img} width="50" /></div>
+                	<div class="item-title-details">
+                		<div class="item-subtitle">${item.organizer.name.first} is organizing</div>
+                		<div class="item-title">${item.title}</div>
+                		<div class="item-subtitle">${item.date}</div>
+                	</div>
+                  ${item.id === '1' ? '<span class="badge color-orange">New</span>' : ''}
+                  ${item.id === '3' ? '<span class="badge color-green">Decided</span>' : ''}
+                </div>
+                <div class="item-attendees item-subtitle"><p>${item.attendees.length} attendees</p>` +
+                	[...item.attendees].map((x, i) =>
+					    `<div class="item-profile item-media"><img src=${x} width="25" /></div>`
+					  ).join('')
+              + `</div></div>
+            </a>
+          </li>`;
+        }
+      });
+    });
+
+    return $render;
+  }
+</script>

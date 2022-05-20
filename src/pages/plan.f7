@@ -1,0 +1,121 @@
+<template>
+  <div class="page" data-name="product">
+    <div class="navbar">
+      <div class="navbar-bg"></div>
+      <div class="navbar-inner sliding">
+        <div class="left">
+          <a href="/plans" class="link back">
+            <i class="icon icon-back"></i>
+            <span class="if-not-md">Plans</span>
+          </a>
+        </div>
+        <div class="title-large"><div class="title-large-text">Plan Details</div></div>
+      </div>
+    </div>
+    <div class="page-content">
+      <div class="block block-strong inset card-center">
+      	<div class="item-profile item-media">
+				<img src="${currentPlan.organizer.img}" width="75" />
+			</div>
+	      <div class="block-title margin-top-half no-margin-bottom">${currentPlan.organizer.name.first} says</div>
+	      <div class="block-title block-title-medium no-margin-top">Let's get ${currentPlan.title}!</div>
+	      <div>${currentPlan.date}</div>
+	    	<div class="item-attendees">
+	            ${[...currentPlan.attendees].map((attendee) => $h`
+	         <div class="item-profile item-media">
+	   			<img src="${attendee}" width="50" />
+	   		</div>
+	       `)}
+	      </div>
+	      <div>You and ${currentPlan.attendees.length - 1} others so far</div>
+      </div>
+      <div class="block-title">Favorite restaurants so far</div>
+      <div class="list media-list inset">
+        <ul>
+          ${favorites.value.map((favorite) => $h`
+            <li>
+            	<a href="/menu/${favorite.restaruantId}/">
+            	<div class="item-content">
+            		<div class="item-dish item-media">
+            			<img src="${favorite.dishImg}"/>
+            		</div>
+            		<div class="item-inner">
+            			<div class="item-title">${favorite.dishLocation}</div>
+            			<div class="item-subtitle">Taco truck with vegan and gluten-free options.</div>
+            			<div>
+	            			<div class="chip chip-outline">
+						          <div class="chip-media">
+						            <img src="https://randomuser.me/api/portraits/women/80.jpg" />
+						          </div>
+						          <div class="chip-label">2 dishes</div>
+						        </div>
+						      <div class="chip chip-outline">
+						          <div class="chip-media">
+						            <img src="https://randomuser.me/api/portraits/women/73.jpg" />
+						          </div>
+						          <div class="chip-label">5 dishes</div>
+						        </div>
+				        </div>
+            		</div>
+            	</div>
+            	</a>
+            </li>
+          `)}
+        </ul>
+      </div>
+      <div class="block-title">Your favorite dishes in this area</div>
+      <div class="list media-list inset">
+        <ul>
+          ${favorites.value.map((favorite) => $h`
+            <li>
+            	<div class="item-content">
+            		<div class="item-dish item-media">
+            			<img src="${favorite.dishImg}"/>
+            		</div>
+            		<div class="item-inner">
+            			${favorite.dishName} at ${favorite.dishLocation}
+            		</div>
+            	</div>
+            </li>
+          `)}
+        </ul>
+      </div>
+      <div class="block-title">More restaurants in this area</div>
+      <div class="list media-list inset">
+        <ul>
+          ${favorites.value.map((favorite) => $h`
+            <li>
+            	<div class="item-content">
+            		<div class="item-dish item-media">
+            			<img src="${favorite.dishImg}"/>
+            		</div>
+            		<div class="item-inner">
+            			${favorite.dishName} at ${favorite.dishLocation}
+            		</div>
+            	</div>
+            </li>
+          `)}
+        </ul>
+      </div>
+    </div>
+  </div>
+</template>
+<script>
+  export default (props, { $f7route, $store }) => {
+    const plans = $store.getters.plans;
+    const favorites = $store.getters.favorites;
+    const planId = $f7route.params.id;
+    let currentPlan = 0;
+    plans.value.forEach((plan) => {
+    	console.log(plan)
+    	console.log(plan.id)
+    	console.log(planId)
+      if (plan.id === planId) {
+        currentPlan = plan;
+        console.log(currentPlan);
+      }
+    });
+
+    return $render;
+  };
+</script>

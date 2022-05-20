@@ -1,9 +1,10 @@
 import HomePage from '../pages/home.f7';
 import FriendsPage from '../pages/friends.f7';
-import PlansPage from '../pages/plans.f7';
+import PlanListingPage from '../pages/planlisting.f7';
 import FormPage from '../pages/form.f7';
-import CatalogPage from '../pages/catalog.f7';
-import ProductPage from '../pages/product.f7';
+import FavoritesPage from '../pages/favorites.f7';
+import PlanPage from '../pages/plan.f7';
+import MenuPage from '../pages/menu.f7';
 import SettingsPage from '../pages/settings.f7';
 
 import DynamicRoutePage from '../pages/dynamic-route.f7';
@@ -25,7 +26,7 @@ var routes = [
   },
   {
     path: '/plans/',
-    component: PlansPage,
+    component: PlanListingPage,
   },
   {
     path: '/friends/',
@@ -36,12 +37,21 @@ var routes = [
     component: FormPage,
   },
   {
-    path: '/catalog/',
-    component: CatalogPage,
+    path: '/favorites/',
+    component: FavoritesPage,
   },
   {
-    path: '/product/:id/',
-    component: ProductPage,
+    path: '/plans/:id/',
+    component: PlanPage,
+  },
+  {
+    path: '/menu/:id/',
+    component: MenuPage,
+    on: {
+     pageInit: function (e, page) {
+       pickit(page)
+     }
+    }
   },
   {
     path: '/settings/',
