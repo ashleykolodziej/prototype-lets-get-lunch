@@ -1,5 +1,6 @@
 import { createStore } from 'framework7';
 import tacoPartyImg from '../assets/2021-08-02.jpg'
+import tastyMoMoImg from '../assets/2018-07-21.jpg'
 
 const store = createStore({
   state: {
@@ -93,7 +94,26 @@ const store = createStore({
 				{
 					id: '100489',
 					name: 'Taco Party',
+					description: 'Taco truck with vegan and gluten-free options.',
 					img: tacoPartyImg,
+					votes: [
+						{
+							userId: 2,
+							img: '',
+							count: 5
+						},
+						{
+							userId: 1,
+							img: '',
+							count: 2
+						}
+					]
+				},
+				{
+					id: '779661',
+					name: 'Tasty Mo:Mo',
+					description: 'Quick-serve, charity-minded eatery dishing out dumplings with spicy sauces & thali platters.',
+					img: tastyMoMoImg,
 					votes: [
 						{
 							userId: 1,

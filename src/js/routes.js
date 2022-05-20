@@ -55,7 +55,7 @@ var routes = [
     component: MenuPage,
     on: {
      pageInit: function (e, page) {
-       //pickit(page)
+       pickit(page)
      }
     }
   },
