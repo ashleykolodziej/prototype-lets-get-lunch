@@ -22,15 +22,6 @@
         </div>
       </div>
     </div>
-
-    <!-- Scrollable page content-->
-    <div class="page-content">
-    	<div class="swiper">
-        <div class="swiper-wrapper">
-        </div>
-        <div class="swiper-pagination"></div>
-      </div>
-    </div>
   </div>
 </template>
 <script>

@@ -14,7 +14,7 @@
           <li>Nothing found</li>
         </ul>
       </div>
-      <div class="list virtual-list media-list searchbar-found"></div>
+      <div class="list virtual-list media-list no-margin-top inset"></div>
 		<div class="block-title block-title-medium">Accepted</div>
       <div class="block-title block-title-medium">Declined</div>
   </div>

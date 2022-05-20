@@ -26,7 +26,7 @@
           <li>Nothing found</li>
         </ul>
       </div>
-      <div class="list virtual-list media-list searchbar-found friends-list"></div>
+      <div class="list virtual-list media-list searchbar-found friends-list inset"></div>
   </div>
 </div>
 </template>

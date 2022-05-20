@@ -15,17 +15,18 @@ import NotFoundPage from '../pages/404.f7';
 import pickit from './pickit.js';
 
 var routes = [
-  {
+  /*{
     path: '/',
     component: HomePage,
     on: {
      pageInit: function (e, page) {
-       pickit(page);
+       //pickit(page);
      },
    }
-  },
+  },*/
   {
-    path: '/plans/',
+    // path: '/plans/',
+    path: '/',
     component: PlanListingPage,
   },
   {

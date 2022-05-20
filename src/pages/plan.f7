@@ -107,12 +107,8 @@
     const planId = $f7route.params.id;
     let currentPlan = 0;
     plans.value.forEach((plan) => {
-    	console.log(plan)
-    	console.log(plan.id)
-    	console.log(planId)
       if (plan.id === planId) {
         currentPlan = plan;
-        console.log(currentPlan);
       }
     });
 
