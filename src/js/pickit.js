@@ -3,15 +3,15 @@ import store from './store.js';
 import locations from './data/locations.js';
 
 const locationIds = [
+	100489,
 	//799571,
 	//779266,
-	755898,
+	//755898,
 	//801423,
-	//126,
 	//779588,
 	//728388,
-	//11085,
-	//727994
+	/*11085,
+	727994*/
 ]
 
 const veggieSafe = [
@@ -131,173 +131,102 @@ const pickit = function (page) {
 		loop: false
 	});
 
-	locationIds.forEach( locationId => {
+	let currentLocations = locationIds;
+	let locationSingle = page.route.params.id;
+
+	if ( locationSingle ) {
+		currentLocations = locations.filter(obj => {
+		  return obj.location.id == locationSingle
+		});
+	}
+
+	/*locationIds.forEach( locationId => {
 		// Filter to the correct location
-		const currentLocation = locations.filter(obj => {
+		currentLocations = locations.filter(obj => {
 		  return obj.location.id === locationId
 		});
+	} );*/
 
-		console.log(currentLocation);
+	console.log(currentLocations)
 
-		const item = currentLocation[0];
-		const restaurant = item.location.name ? item.location.name : item.location.merchant_name;
-	  	const dataRestaurantId = item.location.id;
+	const item = currentLocations[0];
+	const restaurant = item.location.name ? item.location.name : item.location.merchant_name;
+  	const dataRestaurantId = item.location.id;
 
-	 	if (
-		 	null !== item.location.delivery_menu_url &&
-		 	null !== restaurant
-		) {
-		fetch(item.location.delivery_menu_url)
-		  .then(response => response.json())
-		  .then(data => {
-		  		Object.values(data).forEach(item => {
-		  			item.categories.forEach(item => {
-		  				const category = item.category.name;
+	if (
+	 	null !== item.location.delivery_menu_url &&
+	 	null !== restaurant
+	) {
+	//fetch(item.location.delivery_menu_url)
+	fetch(`js/data/menu-${locationSingle}.json`)
+	  .then(response => response.json())
+	  .then(data => {
+	  		console.log(data)
+	  		Object.values(data).forEach(item => {
+	  			item.categories.forEach(item => {
+	  				const category = item.category.name;
 
-		  				if ('Beverages' === category) {
-		  					return;
-		  				}
+	  				if ('Beverages' === category) {
+	  					return;
+	  				}
 
-		  				for ( const dish of item.category.items ) {
-		  					const img = dish.item.image_url,
-		  							name = dish.item.name,
-		  							description = dish.item.description,
-		  							allOfIt = name + ' ' + description;
-		  					if (
-		  						null !== img &&
-		  						null !== name &&
-		  						null !== description &&
-		  						'' !== description
-		  					) {
-								// Crummy vegan filter test
-								const isVeg = checkVeg(allOfIt);
-								let isVegan = false;
+	  				for ( const dish of item.category.items ) {
+	  					const img = dish.item.image_url,
+	  							name = dish.item.name,
+	  							description = dish.item.description,
+	  							allOfIt = name + ' ' + description;
+	  					if (
+	  						null !== img &&
+	  						null !== name &&
+	  						null !== description &&
+	  						'' !== description
+	  					) {
+							// Crummy vegan filter test
+							const isVeg = checkVeg(allOfIt);
+							let isVegan = false;
 
-								if (isVeg) {
-									isVegan = checkVegan(allOfIt);
-								}
+							if (isVeg) {
+								isVegan = checkVegan(allOfIt);
+							}
 
-								if (!isVeg) {
-									return;
-								}
+							if (!isVeg) {
+								return;
+							}
 
-								swiper.appendSlide(`<div
-										data-restaruant-id="${dataRestaurantId}"
-										data-dish-id="${dish.item.id}"
-										data-dish-name="${name}"
-										data-dish-location="${restaurant}"
-										data-dish-img="${img}?density=1&height=300&width=420"
-										class="swiper-slide">
-										<div class="card">
-										<div class="card-media">
-											<img src="${img}?density=1&height=300&width=420">
+							swiper.appendSlide(`<div
+									data-restaruant-id="${dataRestaurantId}"
+									data-dish-id="${dish.item.id}"
+									data-dish-name="${name}"
+									data-dish-location="${restaurant}"
+									data-dish-img="${img}?density=1&height=300&width=420"
+									class="swiper-slide">
+									<div class="card">
+									<div class="card-media">
+										<img src="${img}?density=1&height=300&width=420">
+									</div>
+									<div class="card-content card-content-padding">
+									<div class="card-meta">
+										<div class="tags">
+											${ isVeg ? '<span class="badge">vegetarian</span>' : '' }
+											${ isVegan ? '<span class="badge">vegan</span>' : '' }
 										</div>
-										<div class="card-content card-content-padding">
-										<div class="card-meta">
-											<div class="tags">
-												${ isVeg ? '<span class="badge">vegetarian</span>' : '' }
-												${ isVegan ? '<span class="badge">vegan</span>' : '' }
-											</div>
-											<div class="card-favorite">
-												<i class="icon f7-icons if-not-md">heart</i>
-         									<i class="icon material-icons if-md">heart</i>
-      									</div>
+										<div class="card-favorite">
+											<i class="icon f7-icons if-not-md">heart</i>
+      									<i class="icon material-icons if-md">heart</i>
    									</div>
-										<h3>${name}</h3>
-										<p>${description}</p>
-										</div>
-										<div class="card-footer">at ${restaurant}</p>
-										</div>
-									</div>`);
-		  					}
-			  			}
-		  			});
-		  		})
-		  });
-		}
-
-		/*
-		fetch(`https://api.thelevelup.com/v15/locations/${locationId}`)
-		  .then(response => response.json())
-		  .then(item => {
-		  		console.log(item);
-	  			const restaurant = item.location.name ? item.location.name : item.location.merchant_name;
-	  			const dataRestaurantId = item.location.id;
-	  			if (
-	  			 	null !== item.location.delivery_menu_url &&
-	  			 	null !== restaurant
-	  			) {
-	  				fetch(item.location.delivery_menu_url)
-					  .then(response => response.json())
-					  .then(data => {
-					  		Object.values(data).forEach(item => {
-					  			item.categories.forEach(item => {
-					  				const category = item.category.name;
-
-					  				if ('Beverages' === category) {
-					  					return;
-					  				}
-
-					  				for ( const dish of item.category.items ) {
-					  					const img = dish.item.image_url,
-					  							name = dish.item.name,
-					  							description = dish.item.description,
-					  							allOfIt = name + ' ' + description;
-					  					if (
-					  						null !== img &&
-					  						null !== name &&
-					  						null !== description &&
-					  						'' !== description
-					  					) {
-											// Crummy vegan filter test
-											const isVeg = checkVeg(allOfIt);
-											let isVegan = false;
-
-											if (isVeg) {
-												isVegan = checkVegan(allOfIt);
-											}
-
-											if (!isVeg) {
-												return;
-											}
-
-											swiper.appendSlide(`<div
-													data-restaruant-id="${dataRestaurantId}"
-													data-dish-id="${dish.item.id}"
-													data-dish-name="${name}"
-													data-dish-location="${restaurant}"
-													data-dish-img="${img}?density=1&height=300&width=420"
-													class="swiper-slide">
-													<div class="card">
-													<div class="card-media">
-														<img src="${img}?density=1&height=300&width=420">
-													</div>
-													<div class="card-content card-content-padding">
-													<div class="card-meta">
-														<div class="tags">
-															${ isVeg ? '<span class="badge">vegetarian</span>' : '' }
-															${ isVegan ? '<span class="badge">vegan</span>' : '' }
-														</div>
-														<div class="card-favorite">
-															<i class="icon f7-icons if-not-md">heart</i>
-		            									<i class="icon material-icons if-md">heart</i>
-	            									</div>
-            									</div>
-													<h3>${name}</h3>
-													<p>${description}</p>
-													</div>
-													<div class="card-footer">at ${restaurant}</p>
-													</div>
-												</div>`);
-					  					}
-						  			}
-					  			});
-					  		})
-					  });
-	  			}
-		  	});
-		*/
-	} )
+									</div>
+									<h3>${name}</h3>
+									<p>${description}</p>
+									</div>
+									<div class="card-footer">at ${restaurant}</p>
+									</div>
+								</div>`);
+	  					}
+		  			}
+	  			});
+	  		})
+	  });
+	}
 }
 
 

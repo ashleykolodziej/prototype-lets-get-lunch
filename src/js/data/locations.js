@@ -4,6 +4,65 @@ const locations = [
 			"accepts_tips_in_store": true,
 			"accepts_tips_on_delivery": true,
 			"accepts_tips_on_pickup": true,
+			"additional_hours_text": null,
+			"categories": [
+				46
+			],
+			"category_names": [
+				"Other"
+			],
+			"curbside_pickup_instructions": null,
+			"delivery_fee_amount": null,
+			"delivery_menu_url": "https://api.thelevelup.com/v15/order_ahead/menus/42811293?fulfillment_type=delivery",
+			"delivery_minimum_amount": 0,
+			"delivery_time_estimate_in_minutes": null,
+			"extended_address": null,
+			"facebook_url": null,
+			"fulfillment_types": [
+				"delivery",
+				"pickup"
+			],
+			"hours": "Store Hours:\nMon-Tue: Closed\nWed-Thu: 11:00am - 7:45pm\nFri-Sat: 11:00am - 8:30pm\nSun: 11:00am - 7:45pm\n\nDelivery Hours:\nWed-Thu: 11:00am - 7:45pm\nFri-Sat: 11:00am - 8:30pm\nSun: 11:00am - 7:45pm\n\nPickup Hours:\nMon: 11:00am - 7:45pm\nWed-Thu: 11:00am - 7:45pm\nFri-Sat: 11:00am - 8:30pm\nSun: 11:00am - 7:45pm",
+			"id": 100489,
+			"image_url": null,
+			"in_store_menu_url": null,
+			"latitude": 42.441178,
+			"locality": "Melrose",
+			"location_attributes": {},
+			"longitude": -71.06816,
+			"menu_url": null,
+			"merchant_id": 410569,
+			"merchant_description_html": "",
+			"merchant_description": null,
+			"merchant_name": "oceansushi",
+			"merchant_tip_preference": "no preference",
+			"name": "Taco Party",
+			"nearby_location_count": null,
+			"newsletter_url": null,
+			"open_state": "open",
+			"open_state_display": "open",
+			"opentable_url": null,
+			"phone": "(781) 388-9000",
+			"pickup_instructions": null,
+			"pickup_menu_url": "https://api.thelevelup.com/v15/order_ahead/menus/42811293?fulfillment_type=pickup",
+			"postal_code": "02176-6107",
+			"ready_time_estimate_in_minutes": null,
+			"region": "MA",
+			"street_address": "16 Oak Grove Ave",
+			"time_zone": "America/New_York",
+			"twitter_url": null,
+			"updated_at": "2022-05-20T04:36:13-04:00",
+			"yelp_url": null,
+			"shown": true,
+			"supports_curbside_pickup": false,
+			"supports_scheduling": true
+		}
+	},
+	{
+		"location": {
+			"accepts_tips_in_store": true,
+			"accepts_tips_on_delivery": true,
+			"accepts_tips_on_pickup": true,
 			"additional_hours_text": "",
 			"categories": [
 				46
