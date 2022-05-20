@@ -32,7 +32,7 @@
 
 .card-media {
 	overflow: hidden;
-	img {
+	img[src*="jgp"] {
 		transform: scale(1.2);
 	}
 }

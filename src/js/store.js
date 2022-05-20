@@ -1,4 +1,5 @@
 import { createStore } from 'framework7';
+import tacoPartyImg from '../assets/2021-08-02.jpg'
 
 const store = createStore({
   state: {
@@ -88,9 +89,11 @@ const store = createStore({
 				'https://randomuser.me/api/portraits/women/73.jpg',
 				'https://randomuser.me/api/portraits/women/80.jpg',
 			],
-			restaurants: {
-				'100489': {
+			restaurants: [
+				{
+					id: '100489',
 					name: 'Taco Party',
+					img: tacoPartyImg,
 					votes: [
 						{
 							userId: 1,
@@ -104,7 +107,7 @@ const store = createStore({
 						}
 					]
 				}
-			}
+			]
 		},
 		{
 			id: '2',

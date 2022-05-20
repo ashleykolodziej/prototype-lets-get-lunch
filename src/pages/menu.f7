@@ -11,34 +11,135 @@
           </a>
         </div>
         <div class="title-large">
-          <div class="title-large-text">${currentPlan.dishLocation} Menu</div>
+          <div class="title-large-text">${currentMenu.dishLocation} Menu</div>
         </div>
       </div>
     </div>
 
     <!-- Scrollable page content-->
-    <div class="page-content">
-    	<div class="swiper">
-        <div class="swiper-wrapper">
-        </div>
-        <div class="swiper-pagination"></div>
-      </div>
+    <div class="page-content" id="menu-swipers">
     </div>
   </div>
 </template>
 <script>
-  export default (props, { $f7route, $store }) => {
+  export default (props, { $f7route, $store, $f7 }) => {
     const plans = $store.getters.favorites;
-    console.log(plans)
-    console.log($f7route.params.id)
-    const favorites = $store.getters.favorites;
-    const planId = $f7route.params.id;
-    let currentPlan = 0;
+    //const favorites = $store.getters.favorites;
+    const menuId = $f7route.params.id;
+
+    let currentMenu = 0;
+
     plans.value.forEach((plan) => {
-      if (plan.restaruantId === planId) {
-        currentPlan = plan;
+      if (plan.restaruantId === menuId) {
+        currentMenu = plan;
       }
     });
+
+	async function getMenuItems() {
+		const response = await fetch(`js/data/menu-${menuId}.json`);
+		const dishes = await response.json();
+		return dishes;
+	}
+
+
+
+		getMenuItems().then(data => {
+			console.log(data.menu.categories);
+
+			const content = document.querySelector('#menu-swipers');
+
+			Object.values(data).forEach(item => {
+	  			item.categories.forEach(item => {
+	  				const category = item.category.name;
+	  				console.log(category)
+
+	  				const title = document.createElement('div');
+	  				const classes = ['block-title', 'block-title-medium'];
+	  						title.textContent = category;
+	  						title.classList.add(...classes);
+
+	  						console.log(title)
+
+	  				content.appendChild(title);
+
+  				   const swiperTemplate = document.createElement('div');
+				   		swiperTemplate.classList.add('swiper');
+				   const swiperWrapper = document.createElement('div');
+				   		swiperWrapper.classList.add('swiper-wrapper');
+				   		swiperTemplate.appendChild(swiperWrapper);
+
+	  				if ('Beverages' === category) {
+	  					return;
+	  				}
+
+	  				const swiper = $f7.swiper.create(swiperTemplate, {
+						// Optional parameters
+						direction: 'horizontal',
+						loop: false
+					});
+
+	  				for ( const dish of item.category.items ) {
+	  					const img = dish.item.image_url,
+	  							name = dish.item.name,
+	  							description = dish.item.description,
+	  							allOfIt = name + ' ' + description;
+	  					if (
+	  						null !== img &&
+	  						null !== name &&
+	  						null !== description &&
+	  						'' !== description
+	  					) {
+							// Crummy vegan filter test
+							//const isVeg = checkVeg(allOfIt);
+							const isVeg = true;
+							let isVegan = false;
+
+							if (isVeg) {
+								//isVegan = checkVegan(allOfIt);
+								isVegan = true;
+							}
+
+							if (!isVeg) {
+								return;
+							}
+
+							swiper.appendSlide(`<div
+									data-restaruant-id="${menuId}"
+									data-dish-id="${dish.item.id}"
+									data-dish-name="${name}"
+									data-dish-location="${currentMenu.dishLocation}"
+									data-dish-img="${img}?density=1&height=300&width=420"
+									class="swiper-slide">
+									<div class="card">
+									<div class="card-media">
+										<img src="${img}?density=1&height=300&width=420">
+									</div>
+									<div class="card-content card-content-padding">
+									<div class="card-meta">
+										<div class="tags">
+											${ isVeg ? '<span class="badge">vegetarian</span>' : '' }
+											${ isVegan ? '<span class="badge">vegan</span>' : '' }
+										</div>
+										<div class="card-favorite">
+											<i class="icon f7-icons if-not-md">heart</i>
+      									<i class="icon material-icons if-md">heart</i>
+   									</div>
+									</div>
+									<h3>${name}</h3>
+									<p>${description}</p>
+									</div>
+									<div class="card-footer">at ${currentMenu.dishLocation}</p>
+									</div>
+								</div>`);
+	  					}
+		  			}
+
+		  			console.log(swiper.el);
+
+		  			content.appendChild(swiper.el);
+	  			});
+	  		})
+	  	});
 
     return $render;
   };
