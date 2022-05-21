@@ -84,7 +84,7 @@
             			<img src="${favorite.img}"/>
             		</div>
             		<div class="item-inner">
-            			<div class="item-title">${favorite.name}</div>
+            			<div class="item-title">${favorite.name} <span class="badge color-orange">New</span></div>
             			<div class="item-subtitle">${favorite.description}</div>
             			<div class="chip chip-outline thing">
 					          <span>Recommended by ${favorite.recommender.name}</span>
@@ -102,7 +102,7 @@
       <div class="block no-margin-top">
       	<a class="button button-small button-round button-fill display-inline-flex">Add a suggestion</a>
       </div>
-      <div class="block-title">More restaurants in this area</div>
+      <div class="block-title">New for you in this area</div>
       <div class="list media-list inset">
         <ul>
           ${favorites.value.map((favorite) => $h`

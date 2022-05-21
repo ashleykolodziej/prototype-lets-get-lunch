@@ -55,11 +55,12 @@ export default (props, { $store, $f7, $el, $theme, $on }) => {
                   ${item.id === '1' ? '<span class="badge color-orange">New</span>' : ''}
                   ${item.id === '3' ? '<span class="badge color-green">Decided</span>' : ''}
                 </div>
-                <div class="item-attendees item-subtitle"><p>${item.attendees.length} attendees</p>` +
+                <!--div class="item-attendees item-subtitle"><p>${item.attendees.length} attendees</p>` +
                 	[...item.attendees].map((x, i) =>
 					    `<div class="item-profile item-media"><img src=${x} width="25" /></div>`
 					  ).join('')
-              + `</div></div>
+              + `</div-->
+              </div>
             </a>
           </li>`;
         }
