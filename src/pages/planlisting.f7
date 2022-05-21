@@ -24,6 +24,9 @@
 					<li>Vote on restaurants that work for everyone</li>
 				</ol>
 			</div>
+			<div class="card-content">
+				<p class="no-margin-top">Give it a try by exploring a plan below.</p>
+			</div>
 		</div>
 	</div>
   	${Object.keys(plansByAttendance).map((response) => $h`

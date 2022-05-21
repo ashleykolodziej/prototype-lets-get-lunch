@@ -23,7 +23,7 @@ const locations = [
 				"pickup"
 			],
 			"hours": "Store Hours:\nMon-Tue: Closed\nWed-Thu: 11:00am - 7:45pm\nFri-Sat: 11:00am - 8:30pm\nSun: 11:00am - 7:45pm\n\nDelivery Hours:\nWed-Thu: 11:00am - 7:45pm\nFri-Sat: 11:00am - 8:30pm\nSun: 11:00am - 7:45pm\n\nPickup Hours:\nMon: 11:00am - 7:45pm\nWed-Thu: 11:00am - 7:45pm\nFri-Sat: 11:00am - 8:30pm\nSun: 11:00am - 7:45pm",
-			"id": 100489,
+			"id": '100489',
 			"image_url": null,
 			"in_store_menu_url": null,
 			"latitude": 42.441178,
@@ -82,7 +82,7 @@ const locations = [
 				"pickup"
 			],
 			"hours": "",
-			"id": 704497,
+			"id": '704497',
 			"image_url": null,
 			"in_store_menu_url": null,
 			"latitude": 42.441036,
@@ -141,7 +141,7 @@ const locations = [
 				"pickup"
 			],
 			"hours": "Store Hours:\nMon-Tue: Closed\nWed-Thu: 11:00am - 7:45pm\nFri-Sat: 11:00am - 8:30pm\nSun: 11:00am - 7:45pm\n\nDelivery Hours:\nWed-Thu: 11:00am - 7:45pm\nFri-Sat: 11:00am - 8:30pm\nSun: 11:00am - 7:45pm\n\nPickup Hours:\nMon: 11:00am - 7:45pm\nWed-Thu: 11:00am - 7:45pm\nFri-Sat: 11:00am - 8:30pm\nSun: 11:00am - 7:45pm",
-			"id": 779266,
+			"id": '779266',
 			"image_url": null,
 			"in_store_menu_url": null,
 			"latitude": 42.441178,
@@ -200,7 +200,7 @@ const locations = [
 				"pickup"
 			],
 			"hours": "Store Hours:\nMon-Sun: 10:30am - 9:45pm\n\nDelivery Hours:\nMon-Sun: 10:30am - 9:45pm\n\nPickup Hours:\nMon-Sun: 10:30am - 9:45pm",
-			"id": 787528,
+			"id": '787528',
 			"image_url": null,
 			"in_store_menu_url": null,
 			"latitude": 42.434357,
@@ -259,7 +259,7 @@ const locations = [
 				"pickup"
 			],
 			"hours": "Store Hours:\nMon-Fri: 7:00am - 6:30pm\nSat: 7:00am - 5:00pm\nSun: 7:00am - 5:30pm\n\nDelivery Hours:\nMon-Fri: 7:00am - 6:30pm\nSat: 7:00am - 5:00pm\nSun: 7:00am - 5:30pm\n\nPickup Hours:\nMon-Sat: 5:00am - 7:30pm\nSun: 6:00am - 6:30pm",
-			"id": 801005,
+			"id": '801005',
 			"image_url": null,
 			"in_store_menu_url": null,
 			"latitude": 42.429256,
@@ -318,7 +318,7 @@ const locations = [
 				"pickup"
 			],
 			"hours": "Store Hours:\nMon-Sun: 11:00am - 9:00pm\n\nDelivery Hours:\nMon-Sun: 11:00am - 9:00pm\n\nPickup Hours:\nMon-Sun: 11:00am - 9:00pm",
-			"id": 752869,
+			"id": '752869',
 			"image_url": null,
 			"in_store_menu_url": null,
 			"latitude": 42.426037,
@@ -377,7 +377,7 @@ const locations = [
 				"pickup"
 			],
 			"hours": "Store Hours:\nMon-Thu: 11:00am - 8:00pm\nFri-Sat: 11:00am - 8:30pm\nSun: 11:00am - 8:00pm\n\nDelivery Hours:\nMon-Thu: 11:00am - 8:00pm\nFri-Sat: 11:00am - 8:30pm\nSun: 11:00am - 8:00pm\n\nPickup Hours:\nMon-Thu: 11:00am - 8:00pm\nFri-Sat: 11:00am - 8:30pm\nSun: 11:00am - 8:00pm",
-			"id": 760725,
+			"id": '760725',
 			"image_url": null,
 			"in_store_menu_url": null,
 			"latitude": 42.426705,
@@ -436,7 +436,7 @@ const locations = [
 				"pickup"
 			],
 			"hours": "",
-			"id": 781066,
+			"id": '781066',
 			"image_url": null,
 			"in_store_menu_url": null,
 			"latitude": 42.425803,
@@ -495,7 +495,7 @@ const locations = [
 				"pickup"
 			],
 			"hours": "",
-			"id": 750276,
+			"id": '750276',
 			"image_url": null,
 			"in_store_menu_url": null,
 			"latitude": 42.424928,
@@ -554,7 +554,7 @@ const locations = [
 				"pickup"
 			],
 			"hours": "Store Hours:\nMon-Tue: 4:00pm - 8:45pm\nWed-Sun: 10:30am - 9:45pm\n\nDelivery Hours:\nMon-Tue: 4:00pm - 8:45pm\nWed-Sun: 10:30am - 9:45pm\n\nPickup Hours:\nMon-Thu: 4:00pm - 9:00pm\nFri-Sun: 11:00am - 9:15pm",
-			"id": 798040,
+			"id": '798040',
 			"image_url": null,
 			"in_store_menu_url": null,
 			"latitude": 42.430008,
@@ -613,7 +613,7 @@ const locations = [
 				"pickup"
 			],
 			"hours": "Store Hours:\nMon-Wed: 10:00am - 10:00pm\nThu-Fri: 10:00am - 11:00pm\nSat: 11:00am - 11:00pm\nSun: 11:00am - 10:00pm\n\nDelivery Hours:\nMon-Wed: 10:00am - 10:00pm\nThu-Fri: 10:00am - 11:00pm\nSat: 11:00am - 11:00pm\nSun: 11:00am - 10:00pm\n\nPickup Hours:\nMon-Wed: 10:00am - 10:00pm\nThu-Fri: 10:00am - 11:00pm\nSat: 11:00am - 11:00pm\nSun: 11:00am - 10:00pm",
-			"id": 799571,
+			"id": '799571',
 			"image_url": null,
 			"in_store_menu_url": null,
 			"latitude": 42.42474,
@@ -672,7 +672,7 @@ const locations = [
 				"pickup"
 			],
 			"hours": "",
-			"id": 806019,
+			"id": '806019',
 			"image_url": null,
 			"in_store_menu_url": null,
 			"latitude": 42.429136,
@@ -731,7 +731,7 @@ const locations = [
 				"pickup"
 			],
 			"hours": "",
-			"id": 761928,
+			"id": '761928',
 			"image_url": null,
 			"in_store_menu_url": null,
 			"latitude": 42.428973,
@@ -790,7 +790,7 @@ const locations = [
 				"pickup"
 			],
 			"hours": "Store Hours:\nMon-Tue: 4:00pm - 11:30pm\nWed: 4:00pm - 11:00pm\nThu-Fri: 4:00pm - 11:30pm\nSat-Sun: 12:30pm - 11:30pm\n\nDelivery Hours:\nMon-Tue: 4:00pm - 11:30pm\nWed: 4:00pm - 11:00pm\nThu-Fri: 4:00pm - 11:30pm\nSat-Sun: 12:30pm - 11:30pm\n\nPickup Hours:\nMon-Fri: 4:00pm - 11:30pm\nSat-Sun: 12:30pm - 11:30pm",
-			"id": 745990,
+			"id": '745990',
 			"image_url": null,
 			"in_store_menu_url": null,
 			"latitude": 42.423923,
@@ -849,7 +849,7 @@ const locations = [
 				"pickup"
 			],
 			"hours": "Store Hours:\nMon-Fri: 4:00pm - 11:30pm\nSat-Sun: 12:30pm - 11:30pm\n\nDelivery Hours:\nMon-Fri: 4:00pm - 11:30pm\nSat-Sun: 12:30pm - 11:30pm\n\nPickup Hours:\nMon: 12:30pm - 11:30pm\nTue: 4:30pm - 11:30pm\nWed-Thu: 4:00pm - 11:30pm\nFri: 4:30pm - 11:30pm\nSat-Sun: 12:30am - 11:30pm",
-			"id": 745991,
+			"id": '745991',
 			"image_url": null,
 			"in_store_menu_url": null,
 			"latitude": 42.423923,
@@ -910,7 +910,7 @@ const locations = [
 				"pickup"
 			],
 			"hours": null,
-			"id": 752213,
+			"id": '752213',
 			"image_url": null,
 			"in_store_menu_url": null,
 			"latitude": 42.427048,
@@ -969,7 +969,7 @@ const locations = [
 				"pickup"
 			],
 			"hours": "Store Hours:\nMon-Tue: 11:00am - 7:30pm\nWed: Closed\nThu-Sun: 11:00am - 7:30pm\n\nDelivery Hours:\nMon-Tue: 11:00am - 7:30pm\nThu-Sun: 11:00am - 7:30pm\n\nPickup Hours:\nMon-Tue: 11:30am - 8:00pm\nThu: 11:00am - 8:00pm\nFri-Sun: 11:30am - 8:00pm",
-			"id": 728516,
+			"id": '728516',
 			"image_url": null,
 			"in_store_menu_url": null,
 			"latitude": 42.426224,
@@ -1028,7 +1028,7 @@ const locations = [
 				"pickup"
 			],
 			"hours": "Store Hours:\nMon-Sun: 9:30am - 9:20pm\n\nDelivery Hours:\nMon-Sun: 9:30am - 9:20pm\n\nPickup Hours:\nMon-Sun: 9:00am - 9:20pm",
-			"id": 714716,
+			"id": '714716',
 			"image_url": null,
 			"in_store_menu_url": null,
 			"latitude": 42.419766,
@@ -1087,7 +1087,7 @@ const locations = [
 				"pickup"
 			],
 			"hours": "Store Hours:\nMon-Sat: 10:00am - 9:40pm\nSun: 11:00am - 8:40pm\n\nDelivery Hours:\nMon-Sat: 10:00am - 9:40pm\nSun: 11:00am - 8:40pm\n\nPickup Hours:\nMon-Sat: 10:00am - 9:40pm\nSun: 11:00am - 8:40pm",
-			"id": 771671,
+			"id": '771671',
 			"image_url": null,
 			"in_store_menu_url": null,
 			"latitude": 42.410988,
@@ -1146,7 +1146,7 @@ const locations = [
 				"pickup"
 			],
 			"hours": "",
-			"id": 777008,
+			"id": '777008',
 			"image_url": null,
 			"in_store_menu_url": null,
 			"latitude": 42.410727,
@@ -1205,7 +1205,7 @@ const locations = [
 				"pickup"
 			],
 			"hours": "Store Hours:\nMon-Sun: 11:00am - 9:30pm\n\nDelivery Hours:\nMon-Sun: 11:00am - 9:30pm\n\nPickup Hours:\nMon-Sun: 11:00am - 9:30pm",
-			"id": 789207,
+			"id": '789207',
 			"image_url": null,
 			"in_store_menu_url": null,
 			"latitude": 42.423622,
@@ -1264,7 +1264,7 @@ const locations = [
 				"pickup"
 			],
 			"hours": "Store Hours:\nMon: 12:00am - 1:00am, 12:00pm - 11:59pm\nTue-Fri: 12:00pm - 11:59pm\nSat: 12:00am - 1:00am, 12:00pm - 11:59pm\nSun: 12:00am - 1:00am, 4:00pm - 11:59pm\n\nDelivery Hours:\nMon: 12:00am - 1:00am, 12:00pm - 11:59pm\nTue-Fri: 12:00pm - 11:59pm\nSat: 12:00am - 1:00am, 12:00pm - 11:59pm\nSun: 12:00am - 1:00am, 4:00pm - 11:59pm\n\nPickup Hours:\nMon: 12:00am - 1:00am, 12:00pm - 11:59pm\nTue-Fri: 12:00pm - 11:59pm\nSat: 12:00am - 1:00am, 12:00pm - 11:59pm\nSun: 12:00am - 1:00am, 4:00pm - 11:59pm",
-			"id": 755898,
+			"id": '755898',
 			"image_url": null,
 			"in_store_menu_url": null,
 			"latitude": 42.423443,
@@ -1323,7 +1323,7 @@ const locations = [
 				"pickup"
 			],
 			"hours": "",
-			"id": 763569,
+			"id": '763569',
 			"image_url": null,
 			"in_store_menu_url": null,
 			"latitude": 42.431668,
@@ -1382,7 +1382,7 @@ const locations = [
 				"pickup"
 			],
 			"hours": "Store Hours:\nMon-Thu: 11:15am - 10:00pm\nFri-Sat: 11:15am - 11:00pm\nSun: 11:15am - 10:00pm\n\nDelivery Hours:\nMon-Thu: 11:15am - 10:00pm\nFri-Sat: 11:15am - 11:00pm\nSun: 11:15am - 10:00pm\n\nPickup Hours:\nMon-Thu: 11:15am - 10:00pm\nFri-Sat: 11:15am - 11:00pm\nSun: 11:15am - 10:00pm",
-			"id": 786810,
+			"id": '786810',
 			"image_url": null,
 			"in_store_menu_url": null,
 			"latitude": 42.42314,
@@ -1441,7 +1441,7 @@ const locations = [
 				"pickup"
 			],
 			"hours": "",
-			"id": 776127,
+			"id": '776127',
 			"image_url": null,
 			"in_store_menu_url": null,
 			"latitude": 42.413458,
@@ -1500,7 +1500,7 @@ const locations = [
 				"pickup"
 			],
 			"hours": "Store Hours:\nMon-Thu: 11:00am - 9:20pm\nFri: 11:00am - 9:40pm\nSat: 11:00am - 9:20pm\nSun: 11:00am - 9:00pm\n\nDelivery Hours:\nMon-Thu: 11:00am - 9:20pm\nFri: 11:00am - 9:40pm\nSat: 11:00am - 9:20pm\nSun: 11:00am - 9:00pm\n\nPickup Hours:\nMon-Thu: 11:00am - 9:20pm\nFri: 11:00am - 9:40pm\nSat: 11:00am - 9:20pm\nSun: 11:00am - 8:45pm",
-			"id": 745811,
+			"id": '745811',
 			"image_url": null,
 			"in_store_menu_url": null,
 			"latitude": 42.461002,
@@ -1559,7 +1559,7 @@ const locations = [
 				"pickup"
 			],
 			"hours": "Store Hours:\nMon-Thu: 11:00am - 11:50pm\nFri: 11:00am - 11:59pm\nSat: 12:00am - 12:50am, 11:00am - 11:59pm\nSun: 12:00am - 12:50am, 11:00am - 11:50pm\n\nDelivery Hours:\nMon-Thu: 11:00am - 11:50pm\nFri: 11:00am - 11:59pm\nSat: 12:00am - 12:50am, 11:00am - 11:59pm\nSun: 12:00am - 12:50am, 11:00am - 11:50pm\n\nPickup Hours:\nMon-Thu: 11:00am - 11:50pm\nFri: 11:00am - 11:59pm\nSat: 12:00am - 12:50am, 11:00am - 11:59pm\nSun: 12:00am - 12:50am, 11:00am - 11:50pm",
-			"id": 790069,
+			"id": '790069',
 			"image_url": null,
 			"in_store_menu_url": null,
 			"latitude": 42.461086,
@@ -1618,7 +1618,7 @@ const locations = [
 				"pickup"
 			],
 			"hours": "",
-			"id": 701734,
+			"id": '701734',
 			"image_url": null,
 			"in_store_menu_url": null,
 			"latitude": 42.410826,
@@ -1677,7 +1677,7 @@ const locations = [
 				"pickup"
 			],
 			"hours": "",
-			"id": 787327,
+			"id": '787327',
 			"image_url": null,
 			"in_store_menu_url": null,
 			"latitude": 42.407553,
@@ -1735,7 +1735,7 @@ const locations = [
 				"pickup"
 			],
 			"hours": "Store Hours:\nMon-Sun: Open\n\nPickup Hours:\nMon-Sun: 11:00am - 11:00pm",
-			"id": 713115,
+			"id": '713115',
 			"image_url": null,
 			"in_store_menu_url": null,
 			"latitude": 42.408344,
@@ -1794,7 +1794,7 @@ const locations = [
 				"pickup"
 			],
 			"hours": "Store Hours:\nMon-Sat: 11:00am - 11:30pm\nSun: 11:00am - 11:00pm\n\nDelivery Hours:\nMon-Sat: 11:00am - 11:30pm\nSun: 11:00am - 11:00pm\n\nPickup Hours:\nMon-Thu: 11:00am - 9:00pm\nFri-Sat: 11:00am - 9:30pm",
-			"id": 806556,
+			"id": '806556',
 			"image_url": null,
 			"in_store_menu_url": null,
 			"latitude": 42.408344,
@@ -1858,7 +1858,7 @@ const locations = [
 				"in_store"
 			],
 			"hours": null,
-			"id": 349,
+			"id": '349',
 			"image_url": null,
 			"in_store_menu_url": null,
 			"latitude": 42.407234,
@@ -1917,7 +1917,7 @@ const locations = [
 				"pickup"
 			],
 			"hours": "Store Hours:\nMon-Sun: 10:30am - 10:45pm\n\nDelivery Hours:\nMon-Sun: 10:30am - 10:45pm\n\nPickup Hours:\nMon-Thu: 11:00am - 10:45pm\nFri-Sat: 11:00am - 11:30pm\nSun: 11:00am - 10:45pm",
-			"id": 772961,
+			"id": '772961',
 			"image_url": null,
 			"in_store_menu_url": null,
 			"latitude": 42.406967,
@@ -1976,7 +1976,7 @@ const locations = [
 				"pickup"
 			],
 			"hours": "",
-			"id": 720603,
+			"id": '720603',
 			"image_url": null,
 			"in_store_menu_url": null,
 			"latitude": 42.454512,
@@ -2035,7 +2035,7 @@ const locations = [
 				"pickup"
 			],
 			"hours": "Store Hours:\nMon-Thu: 11:00am - 10:30pm\nFri-Sat: 11:00am - 11:00pm\nSun: 12:00pm - 10:30pm\n\nDelivery Hours:\nMon-Thu: 11:00am - 10:30pm\nFri-Sat: 11:00am - 11:00pm\nSun: 12:00pm - 10:30pm\n\nPickup Hours:\nMon-Thu: 11:00am - 10:30pm\nFri-Sat: 11:00am - 11:00pm\nSun: 12:00pm - 10:30pm",
-			"id": 800658,
+			"id": '800658',
 			"image_url": null,
 			"in_store_menu_url": null,
 			"latitude": 42.409676,
@@ -2094,7 +2094,7 @@ const locations = [
 				"pickup"
 			],
 			"hours": "Store Hours:\nMon-Thu: 11:00am - 10:30pm\nFri-Sat: 11:00am - 11:00pm\nSun: 12:00pm - 10:30pm\n\nDelivery Hours:\nMon-Thu: 11:00am - 10:30pm\nFri-Sat: 11:00am - 11:00pm\nSun: 12:00pm - 10:30pm\n\nPickup Hours:\nMon-Thu: 11:00am - 10:30pm\nFri-Sat: 11:00am - 11:00pm\nSun: 12:00pm - 10:30pm",
-			"id": 734699,
+			"id": '734699',
 			"image_url": null,
 			"in_store_menu_url": null,
 			"latitude": 42.409463,
@@ -2153,7 +2153,7 @@ const locations = [
 				"pickup"
 			],
 			"hours": "",
-			"id": 700458,
+			"id": '700458',
 			"image_url": null,
 			"in_store_menu_url": null,
 			"latitude": 42.468678,
@@ -2212,7 +2212,7 @@ const locations = [
 				"pickup"
 			],
 			"hours": "Store Hours:\nMon-Sat: 11:00am - 8:45pm\nSun: 11:00am - 9:00pm\n\nDelivery Hours:\nMon-Sat: 11:00am - 8:45pm\nSun: 11:00am - 9:00pm\n\nPickup Hours:\nMon-Sun: 11:00am - 9:00pm",
-			"id": 801631,
+			"id": '801631',
 			"image_url": null,
 			"in_store_menu_url": null,
 			"latitude": 42.421078,
@@ -2271,7 +2271,7 @@ const locations = [
 				"pickup"
 			],
 			"hours": "",
-			"id": 750389,
+			"id": '750389',
 			"image_url": null,
 			"in_store_menu_url": null,
 			"latitude": 42.428145,
@@ -2330,7 +2330,7 @@ const locations = [
 				"pickup"
 			],
 			"hours": "",
-			"id": 712419,
+			"id": '712419',
 			"image_url": null,
 			"in_store_menu_url": null,
 			"latitude": 42.428322,
@@ -2388,7 +2388,7 @@ const locations = [
 				"pickup"
 			],
 			"hours": null,
-			"id": 679903,
+			"id": '679903',
 			"image_url": null,
 			"in_store_menu_url": null,
 			"latitude": 42.40612,
@@ -2449,7 +2449,7 @@ const locations = [
 				"pickup"
 			],
 			"hours": null,
-			"id": 752211,
+			"id": '752211',
 			"image_url": null,
 			"in_store_menu_url": null,
 			"latitude": 42.427639,
@@ -2507,7 +2507,7 @@ const locations = [
 				"pickup"
 			],
 			"hours": null,
-			"id": 653693,
+			"id": '653693',
 			"image_url": null,
 			"in_store_menu_url": null,
 			"latitude": 42.401234,
@@ -2566,7 +2566,7 @@ const locations = [
 				"pickup"
 			],
 			"hours": "Store Hours:\nMon-Thu: 11:00am - 10:45pm\nFri-Sat: 11:00am - 11:45pm\nSun: 12:00pm - 10:00pm\n\nDelivery Hours:\nMon-Thu: 11:00am - 10:45pm\nFri-Sat: 11:00am - 11:45pm\nSun: 12:00pm - 10:00pm\n\nPickup Hours:\nMon-Thu: 11:00am - 10:45pm\nFri-Sat: 11:00am - 11:45pm\nSun: 12:00pm - 10:00pm",
-			"id": 730945,
+			"id": '730945',
 			"image_url": null,
 			"in_store_menu_url": null,
 			"latitude": 42.404845,
@@ -2624,7 +2624,7 @@ const locations = [
 				"pickup"
 			],
 			"hours": null,
-			"id": 698992,
+			"id": '698992',
 			"image_url": null,
 			"in_store_menu_url": null,
 			"latitude": 42.403824,
@@ -2683,7 +2683,7 @@ const locations = [
 				"pickup"
 			],
 			"hours": null,
-			"id": 794392,
+			"id": '794392',
 			"image_url": null,
 			"in_store_menu_url": null,
 			"latitude": 42.400834,
@@ -2742,7 +2742,7 @@ const locations = [
 				"pickup"
 			],
 			"hours": null,
-			"id": 794658,
+			"id": '794658',
 			"image_url": null,
 			"in_store_menu_url": null,
 			"latitude": 42.400834,
@@ -2801,7 +2801,7 @@ const locations = [
 				"pickup"
 			],
 			"hours": null,
-			"id": 795486,
+			"id": '795486',
 			"image_url": null,
 			"in_store_menu_url": null,
 			"latitude": 42.400834,
@@ -2859,7 +2859,7 @@ const locations = [
 				"pickup"
 			],
 			"hours": null,
-			"id": 790410,
+			"id": '790410',
 			"image_url": null,
 			"in_store_menu_url": null,
 			"latitude": 42.404956,
@@ -2917,7 +2917,7 @@ const locations = [
 				"pickup"
 			],
 			"hours": null,
-			"id": 793760,
+			"id": '793760',
 			"image_url": null,
 			"in_store_menu_url": null,
 			"latitude": 42.404956,
@@ -2975,7 +2975,7 @@ const locations = [
 				"pickup"
 			],
 			"hours": null,
-			"id": 797824,
+			"id": '797824',
 			"image_url": null,
 			"in_store_menu_url": null,
 			"latitude": 42.404956,
@@ -3033,7 +3033,7 @@ const locations = [
 				"pickup"
 			],
 			"hours": null,
-			"id": 804403,
+			"id": '804403',
 			"image_url": null,
 			"in_store_menu_url": null,
 			"latitude": 42.404956,
@@ -3091,7 +3091,7 @@ const locations = [
 				"pickup"
 			],
 			"hours": null,
-			"id": 807055,
+			"id": '807055',
 			"image_url": null,
 			"in_store_menu_url": null,
 			"latitude": 42.404956,
@@ -3149,7 +3149,7 @@ const locations = [
 				"pickup"
 			],
 			"hours": null,
-			"id": 634184,
+			"id": '634184',
 			"image_url": null,
 			"in_store_menu_url": null,
 			"latitude": 42.404939,
@@ -3208,7 +3208,7 @@ const locations = [
 				"pickup"
 			],
 			"hours": "Store Hours:\nMon-Sun: 12:00am - 1:50am, 2:00pm - 11:59pm\n\nDelivery Hours:\nMon-Sun: 12:00am - 1:50am, 2:00pm - 11:59pm\n\nPickup Hours:\nMon-Sun: 12:00am - 2:30am, 11:00am - 11:59pm",
-			"id": 787525,
+			"id": '787525',
 			"image_url": null,
 			"in_store_menu_url": null,
 			"latitude": 42.423775,
@@ -3267,7 +3267,7 @@ const locations = [
 				"pickup"
 			],
 			"hours": "Store Hours:\nMon: Closed\nTue-Thu: 11:00am - 3:00pm, 4:00pm - 9:00pm\nFri: 11:00am - 3:00pm, 4:00pm - 9:30pm\nSat: 12:00pm - 3:00pm, 4:00pm - 9:30pm\nSun: 12:00pm - 3:00pm, 4:00pm - 9:00pm\n\nDelivery Hours:\nTue-Thu: 11:00am - 3:00pm, 4:00pm - 9:00pm\nFri: 11:00am - 3:00pm, 4:00pm - 9:30pm\nSat: 12:00pm - 3:00pm, 4:00pm - 9:30pm\nSun: 12:00pm - 3:00pm, 4:00pm - 9:00pm\n\nPickup Hours:\nTue-Thu: 11:00am - 3:00pm, 4:00pm - 9:00pm\nFri: 11:00am - 3:00pm, 4:00pm - 9:30pm\nSat: 12:00pm - 3:00pm, 4:00pm - 9:30pm\nSun: 12:00pm - 3:00pm, 4:00pm - 9:00pm",
-			"id": 787696,
+			"id": '787696',
 			"image_url": null,
 			"in_store_menu_url": null,
 			"latitude": 42.424007,
@@ -3326,7 +3326,7 @@ const locations = [
 				"pickup"
 			],
 			"hours": "Store Hours:\nMon: Closed\nTue-Thu: 12:30pm - 9:45pm\nFri-Sun: 12:30pm - 11:45pm\n\nDelivery Hours:\nTue-Thu: 12:30pm - 9:45pm\nFri-Sun: 12:30pm - 11:45pm\n\nPickup Hours:\nTue-Thu: 12:30pm - 9:45pm\nFri-Sun: 12:30pm - 11:45pm",
-			"id": 733341,
+			"id": '733341',
 			"image_url": null,
 			"in_store_menu_url": null,
 			"latitude": 42.423443,
@@ -3385,7 +3385,7 @@ const locations = [
 				"pickup"
 			],
 			"hours": "Store Hours:\nMon: Closed\nTue-Sat: 7:00am - 4:00pm\nSun: 7:00am - 3:00pm\n\nDelivery Hours:\nTue-Sat: 7:00am - 4:00pm\nSun: 7:00am - 3:00pm\n\nPickup Hours:\nTue-Sat: 7:00am - 4:00pm\nSun: 7:00am - 3:00pm",
-			"id": 757780,
+			"id": '757780',
 			"image_url": null,
 			"in_store_menu_url": null,
 			"latitude": 42.47662,
@@ -3444,7 +3444,7 @@ const locations = [
 				"pickup"
 			],
 			"hours": "Store Hours:\nMon-Thu: 12:00pm - 9:00pm\nFri-Sat: 12:00pm - 10:00pm\nSun: 12:00pm - 9:00pm\n\nDelivery Hours:\nMon-Thu: 12:00pm - 9:00pm\nFri-Sat: 12:00pm - 10:00pm\nSun: 12:00pm - 9:00pm\n\nPickup Hours:\nMon-Thu: 12:00pm - 9:00pm\nFri-Sat: 12:00pm - 10:00pm\nSun: 12:00pm - 9:00pm",
-			"id": 720372,
+			"id": '720372',
 			"image_url": null,
 			"in_store_menu_url": null,
 			"latitude": 42.417652,
@@ -3503,7 +3503,7 @@ const locations = [
 				"pickup"
 			],
 			"hours": "Store Hours:\nMon: 11:30am - 9:30pm\nTue: Closed\nWed: 11:30am - 9:30pm\nThu: 11:15am - 9:30pm\nFri-Sat: 11:15am - 10:00pm\nSun: 11:30am - 9:30pm\n\nDelivery Hours:\nMon: 11:30am - 9:30pm\nWed: 11:30am - 9:30pm\nThu: 11:15am - 9:30pm\nFri-Sat: 11:15am - 10:00pm\nSun: 11:30am - 9:30pm\n\nPickup Hours:\nMon: 11:30am - 9:30pm\nWed-Thu: 11:15am - 10:00pm\nFri-Sat: 11:00am - 10:00pm\nSun: 11:30am - 10:00pm",
-			"id": 730968,
+			"id": '730968',
 			"image_url": null,
 			"in_store_menu_url": null,
 			"latitude": 42.418004,
@@ -3562,7 +3562,7 @@ const locations = [
 				"pickup"
 			],
 			"hours": "Store Hours:\nMon: Closed\nTue-Sun: 11:00am - 9:00pm\n\nDelivery Hours:\nTue-Sun: 11:00am - 9:00pm\n\nPickup Hours:\nTue-Sun: 11:00am - 9:00pm",
-			"id": 799652,
+			"id": '799652',
 			"image_url": null,
 			"in_store_menu_url": null,
 			"latitude": 42.418509,
@@ -3621,7 +3621,7 @@ const locations = [
 				"pickup"
 			],
 			"hours": "Store Hours:\nMon: Closed\nTue-Thu: 11:00am - 7:20pm\nFri: 11:00am - 8:20pm\nSat: 11:00am - 7:20pm\nSun: 1:00pm - 6:30pm\n\nDelivery Hours:\nTue-Thu: 11:00am - 7:20pm\nFri: 11:00am - 8:20pm\nSat: 11:00am - 7:20pm\nSun: 1:00pm - 6:30pm\n\nPickup Hours:\nTue-Thu: 11:00am - 8:00pm\nFri-Sat: 11:00am - 9:00pm\nSun: 1:00pm - 8:00pm",
-			"id": 785005,
+			"id": '785005',
 			"image_url": null,
 			"in_store_menu_url": null,
 			"latitude": 42.403835,
@@ -3680,7 +3680,7 @@ const locations = [
 				"pickup"
 			],
 			"hours": "Store Hours:\nMon-Sat: 7:00am - 6:30pm\nSun: Closed\n\nDelivery Hours:\nMon-Sat: 7:00am - 6:30pm\n\nPickup Hours:\nMon-Sat: 7:00am - 7:00pm",
-			"id": 765365,
+			"id": '765365',
 			"image_url": null,
 			"in_store_menu_url": null,
 			"latitude": 42.398613,
@@ -3739,7 +3739,7 @@ const locations = [
 				"pickup"
 			],
 			"hours": "Store Hours:\nMon-Fri: 12:00pm - 3:30pm, 5:00pm - 9:15pm\nSat: 11:00am - 9:15pm\nSun: 11:00am - 8:45pm\n\nDelivery Hours:\nMon-Fri: 12:00pm - 3:30pm, 5:00pm - 9:15pm\nSat: 11:00am - 9:15pm\nSun: 11:00am - 8:45pm\n\nPickup Hours:\nMon-Thu: 12:00pm - 3:30pm, 5:00pm - 9:30pm\nFri: 12:00pm - 3:30pm, 5:00pm - 10:00pm\nSat: 11:00am - 10:00pm\nSun: 11:00am - 9:00pm",
-			"id": 788218,
+			"id": '788218',
 			"image_url": null,
 			"in_store_menu_url": null,
 			"latitude": 42.395172,
@@ -3798,7 +3798,7 @@ const locations = [
 				"pickup"
 			],
 			"hours": "",
-			"id": 707051,
+			"id": '707051',
 			"image_url": null,
 			"in_store_menu_url": null,
 			"latitude": 42.395755,
@@ -3856,7 +3856,7 @@ const locations = [
 				"pickup"
 			],
 			"hours": "",
-			"id": 785889,
+			"id": '785889',
 			"image_url": null,
 			"in_store_menu_url": null,
 			"latitude": 42.395278,
@@ -3915,7 +3915,7 @@ const locations = [
 				"pickup"
 			],
 			"hours": "",
-			"id": 711546,
+			"id": '711546',
 			"image_url": null,
 			"in_store_menu_url": null,
 			"latitude": 42.393846,
@@ -3978,7 +3978,7 @@ const locations = [
 				"pickup"
 			],
 			"hours": "",
-			"id": 721171,
+			"id": '721171',
 			"image_url": null,
 			"in_store_menu_url": null,
 			"latitude": 42.392968,
@@ -4037,7 +4037,7 @@ const locations = [
 				"pickup"
 			],
 			"hours": "",
-			"id": 708679,
+			"id": '708679',
 			"image_url": null,
 			"in_store_menu_url": null,
 			"latitude": 42.476561,
@@ -4095,7 +4095,7 @@ const locations = [
 				"pickup"
 			],
 			"hours": null,
-			"id": 791303,
+			"id": '791303',
 			"image_url": null,
 			"in_store_menu_url": null,
 			"latitude": 42.391817,
@@ -4154,7 +4154,7 @@ const locations = [
 				"pickup"
 			],
 			"hours": "Store Hours:\nMon-Tue: Closed\nWed-Thu: 3:30pm - 9:30pm\nFri-Sat: 3:30pm - 10:00pm\nSun: 4:00pm - 9:00pm\n\nDelivery Hours:\nWed-Thu: 3:30pm - 9:30pm\nFri-Sat: 3:30pm - 10:00pm\nSun: 4:00pm - 9:00pm\n\nPickup Hours:\nTue-Thu: 11:30am - 9:30pm\nFri: 11:30am - 10:00pm\nSat: 3:30pm - 10:00pm\nSun: 3:30pm - 9:00pm",
-			"id": 739692,
+			"id": '739692',
 			"image_url": null,
 			"in_store_menu_url": null,
 			"latitude": 42.474262,
@@ -4213,7 +4213,7 @@ const locations = [
 				"pickup"
 			],
 			"hours": "Store Hours:\nMon-Thu: 11:00am - 8:50pm\nFri-Sat: 11:00am - 9:45pm\nSun: 11:00am - 8:50pm\n\nDelivery Hours:\nMon-Thu: 11:00am - 8:50pm\nFri-Sat: 11:00am - 9:45pm\nSun: 11:00am - 8:50pm\n\nPickup Hours:\nMon-Thu: 11:00am - 8:30pm\nFri-Sat: 11:00am - 9:30pm\nSun: 11:00am - 8:30pm",
-			"id": 786262,
+			"id": '786262',
 			"image_url": null,
 			"in_store_menu_url": null,
 			"latitude": 42.405306,
@@ -4272,7 +4272,7 @@ const locations = [
 				"pickup"
 			],
 			"hours": "Store Hours:\nMon-Thu: 11:00am - 8:50pm\nFri-Sat: 11:00am - 9:45pm\nSun: 11:00am - 8:50pm\n\nDelivery Hours:\nMon-Thu: 11:00am - 8:50pm\nFri-Sat: 11:00am - 9:45pm\nSun: 11:00am - 8:50pm\n\nPickup Hours:\nMon-Thu: 11:00am - 8:45pm\nFri-Sat: 11:00am - 9:45pm\nSun: 11:00am - 8:45pm",
-			"id": 786263,
+			"id": '786263',
 			"image_url": null,
 			"in_store_menu_url": null,
 			"latitude": 42.405273,
@@ -4331,7 +4331,7 @@ const locations = [
 				"pickup"
 			],
 			"hours": "Store Hours:\nMon-Thu: 11:30am - 10:00pm\nFri-Sat: 11:30am - 11:00pm\nSun: 12:00pm - 9:00pm\n\nDelivery Hours:\nMon-Thu: 11:30am - 10:00pm\nFri-Sat: 11:30am - 11:00pm\nSun: 12:00pm - 9:00pm\n\nPickup Hours:\nMon: 11:30am - 10:00pm\nTue: 11:00am - 10:00pm\nWed: 11:30am - 10:00pm\nThu: 11:00am - 10:00pm\nFri-Sat: 11:00am - 11:00pm\nSun: 11:00am - 9:00pm",
-			"id": 768663,
+			"id": '768663',
 			"image_url": null,
 			"in_store_menu_url": null,
 			"latitude": 42.401085,
@@ -4390,7 +4390,7 @@ const locations = [
 				"pickup"
 			],
 			"hours": "Store Hours:\nMon-Sun: 8:00am - 9:45pm\n\nDelivery Hours:\nMon-Sun: 8:00am - 9:45pm\n\nPickup Hours:\nMon-Sun: 10:00am - 9:25pm",
-			"id": 800345,
+			"id": '800345',
 			"image_url": null,
 			"in_store_menu_url": null,
 			"latitude": 42.390282,
@@ -4448,7 +4448,7 @@ const locations = [
 				"pickup"
 			],
 			"hours": null,
-			"id": 771702,
+			"id": '771702',
 			"image_url": null,
 			"in_store_menu_url": null,
 			"latitude": 42.411827,
@@ -4507,7 +4507,7 @@ const locations = [
 				"pickup"
 			],
 			"hours": "Store Hours:\nMon-Sun: 10:00am - 9:00pm\n\nDelivery Hours:\nMon-Sun: 10:00am - 9:00pm\n\nPickup Hours:\nMon-Sun: 10:00am - 9:00pm",
-			"id": 787928,
+			"id": '787928',
 			"image_url": null,
 			"in_store_menu_url": null,
 			"latitude": 42.38921,
@@ -4566,7 +4566,7 @@ const locations = [
 				"pickup"
 			],
 			"hours": "Store Hours:\nMon: Closed\nTue-Wed: 11:00am - 7:00pm\nThu-Sat: 11:00am - 9:00pm\nSun: Closed\n\nDelivery Hours:\nTue-Wed: 11:00am - 7:00pm\nThu-Sat: 11:00am - 9:00pm\n\nPickup Hours:\nTue-Wed: 11:30am - 7:00pm\nThu-Sat: 11:30am - 9:00pm",
-			"id": 795767,
+			"id": '795767',
 			"image_url": null,
 			"in_store_menu_url": null,
 			"latitude": 42.388443,
@@ -4625,7 +4625,7 @@ const locations = [
 				"pickup"
 			],
 			"hours": "Store Hours:\nMon-Fri: 10:00am - 10:00pm\nSat-Sun: 11:00am - 10:00pm\n\nDelivery Hours:\nMon-Fri: 10:00am - 10:00pm\nSat-Sun: 11:00am - 10:00pm\n\nPickup Hours:\nMon-Fri: 10:00am - 10:00pm\nSat-Sun: 11:00am - 10:00pm",
-			"id": 735994,
+			"id": '735994',
 			"image_url": null,
 			"in_store_menu_url": null,
 			"latitude": 42.394921,
@@ -4684,7 +4684,7 @@ const locations = [
 				"pickup"
 			],
 			"hours": "Store Hours:\nMon-Sun: 9:00am - 9:45pm\n\nDelivery Hours:\nMon-Sun: 9:00am - 9:45pm\n\nPickup Hours:\nMon-Sun: 9:00am - 9:45pm",
-			"id": 804247,
+			"id": '804247',
 			"image_url": null,
 			"in_store_menu_url": null,
 			"latitude": 42.391903,
@@ -4743,7 +4743,7 @@ const locations = [
 				"pickup"
 			],
 			"hours": "Store Hours:\nMon: 4:00pm - 9:30pm\nTue: Closed\nWed-Fri: 4:00pm - 9:30pm\nSat-Sun: 11:30am - 9:30pm\n\nDelivery Hours:\nMon: 4:00pm - 9:30pm\nWed-Fri: 4:00pm - 9:30pm\nSat-Sun: 11:30am - 9:30pm\n\nPickup Hours:\nMon: 4:00pm - 9:30pm\nWed-Fri: 4:00pm - 9:30pm\nSat-Sun: 11:30am - 9:30pm",
-			"id": 724549,
+			"id": '724549',
 			"image_url": null,
 			"in_store_menu_url": null,
 			"latitude": 42.397709,
@@ -4802,7 +4802,7 @@ const locations = [
 				"pickup"
 			],
 			"hours": "Store Hours:\nMon-Thu: 11:00am - 9:30pm\nFri-Sat: 11:00am - 10:30pm\nSun: 12:00pm - 9:00pm\n\nDelivery Hours:\nMon-Thu: 11:00am - 9:30pm\nFri-Sat: 11:00am - 10:30pm\nSun: 12:00pm - 9:00pm\n\nPickup Hours:\nMon-Thu: 11:00am - 9:30pm\nFri-Sat: 11:00am - 10:30pm\nSun: 12:00pm - 9:00pm",
-			"id": 802297,
+			"id": '802297',
 			"image_url": null,
 			"in_store_menu_url": null,
 			"latitude": 42.396633,
@@ -4861,7 +4861,7 @@ const locations = [
 				"pickup"
 			],
 			"hours": "Store Hours:\nMon-Thu: 11:00am - 8:45pm\nFri: 11:00am - 9:45pm\nSat: Closed\nSun: 11:00am - 8:45pm\n\nDelivery Hours:\nMon-Thu: 11:00am - 8:45pm\nFri: 11:00am - 9:45pm\nSun: 11:00am - 8:45pm\n\nPickup Hours:\nMon-Thu: 11:00am - 8:45pm\nFri: 11:00am - 9:45pm\nSun: 11:00am - 8:45pm",
-			"id": 783068,
+			"id": '783068',
 			"image_url": null,
 			"in_store_menu_url": null,
 			"latitude": 42.388942,
@@ -4920,7 +4920,7 @@ const locations = [
 				"pickup"
 			],
 			"hours": "Store Hours:\nMon-Tue: 11:00am - 10:00pm\nWed: 10:00am - 10:00pm\nThu-Sun: 11:00am - 10:00pm\n\nDelivery Hours:\nMon-Tue: 11:00am - 10:00pm\nWed: 10:00am - 10:00pm\nThu-Sun: 11:00am - 10:00pm\n\nPickup Hours:\nMon-Sun: 11:00am - 9:00pm",
-			"id": 734705,
+			"id": '734705',
 			"image_url": null,
 			"in_store_menu_url": null,
 			"latitude": 42.396503,
@@ -4979,7 +4979,7 @@ const locations = [
 				"pickup"
 			],
 			"hours": "Store Hours:\nMon: 4:00pm - 10:00pm\nTue: 11:30am - 10:00pm\nWed-Sat: 12:00pm - 10:00pm\nSun: 11:30am - 10:00pm\n\nDelivery Hours:\nMon: 4:00pm - 10:00pm\nTue: 11:30am - 10:00pm\nWed-Sat: 12:00pm - 10:00pm\nSun: 11:30am - 10:00pm\n\nPickup Hours:\nMon: 4:00pm - 10:00pm\nTue: 3:30pm - 10:00pm\nWed-Fri: 11:55am - 10:00pm\nSat: 11:45am - 10:00pm\nSun: 11:55am - 10:00pm",
-			"id": 779661,
+			"id": '779661',
 			"image_url": null,
 			"in_store_menu_url": null,
 			"latitude": 42.396183,
@@ -5038,7 +5038,7 @@ const locations = [
 				"pickup"
 			],
 			"hours": "",
-			"id": 726616,
+			"id": '726616',
 			"image_url": null,
 			"in_store_menu_url": null,
 			"latitude": 42.396183,
@@ -5097,7 +5097,7 @@ const locations = [
 				"pickup"
 			],
 			"hours": "Store Hours:\nMon-Sun: 9:00am - 9:00pm\n\nDelivery Hours:\nMon-Sun: 9:00am - 9:00pm\n\nPickup Hours:\nMon-Sun: 9:00am - 9:00pm",
-			"id": 793822,
+			"id": '793822',
 			"image_url": null,
 			"in_store_menu_url": null,
 			"latitude": 42.386559,
@@ -5156,7 +5156,7 @@ const locations = [
 				"pickup"
 			],
 			"hours": "Store Hours:\nMon-Sun: 11:00am - 10:45pm\n\nDelivery Hours:\nMon-Sun: 11:00am - 10:45pm\n\nPickup Hours:\nMon-Sun: 11:00am - 10:45pm",
-			"id": 712396,
+			"id": '712396',
 			"image_url": null,
 			"in_store_menu_url": null,
 			"latitude": 42.412857,
@@ -5216,7 +5216,7 @@ const locations = [
 				"in_store"
 			],
 			"hours": "",
-			"id": 126,
+			"id": '126',
 			"image_url": null,
 			"in_store_menu_url": null,
 			"latitude": 42.400047,
@@ -5275,7 +5275,7 @@ const locations = [
 				"pickup"
 			],
 			"hours": "Store Hours:\nMon-Fri: 7:00am - 4:00pm\nSat-Sun: 8:00am - 2:00pm\n\nDelivery Hours:\nMon-Fri: 7:00am - 4:00pm\nSat-Sun: 8:00am - 2:00pm\n\nPickup Hours:\nMon-Fri: 7:00am - 4:00pm\nSat-Sun: 8:00am - 2:00pm",
-			"id": 785190,
+			"id": '785190',
 			"image_url": null,
 			"in_store_menu_url": null,
 			"latitude": 42.478878,
@@ -5334,7 +5334,7 @@ const locations = [
 				"pickup"
 			],
 			"hours": "Store Hours:\nMon-Tue: 11:30am - 9:30pm\nWed: 9:00am - 9:30pm\nThu: 11:30am - 9:30pm\nFri: 11:30am - 10:00pm\nSat: 9:00am - 10:00pm\nSun: 12:00pm - 9:30pm\n\nDelivery Hours:\nMon-Tue: 11:30am - 9:30pm\nWed: 9:00am - 9:30pm\nThu: 11:30am - 9:30pm\nFri: 11:30am - 10:00pm\nSat: 9:00am - 10:00pm\nSun: 12:00pm - 9:30pm\n\nPickup Hours:\nMon-Fri: 10:45am - 9:00pm\nSat-Sun: 12:00pm - 9:00pm",
-			"id": 779588,
+			"id": '779588',
 			"image_url": null,
 			"in_store_menu_url": null,
 			"latitude": 42.400112,
@@ -5393,7 +5393,7 @@ const locations = [
 				"pickup"
 			],
 			"hours": "Store Hours:\nMon-Sun: 7:00am - 2:45pm\n\nDelivery Hours:\nMon-Sun: 7:00am - 2:45pm\n\nPickup Hours:\nMon-Tue: 7:00am - 2:45pm\nWed-Sat: 7:00am - 6:30pm\nSun: 7:00am - 2:45pm",
-			"id": 801423,
+			"id": '801423',
 			"image_url": null,
 			"in_store_menu_url": null,
 			"latitude": 42.399769,
@@ -5456,7 +5456,7 @@ const locations = [
 				"pickup"
 			],
 			"hours": null,
-			"id": 742725,
+			"id": '742725',
 			"image_url": null,
 			"in_store_menu_url": null,
 			"latitude": 42.396215,
@@ -5515,7 +5515,7 @@ const locations = [
 				"pickup"
 			],
 			"hours": "Store Hours:\nMon-Thu: 12:00pm - 8:00pm\nFri-Sat: 12:00pm - 9:00pm\nSun: 12:00pm - 8:15pm\n\nDelivery Hours:\nMon-Thu: 12:00pm - 8:00pm\nFri-Sat: 12:00pm - 9:00pm\nSun: 12:00pm - 8:15pm",
-			"id": 773780,
+			"id": '773780',
 			"image_url": null,
 			"in_store_menu_url": null,
 			"latitude": 42.421112,
@@ -5574,7 +5574,7 @@ const locations = [
 				"pickup"
 			],
 			"hours": "",
-			"id": 783611,
+			"id": '783611',
 			"image_url": null,
 			"in_store_menu_url": null,
 			"latitude": 42.420978,
@@ -5633,7 +5633,7 @@ const locations = [
 				"pickup"
 			],
 			"hours": "Mon-Fri 9am-8pm",
-			"id": 686727,
+			"id": '686727',
 			"image_url": null,
 			"in_store_menu_url": null,
 			"latitude": 42.479797,
@@ -5692,7 +5692,7 @@ const locations = [
 				"pickup"
 			],
 			"hours": "Store Hours:\nMon-Fri: 5:15am - 7:00pm\nSat-Sun: 6:15am - 7:00pm\n\nDelivery Hours:\nMon-Fri: 5:15am - 7:00pm\nSat-Sun: 6:15am - 7:00pm\n\nPickup Hours:\nMon-Sun: 7:00am - 5:00pm",
-			"id": 801004,
+			"id": '801004',
 			"image_url": null,
 			"in_store_menu_url": null,
 			"latitude": 42.382885,
@@ -5751,7 +5751,7 @@ const locations = [
 				"pickup"
 			],
 			"hours": "",
-			"id": 737416,
+			"id": '737416',
 			"image_url": null,
 			"in_store_menu_url": null,
 			"latitude": 42.400698,
@@ -5810,7 +5810,7 @@ const locations = [
 				"pickup"
 			],
 			"hours": "Store Hours:\nMon: Closed\nTue-Thu: 9:00am - 9:00pm\nFri: 11:00am - 10:00pm\nSat: Closed\nSun: 9:00am - 9:00pm\n\nDelivery Hours:\nTue-Thu: 9:00am - 9:00pm\nFri: 11:00am - 10:00pm\nSun: 9:00am - 9:00pm\n\nPickup Hours:\nTue-Thu: 11:00am - 10:00pm\nSat-Sun: 11:00am - 10:00pm",
-			"id": 728388,
+			"id": '728388',
 			"image_url": null,
 			"in_store_menu_url": null,
 			"latitude": 42.40082,
@@ -5869,7 +5869,7 @@ const locations = [
 				"pickup"
 			],
 			"hours": "",
-			"id": 790987,
+			"id": '790987',
 			"image_url": null,
 			"in_store_menu_url": null,
 			"latitude": 42.406698,
@@ -5928,7 +5928,7 @@ const locations = [
 				"pickup"
 			],
 			"hours": "Store Hours:\nMon-Thu: 12:30pm - 8:00pm\nFri-Sat: 12:30pm - 9:00pm\nSun: 12:30pm - 8:30pm\n\nDelivery Hours:\nMon-Thu: 12:30pm - 8:00pm\nFri-Sat: 12:30pm - 9:00pm\nSun: 12:30pm - 8:30pm",
-			"id": 797933,
+			"id": '797933',
 			"image_url": null,
 			"in_store_menu_url": null,
 			"latitude": 42.486397,
