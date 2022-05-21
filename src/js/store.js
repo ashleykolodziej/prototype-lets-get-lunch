@@ -78,7 +78,7 @@ const store = createStore({
    plans: [{
 			id: '1',
 			title: 'Lunch in Boston',
-			date: "Wednesday, May 22nd 2022",
+			date: "Wednesday, May 22nd",
 			organizer: {
 				name: {
 					first: 'Ashley',
@@ -86,6 +86,8 @@ const store = createStore({
 				},
 				img: 'https://randomuser.me/api/portraits/women/73.jpg'
 			},
+			attendance: 'accepted',
+			status: 'selection',
 			attendees: [
 				'https://via.placeholder.com/50x50',
 				'https://randomuser.me/api/portraits/women/73.jpg',
@@ -154,6 +156,8 @@ const store = createStore({
 				},
 				img: 'https://randomuser.me/api/portraits/women/73.jpg'
 			},
+			attendance: 'invited',
+			status: 'selection',
 			attendees: [
 				'https://via.placeholder.com/50x50',
 				'https://randomuser.me/api/portraits/women/73.jpg',
@@ -169,7 +173,7 @@ const store = createStore({
 		{
 			id: '3',
 			title: "Jen's B-Day",
-			date: 'Undecided',
+			date: 'Saturday, May 28th',
 			organizer: {
 				name: {
 					first: 'Ashley',
@@ -177,6 +181,8 @@ const store = createStore({
 				},
 				img: 'https://randomuser.me/api/portraits/women/73.jpg'
 			},
+			attendance: 'declined',
+			status: 'selection',
 			attendees: [
 				'https://via.placeholder.com/50x50',
 				'https://randomuser.me/api/portraits/women/73.jpg',

@@ -1,0 +1,149 @@
+<template>
+  <div class="page" data-name="product">
+    <div class="navbar">
+      <div class="navbar-bg"></div>
+      <div class="navbar-inner sliding">
+        <div class="left">
+          <a href="/plans" class="link back">
+            <i class="icon icon-back"></i>
+            <span class="if-not-md">Plans</span>
+          </a>
+        </div>
+        <div class="title-large"><div class="title-large-text">Plan Details</div></div>
+      </div>
+    </div>
+    <div class="page-content">
+      <div class="block block-strong inset">
+      	<div class="display-flex align-items-center">
+	      	<div class="item-profile item-media">
+					<img src="${currentPlan.organizer.img}" width="75" />
+				</div>
+		      <div class="plan-title block no-margin-top no-margin-bottom">
+		      	<div class="no-margin-top no-margin-bottom">${currentPlan.organizer.name.first} invited you to</div>
+		      	<div class="block-title-medium no-margin-top">${currentPlan.title}!</div>
+		      	<div class="no-margin-top no-margin-bottom">${currentPlan.date}</div>
+		      </div>
+	      </div>
+	      <div class="block-title no-margin-left margin-top">Who's going?</div>
+	      <div class="display-flex">
+		      <div class="item-attendees justify-content-center">
+		            ${[...currentPlan.attendees].map((attendee) => $h`
+		         <div class="item-profile item-media">
+		   			<img src="${attendee}" width="40" />
+		   		</div>
+		       `)}
+		      </div>
+		      <p>You and ${currentPlan.attendees.length - 1} others</p>
+		   </div>
+	      <div class="block-title no-margin-left margin-top">Progress</div>
+	      <div class="progressbar color-multi" data-progress="75">
+			  <span></span>
+			</div>
+			<p>It's all you, boo! The rest of your crew has voted. Vote for your favorites below.</p>
+			<button class="button open-confirm">I'm done voting</button>
+      </div>
+      <div class="block block-title-medium margin-bottom">The finalists</div>
+      <div class="block margin-top">
+      <p>Let ${currentPlan.organizer.name.first} know where you're most excited to go.</p>
+      <div
+      	class="swiper swiper-init group-favorites"
+      	data-pagination='{"el": ".swiper-pagination"}'
+      	data-space-between="40"
+      >
+        <div class="swiper-wrapper">
+          ${currentPlan.restaurants.map((favorite) => $h`
+            <div class="swiper-slide group-faves">
+            	<div class="card no-margin">
+            	<div style="background-image:url(${favorite.img})"
+          			class="card-header align-items-flex-end"><div>${favorite.name}</div></div>
+	            	<div class="card-content">
+		            	<div class="card-content card-content-padding">
+		            		<div class="item-inner">
+		         		   	<div>
+			            			<span>Loved by: </span>
+			            			${favorite.votes.map((vote) => $h`
+				            			<div class="chip chip-outline">
+									          <div class="chip-media">
+									            <img src="${vote.img}" />
+									          </div>
+									          <div class="chip-label">${vote.count} dishes</div>
+									        </div>`
+									   )}
+						        </div>
+		            			<p class="item-subtitle">${favorite.description}</p>
+		            			<a class="button button-small button-round button-fill display-inline-flex" href="/menu/${favorite.id}/">Browse menu</a>
+		            		</div>
+		            		<div class="block-title no-margin-left">What do you think?</div>
+					          <div class="list inset margin-top no-margin-top">
+								  <ul class="radio-emoji">
+								    <!-- Single radio item -->
+								    <li>
+								      <label class="item-radio item-content">
+								        <!-- Radio input -->
+								        <input type="radio" name="my-radio-${favorite.id}" value="radio-1" />
+								        <!-- Radio icon -->
+								        <i class="icon icon-radio">😐</i>
+								        <div class="item-inner">
+								          <!-- Radio Title -->
+								          <div class="item-title">Not a fan</div>
+								        </div>
+								      </label>
+								    </li>
+								    <!-- Another radio item -->
+								    <li>
+								      <label class="item-radio item-content">
+								        <!-- Checked by default -->
+								        <input type="radio" name="my-radio-${favorite.id}" value="radio-2" checked />
+								        <i class="icon icon-radio">🙂</i>
+								        <div class="item-inner">
+								          <div class="item-title">It works</div>
+								        </div>
+								      </label>
+								    </li>
+								    <!-- Another radio item -->
+								    <li>
+								      <label class="item-radio item-content">
+								        <input type="radio" name="my-radio-${favorite.id}" value="radio-3" />
+								        <i class="icon icon-radio">😍</i>
+								        <div class="item-inner">
+								          <div class="item-title">I love it!</div>
+								        </div>
+								      </label>
+								    </li>
+								  </ul>
+								</div>
+		            	</div>
+	            	</div>
+            	</div>
+            </div>
+          `)}
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+      </div>
+    </div>
+  </div>
+</template>
+<script>
+  export default (props, { $, $f7, $on, $f7route, $store }) => {
+    const plans = $store.getters.plans;
+    const favorites = $store.getters.favorites;
+    const planId = $f7route.params.id;
+    let currentPlan = 0;
+    plans.value.forEach((plan) => {
+      if (plan.id === planId) {
+        currentPlan = plan;
+      }
+    });
+
+    $on('pageInit', () => {
+    	$('.open-confirm').on('click', function () {
+        $f7.dialog.confirm(`Once you confirm, your votes will be locked and ${currentPlan.organizer.name.first} will be notified that it's time to finalize the plan.`, 'Are you sure?', function () {
+          $f7.dialog.alert('Great!');
+        });
+      })
+    });
+
+    return $render;
+  };
+</script>

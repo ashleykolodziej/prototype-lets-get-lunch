@@ -6,24 +6,72 @@
       <div class="title-large"><div class="title-large-text">Plans</div></div>
     </div>
   </div>
-  <div class="searchbar-backdrop"></div>
   <div class="page-content">
-  	<div class="block-title block-title-medium">Invited</div>
-		<div class="list simple-list searchbar-not-found">
-        <ul>
-          <li>Nothing found</li>
-        </ul>
-      </div>
-      <div class="list virtual-list media-list no-margin-top inset"></div>
-		<div class="block-title block-title-medium">Accepted</div>
-      <div class="block-title block-title-medium">Declined</div>
+  	${Object.keys(plansByAttendance).map((response) => $h`
+  		<div class="block-title">${camelToTitle(response)}</div>
+	  	${Object.keys(plansByAttendance[response]).map((status) => $h`
+	  		<div class="list inset">
+		  		<div class="list-group">
+			  		<ul>
+			  			<li class="list-group-title">Status: ${status}</li>
+				      ${plansByAttendance[response][status].map((plan) => $h`
+				         <li class="item-link item-content">
+				         	<a class="item-blocklink" href="/plans/${plan.id}/">
+				         	<div class="item-inner">
+				         		<div class="item-profile item-media"><img src=${plan.organizer.img} width="50" /></div>
+				         		<div class="item-title-details">
+				             		<div class="item-subtitle">${plan.organizer.name.first} is organizing</div>
+				             		<div class="item-title">${plan.title}</div>
+				             		<div class="item-subtitle">${plan.date}</div>
+				             	</div>
+				             </div>
+				         	</a>
+				         </li>
+				       `)}
+			      </ul>
+		  		</div>
+	  		</div>
+	  	`)}
+  	`)}
   </div>
 </div>
 </template>
 <script>
-export default (props, { $store, $f7, $el, $theme, $on }) => {
+	export default (props, { $store }) => {
+    const plans = $store.getters.plans;
+    console.log(plans)
+
+    function camelToTitle(str) {
+		const result = str.replace(/([A-Z])/g, " $1");
+		return result.charAt(0).toUpperCase() + result.slice(1);
+    }
+
+    const plansByAttendance = {
+		acceptedPlans: {
+			selection: []
+		},
+		invitedPlans: {
+			selection: []
+		},
+		declinedPlans: {
+			selection: []
+		}
+    };
+
+    plans.value.forEach((plan) => {
+      if (plan.attendance === 'accepted') {
+			plansByAttendance['acceptedPlans'][plan.status].push(plan);
+      } else if (plan.attendance === 'declined') {
+			plansByAttendance['declinedPlans'][plan.status].push(plan);
+      } else {
+      	plansByAttendance['invitedPlans'][plan.status].push(plan);
+      }
+    });
+
+    return $render;
+  };
+/*export default (props, { $store, $f7, $el, $theme, $on }) => {
 	const plans = $store.getters.plans;
-	let items = plans.value;
 
     $on('pageInit', () => {
       const virtualList = $f7.virtualList.create({
@@ -53,7 +101,6 @@ export default (props, { $store, $f7, $el, $theme, $on }) => {
                 		<div class="item-subtitle">${item.date}</div>
                 	</div>
                   ${item.id === '1' ? '<span class="badge color-orange">New</span>' : ''}
-                  ${item.id === '3' ? '<span class="badge color-green">Decided</span>' : ''}
                 </div>
                 <!--div class="item-attendees item-subtitle"><p>${item.attendees.length} attendees</p>` +
                 	[...item.attendees].map((x, i) =>
@@ -68,5 +115,5 @@ export default (props, { $store, $f7, $el, $theme, $on }) => {
     });
 
     return $render;
-  }
+  }*/
 </script>

@@ -13,27 +13,44 @@
       </div>
     </div>
     <div class="page-content">
-      <div class="block block-strong inset card-center">
-      	<div class="item-profile item-media">
-				<img src="${currentPlan.organizer.img}" width="75" />
-			</div>
-	      <div class="block-title margin-top-half no-margin-bottom">${currentPlan.organizer.name.first} says</div>
-	      <div class="block-title block-title-medium no-margin-top">Let's get ${currentPlan.title}!</div>
-	      <p>${currentPlan.date}</p>
-	    	<div class="item-attendees justify-content-center">
-	            ${[...currentPlan.attendees].map((attendee) => $h`
-	         <div class="item-profile item-media">
-	   			<img src="${attendee}" width="50" />
-	   		</div>
-	       `)}
+      <div class="block block-strong inset">
+      	<div class="display-flex align-items-center">
+	      	<div class="item-profile item-media">
+					<img src="${currentPlan.organizer.img}" width="75" />
+				</div>
+		      <div class="plan-title block no-margin-top no-margin-bottom">
+		      	<div class="no-margin-top no-margin-bottom">${currentPlan.organizer.name.first} invited you to</div>
+		      	<div class="block-title-medium no-margin-top">${currentPlan.title}!</div>
+		      	<div class="no-margin-top no-margin-bottom">${currentPlan.date}</div>
+		      </div>
 	      </div>
-	      <p>You and ${currentPlan.attendees.length - 1} others so far</p>
-	      <div class="block-title margin-top-half">Ready to decide?</div>
-	      <div class="segmented segmented-round">
-			  <a class="button button-active button-outline button-round">I'm ready!</a>
-			  <a class="button button-outline button-round">Not yet</a>
+	      <div class="block-title no-margin-left margin-top">Who's going?</div>
+	      <div class="display-flex">
+		      <div class="item-attendees justify-content-center">
+		            ${[...currentPlan.attendees].map((attendee) => $h`
+		         <div class="item-profile item-media">
+		   			<img src="${attendee}" width="40" />
+		   		</div>
+		       `)}
+		      </div>
+		      <p>You and ${currentPlan.attendees.length - 1} others so far</p>
+		   </div>
+	      <div class="block-title no-margin-left margin-top">Progress</div>
+	      <div class="progressbar color-multi" data-progress="25">
+			  <span></span>
 			</div>
+			<p>You're in! ${currentPlan.organizer.name.first} wants to know what sounds good to you in Somerville. Add your favorites below, then let her know you're ready to vote.</p>
+			<a href="/plans/${planId}/vote/" class="button">I'm ready, let's vote!</a>
       </div>
+      <div class="card">
+   		<div class="card-header">
+   			First time here?
+   		</div>
+   		<div class="card-content card-content-padding">
+   			Let's Get Lunch helps you and your friends make plans by finding restaurants
+   			everyone can enjoy.
+   		</div>
+   	</div>
       <div class="block-title">Group favorites</div>
       <div class="block">
       <div
@@ -100,7 +117,7 @@
         </ul>
       </div>
       <div class="block no-margin-top">
-      	<a class="button button-small button-round button-fill display-inline-flex">Add a suggestion</a>
+      	<a class="button button-small button-round display-inline-flex">Add a suggestion</a>
       </div>
       <div class="block-title">New for you in this area</div>
       <div class="list media-list inset">
