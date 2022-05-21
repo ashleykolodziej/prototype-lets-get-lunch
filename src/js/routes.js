@@ -12,9 +12,6 @@ import DynamicRoutePage from '../pages/dynamic-route.f7';
 import RequestAndLoad from '../pages/request-and-load.f7';
 import NotFoundPage from '../pages/404.f7';
 
-// Import Store
-import pickit from './pickit.js';
-
 var routes = [
   /*{
     path: '/',
@@ -52,12 +49,7 @@ var routes = [
   },
   {
     path: '/menu/:id/',
-    component: MenuPage,
-    on: {
-     pageInit: function (e, page) {
-       pickit(page)
-     }
-    }
+    component: MenuPage
   },
   {
     path: '/settings/',

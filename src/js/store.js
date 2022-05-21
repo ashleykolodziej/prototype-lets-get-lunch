@@ -1,6 +1,7 @@
 import { createStore } from 'framework7';
 import tacoPartyImg from '../assets/2021-08-02.jpg'
 import tastyMoMoImg from '../assets/2018-07-21.jpg'
+import mintImg from '../assets/index.jpg'
 
 const store = createStore({
   state: {
@@ -99,12 +100,12 @@ const store = createStore({
 					votes: [
 						{
 							userId: 2,
-							img: '',
+							img: 'https://randomuser.me/api/portraits/women/80.jpg',
 							count: 5
 						},
 						{
 							userId: 1,
-							img: '',
+							img: 'https://randomuser.me/api/portraits/women/73.jpg',
 							count: 2
 						}
 					]
@@ -117,15 +118,28 @@ const store = createStore({
 					votes: [
 						{
 							userId: 1,
-							img: '',
-							count: 2
+							img: 'https://randomuser.me/api/portraits/women/73.jpg',
+							count: 6
 						},
 						{
 							userId: 2,
-							img: '',
+							img: 'https://randomuser.me/api/portraits/women/80.jpg',
 							count: 5
 						}
 					]
+				}
+			],
+			suggestions: [
+				{
+					id: '728388',
+					name: 'Mint Indian Eatery',
+					description: 'Quick-serve, charity-minded eatery dishing out dumplings with spicy sauces & thali platters.',
+					img: mintImg,
+					recommender: {
+						userId: 1,
+						img: 'https://randomuser.me/api/portraits/women/73.jpg',
+						name: 'Ashley'
+					}
 				}
 			]
 		},

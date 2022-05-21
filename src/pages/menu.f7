@@ -41,17 +41,12 @@
 		return dishes;
 	}
 
-
-
 		getMenuItems().then(data => {
-			console.log(data.menu.categories);
-
 			const content = document.querySelector('#menu-swipers');
 
 			Object.values(data).forEach(item => {
 	  			item.categories.forEach(item => {
 	  				const category = item.category.name;
-	  				console.log(category)
 
 	  				const title = document.createElement('div');
 	  				const classes = ['block-title', 'block-title-medium'];
@@ -73,7 +68,6 @@
 					});
 
 	  				for ( const dish of item.category.items ) {
-	  					console.log(dish)
 	  					const img = dish.item.image_url,
 	  							name = dish.item.name,
 	  							description = dish.item.description,
@@ -129,8 +123,6 @@
 								</div>`);
 	  					}
 		  			}
-
-		  			console.log(swiper.el);
 
 		  			content.appendChild(swiper.el);
 	  			});

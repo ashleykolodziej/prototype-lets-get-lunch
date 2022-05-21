@@ -52,6 +52,53 @@
 	text-align: center;
 }
 
-.item-attendees .item-media {
-	margin-right: -15px;
+.item-attendees {
+	margin-left: -15px;
+
+	.item-media {
+		margin-right: -15px;
+	}
+}
+
+.thing {
+	border: none;
+	padding: 0;
+
+	.chip-media {
+		margin-left: 5px;
+	}
+}
+
+.group-faves .card-header {
+  height: 40vw;
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+  font-size: 1.75em;
+  font-weight: bold;
+  position: relative;
+
+  &::before {
+  	content: "";
+  	width: 100%;
+  	height: 50px;
+  	background: linear-gradient(to top, black, transparent);;
+  	position: absolute;
+  	left: 0;
+  	bottom: 0;
+  	z-index: 1;
+  }
+
+  div {
+  	position: relative;
+  	z-index: 2;
+  }
+}
+
+.group-favorites {
+	padding-bottom: 20px !important;
+
+	.swiper-pagination {
+		bottom: 0 !important;
+	}
 }
