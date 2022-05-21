@@ -7,6 +7,25 @@
     </div>
   </div>
   <div class="page-content">
+   <div class="card intro-tutorial">
+		<div class="card-header">
+			👋 First time here?
+			<i class="f7-icons close-card">multiply</i>
+		</div>
+		<div class="card-content card-content-padding">
+			<div class="card-content">
+				<p class="no-margin-top">Let's Get Lunch helps you and your friends make plans by finding restaurants
+			everyone can enjoy in three easy steps:</p>
+			</div>
+			<div class="card-content">
+				<ol>
+					<li>Invite (or be invited by!) your friends</li>
+					<li>Pick your favorite dishes</li>
+					<li>Vote on restaurants that work for everyone</li>
+				</ol>
+			</div>
+		</div>
+	</div>
   	${Object.keys(plansByAttendance).map((response) => $h`
   		<div class="block-title">${camelToTitle(response)}</div>
 	  	${Object.keys(plansByAttendance[response]).map((status) => $h`
@@ -15,13 +34,13 @@
 			  		<ul>
 			  			<li class="list-group-title">Status: ${status}</li>
 				      ${plansByAttendance[response][status].map((plan) => $h`
-				         <li class="item-link item-content">
+				         <li class="item-link item-content item-repsonse-${response}">
 				         	<a class="item-blocklink" href="/plans/${plan.id}/">
 				         	<div class="item-inner">
 				         		<div class="item-profile item-media"><img src=${plan.organizer.img} width="50" /></div>
 				         		<div class="item-title-details">
-				             		<div class="item-subtitle">${plan.organizer.name.first} is organizing</div>
 				             		<div class="item-title">${plan.title}</div>
+				             		<div class="item-subtitle">with ${plan.organizer.name.first} and ${plan.attendees.length} others</div>
 				             		<div class="item-subtitle">${plan.date}</div>
 				             	</div>
 				             </div>
@@ -33,11 +52,14 @@
 	  		</div>
 	  	`)}
   	`)}
+  	<div class="block">
+		<button class="button button-outline button-round">Start a new plan</button>
+	</div>
   </div>
 </div>
 </template>
 <script>
-	export default (props, { $store }) => {
+	export default (props, { $store, $, $on }) => {
     const plans = $store.getters.plans;
     console.log(plans)
 
@@ -66,6 +88,12 @@
       } else {
       	plansByAttendance['invitedPlans'][plan.status].push(plan);
       }
+    });
+
+    $on('pageInit', () => {
+    	$('.close-card').on('click', function () {
+        this.closest('.intro-tutorial').classList.add('animate-collapse')
+      })
     });
 
     return $render;

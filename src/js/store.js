@@ -77,7 +77,7 @@ const store = createStore({
 		}],
    plans: [{
 			id: '1',
-			title: 'Lunch in Boston',
+			title: 'Lunch in Ball Square',
 			date: "Wednesday, May 22nd",
 			organizer: {
 				name: {
@@ -147,7 +147,7 @@ const store = createStore({
 		},
 		{
 			id: '2',
-			title: 'Draaaaaanks',
+			title: 'Draaaaaanks in Boston',
 			date: 'Undecided',
 			organizer: {
 				name: {
@@ -172,7 +172,7 @@ const store = createStore({
 		},
 		{
 			id: '3',
-			title: "Jen's B-Day",
+			title: "Jen's B-Day in Lake Ann",
 			date: 'Saturday, May 28th',
 			organizer: {
 				name: {

@@ -42,15 +42,6 @@
 			<p>You're in! ${currentPlan.organizer.name.first} wants to know what sounds good to you in Somerville. Add your favorites below, then let her know you're ready to vote.</p>
 			<a href="/plans/${planId}/vote/" class="button">I'm ready, let's vote!</a>
       </div>
-      <div class="card">
-   		<div class="card-header">
-   			First time here?
-   		</div>
-   		<div class="card-content card-content-padding">
-   			Let's Get Lunch helps you and your friends make plans by finding restaurants
-   			everyone can enjoy.
-   		</div>
-   	</div>
       <div class="block-title">Group favorites</div>
       <div class="block">
       <div

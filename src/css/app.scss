@@ -184,3 +184,21 @@ div {
 		color: var(--f7-button-fill-text-color, #fff);
 	}
 }
+
+.card-media {
+	background-color: var(--f7-color-teal-tint);
+}
+
+.item-repsonse-declinedPlans {
+	opacity: .5;
+}
+
+.intro-tutorial {
+	transition: max-height .3s ease-in;
+	overflow: hidden;
+	max-height: 300px;
+}
+
+.animate-collapse {
+	max-height: 0;
+}

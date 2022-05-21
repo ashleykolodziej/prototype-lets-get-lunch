@@ -40,11 +40,12 @@
 	      <div class="progressbar color-green" data-progress="100">
 			  <span></span>
 			</div>
-			<button class="button open-confirm">Add to calendar</button>
+			<div class="block">
+				<button class="button button-outline open-progress">Add to calendar</button>
+			</div>
       </div>
-      <div class="block block-title-medium margin-bottom">The finalists</div>
+      <div class="block block-title-medium margin-bottom">Where you're going</div>
       <div class="block margin-top">
-      <p>Let ${currentPlan.organizer.name.first} know where you're most excited to go.</p>
       <div
       	class="swiper swiper-init group-favorites"
       	data-pagination='{"el": ".swiper-pagination"}'
@@ -98,10 +99,15 @@
     });
 
     $on('pageInit', () => {
-    	$('.open-confirm').on('click', function () {
-        $f7.dialog.confirm(`Once you confirm, your votes will be locked and ${currentPlan.organizer.name.first} will be notified that it's time to finalize the plan.`, 'Are you sure?', function () {
-          $f7.dialog.alert('Great!');
-        });
+    	$('.open-progress').on('click', function () {
+        const calendarProgress = $f7.dialog.progress('Adding to calendar...');
+	     setTimeout(function () {
+	     		calendarProgress.setProgress(100);
+	          calendarProgress.setTitle('Success!');
+	     }, 2000);
+	     setTimeout(function () {
+	          calendarProgress.close();
+	     }, 2500);
       })
     });
 
