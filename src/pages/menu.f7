@@ -39,8 +39,6 @@
 
    let locationStore = $store.getters.currentLocation;
 
-   console.log(locationStore)
-
 	async function getMenuItems() {
 		const response = await fetch(`js/data/menu-${menuId}.json`);
 		const dishes = await response.json();
@@ -59,9 +57,7 @@
   						title.textContent = category;
   						title.classList.add(...classes);
 
-  				content.appendChild(title);
-
-				   const swiperTemplate = document.createElement('div');
+				const swiperTemplate = document.createElement('div');
 			   		swiperTemplate.classList.add('swiper');
 			   const swiperWrapper = document.createElement('div');
 			   		swiperWrapper.classList.add('swiper-wrapper');
@@ -128,6 +124,7 @@
   					}
 	  			}
 
+	  			content.appendChild(title);
 	  			content.appendChild(swiper.el);
   			});
   		})
