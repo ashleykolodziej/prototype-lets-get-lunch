@@ -1,0 +1,150 @@
+<template>
+<div class="page" data-name="plans">
+  <div class="navbar">
+    <div class="navbar-bg"></div>
+    <div class="navbar-inner sliding">
+      <div class="title-large"><div class="title-large-text">Plans</div></div>
+    </div>
+  </div>
+  <div class="page-content">
+   <div class="card intro-tutorial">
+		<div class="card-header">
+			👋 First time here?
+			<i class="f7-icons close-card">multiply</i>
+		</div>
+		<div class="card-content card-content-padding">
+			<div class="card-content">
+				<p class="no-margin-top">Let's Get Lunch helps you and your friends make plans by finding restaurants
+			everyone can enjoy in three easy steps:</p>
+			</div>
+			<div class="card-content">
+				<ol>
+					<li>Invite (or be invited by!) your friends</li>
+					<li>Pick your favorite dishes</li>
+					<li>Vote on restaurants that work for everyone</li>
+				</ol>
+			</div>
+			<div class="card-content">
+				<p class="no-margin-top">Give it a try by exploring a plan below.</p>
+			</div>
+		</div>
+	</div>
+  	${Object.keys(plansByAttendance).map((response) => $h`
+  		<div class="block-title">${camelToTitle(response)}</div>
+	  	${Object.keys(plansByAttendance[response]).map((status) => $h`
+	  		<div class="list inset">
+		  		<div class="list-group">
+			  		<ul>
+			  			<li class="list-group-title">Status: ${status}</li>
+				      ${plansByAttendance[response][status].map((plan) => $h`
+				         <li class="item-link item-content item-repsonse-${response}">
+				         	<a class="item-blocklink" href="/plans/${plan.id}/">
+				         	<div class="item-inner">
+				         		<div class="item-profile item-media"><img src=${plan.organizer.img} width="50" /></div>
+				         		<div class="item-title-details">
+				             		<div class="item-title">${plan.title}</div>
+				             		<div class="item-subtitle">with ${plan.organizer.name.first} and ${plan.attendees.length} others</div>
+				             		<div class="item-subtitle">${plan.date}</div>
+				             	</div>
+				             </div>
+				         	</a>
+				         </li>
+				       `)}
+			      </ul>
+		  		</div>
+	  		</div>
+	  	`)}
+  	`)}
+  	<div class="block">
+		<button class="button button-outline button-round">Start a new plan</button>
+	</div>
+  </div>
+</div>
+</template>
+<script>
+	export default (props, { $store, $, $on }) => {
+    const plans = $store.getters.plans;
+    console.log(plans)
+
+    function camelToTitle(str) {
+		const result = str.replace(/([A-Z])/g, " $1");
+		return result.charAt(0).toUpperCase() + result.slice(1);
+    }
+
+    const plansByAttendance = {
+		acceptedPlans: {
+			selection: []
+		},
+		invitedPlans: {
+			selection: []
+		},
+		declinedPlans: {
+			selection: []
+		}
+    };
+
+    plans.value.forEach((plan) => {
+      if (plan.attendance === 'accepted') {
+			plansByAttendance['acceptedPlans'][plan.status].push(plan);
+      } else if (plan.attendance === 'declined') {
+			plansByAttendance['declinedPlans'][plan.status].push(plan);
+      } else {
+      	plansByAttendance['invitedPlans'][plan.status].push(plan);
+      }
+    });
+
+    $on('pageInit', () => {
+    	$('.close-card').on('click', function () {
+        this.closest('.intro-tutorial').classList.add('animate-collapse')
+      })
+    });
+
+    return $render;
+  };
+/*export default (props, { $store, $f7, $el, $theme, $on }) => {
+	const plans = $store.getters.plans;
+
+    $on('pageInit', () => {
+      const virtualList = $f7.virtualList.create({
+        // List Element
+        el: $el.value.find('.virtual-list'),
+        // Pass array with items
+        items,
+        // Custom search function for searchbar
+        searchAll: function (query, items) {
+          var found = [];
+          for (var i = 0; i < items.length; i++) {
+            if (items[i].title.toLowerCase().indexOf(query.toLowerCase()) >= 0 || query.trim() === '') found.push(i);
+          }
+          return found; //return array with mathced indexes
+        },
+        // List item render
+        renderItem(item) {
+          return `
+          <li>
+            <a href="/plans/${item.id}/" class="item-link item-content">
+              <div class="item-inner">
+                <div class="item-title-row">
+                	<div class="item-profile item-media"><img src=${item.organizer.img} width="50" /></div>
+                	<div class="item-title-details">
+                		<div class="item-subtitle">${item.organizer.name.first} is organizing</div>
+                		<div class="item-title">${item.title}</div>
+                		<div class="item-subtitle">${item.date}</div>
+                	</div>
+                  ${item.id === '1' ? '<span class="badge color-orange">New</span>' : ''}
+                </div>
+                <!--div class="item-attendees item-subtitle"><p>${item.attendees.length} attendees</p>` +
+                	[...item.attendees].map((x, i) =>
+					    `<div class="item-profile item-media"><img src=${x} width="25" /></div>`
+					  ).join('')
+              + `</div-->
+              </div>
+            </a>
+          </li>`;
+        }
+      });
+    });
+
+    return $render;
+  }*/
+</script>

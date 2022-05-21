@@ -1,35 +1,42 @@
-## Project
-dist/*
 
-## Node.js
-lib-cov
-*.seed
-*.log
-*.csv
-*.dat
-*.out
-*.pid
-*.gz
-pids
+# Logs
 logs
-results
-npm-debug.log
-node_modules
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
 
-## Sass
-.sass-cache
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
 
-## OS X
+# Dependency directories
+node_modules/
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+# Optional REPL history
+.node_repl_history
+
+# Yarn Integrity file
+.yarn-integrity
+
+# dotenv environment variables file
+.env
+
+# Misc
 .DS_Store
-.AppleDouble
-.LSOverride
-Icon
-._*
-.Spotlight-V100
-.Trashes
-
-## Windows
 Thumbs.db
-ehthumbs.db
-Desktop.ini
-$RECYCLE.BIN/
+
+
+
+
+
+# Production build
+www/

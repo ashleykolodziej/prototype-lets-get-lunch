@@ -1,0 +1,116 @@
+<template>
+  <div class="page" data-name="product">
+    <div class="navbar">
+      <div class="navbar-bg"></div>
+      <div class="navbar-inner sliding">
+        <div class="left">
+          <a href="/plans/" class="link back">
+            <i class="icon icon-back"></i>
+            <span class="if-not-md">Plans</span>
+          </a>
+        </div>
+        <div class="title-large"><div class="title-large-text">Confirmed</div></div>
+      </div>
+    </div>
+    <div class="page-content">
+    	<div class="block block-title-large margin-bottom text-align-center">That's a wrap!</div>
+      <div class="block block-strong inset">
+      	<div class="display-flex align-items-center">
+	      	<div class="item-profile item-media">
+					<img src="${currentPlan.organizer.img}" width="75" />
+				</div>
+		      <div class="plan-title block no-margin-top no-margin-bottom">
+		      	<div class="no-margin-top no-margin-bottom">You're going to</div>
+		      	<div class="block-title-medium no-margin-top">${currentPlan.title}!</div>
+		      	<div class="no-margin-top no-margin-bottom">${currentPlan.date}</div>
+		      </div>
+	      </div>
+	      <div class="block-title no-margin-left margin-top">Who's going?</div>
+	      <div class="display-flex">
+		      <div class="item-attendees justify-content-center">
+		            ${[...currentPlan.attendees].map((attendee) => $h`
+		         <div class="item-profile item-media">
+		   			<img src="${attendee}" width="40" />
+		   		</div>
+		       `)}
+		      </div>
+		      <p>You and ${currentPlan.attendees.length - 1} others</p>
+		   </div>
+	      <div class="block-title no-margin-left margin-top">Plan complete!</div>
+	      <div class="progressbar color-green" data-progress="100">
+			  <span></span>
+			</div>
+			<div class="block">
+				<button class="button button-outline open-progress">Add to calendar</button>
+			</div>
+      </div>
+      <div class="block block-title-medium margin-bottom">Where you're going</div>
+      <div class="block margin-top">
+      <div
+      	class="swiper swiper-init group-favorites"
+      	data-pagination='{"el": ".swiper-pagination"}'
+      	data-space-between="40"
+      >
+        <div class="swiper-wrapper">
+          ${currentPlan.restaurants.map((favorite) => $h`
+            <div class="swiper-slide group-faves">
+            	<div class="card no-margin">
+            	<div style="background-image:url(${favorite.img})"
+          			class="card-header align-items-flex-end"><div>${favorite.name}</div></div>
+	            	<div class="card-content">
+		            	<div class="card-content card-content-padding">
+		            		<div class="item-inner">
+		         		   	<div>
+			            			<span>Loved by: </span>
+			            			${favorite.votes.map((vote) => $h`
+				            			<div class="chip chip-outline">
+									          <div class="chip-media">
+									            <img src="${vote.img}" />
+									          </div>
+									          <div class="chip-label">${vote.count} dishes</div>
+									        </div>`
+									   )}
+						        </div>
+		            			<p class="item-subtitle">${favorite.description}</p>
+		            			<a class="button button-small button-round button-fill display-inline-flex" href="/menu/${favorite.id}/">Browse menu</a>
+		            		</div>
+		            	</div>
+	            	</div>
+            	</div>
+            </div>
+          `)}
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+      </div>
+    </div>
+  </div>
+</template>
+<script>
+  export default (props, { $, $f7, $on, $f7route, $store }) => {
+    const plans = $store.getters.plans;
+    const favorites = $store.getters.favorites;
+    const planId = $f7route.params.id;
+    let currentPlan = 0;
+    plans.value.forEach((plan) => {
+      if (plan.id === planId) {
+        currentPlan = plan;
+      }
+    });
+
+    $on('pageInit', () => {
+    	$('.open-progress').on('click', function () {
+        const calendarProgress = $f7.dialog.progress('Adding to calendar...');
+	     setTimeout(function () {
+	     		calendarProgress.setProgress(100);
+	          calendarProgress.setTitle('Success!');
+	     }, 2000);
+	     setTimeout(function () {
+	          calendarProgress.close();
+	     }, 2500);
+      })
+    });
+
+    return $render;
+  };
+</script>

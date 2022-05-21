@@ -1,0 +1,149 @@
+<template>
+  <div class="page" data-name="home">
+    <!-- Top Navbar -->
+    <div class="navbar navbar-large">
+      <div class="navbar-bg"></div>
+      <div class="navbar-inner sliding">
+      	<div class="left">
+          <a href="/plans" class="link back">
+            <i class="icon icon-back"></i>
+            <span class="if-not-md">Back</span>
+          </a>
+        </div>
+        <div class="title-large">
+          <div class="title-large-text">${locationStore.value[0].location.name} Menu</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scrollable page content-->
+    <div class="page-content" id="menu-swipers">
+    </div>
+  </div>
+</template>
+<script>
+	import { checkVeg, checkVegan } from '../js/checkdishes';
+	import addFavoriteListeners from '../js/favorite';
+	import locationLookup from '../js/locationLookup';
+	export default (props, { $f7route, $store, $f7, $on }) => {
+    const plans = $store.getters.favorites;
+    const menuId = $f7route.params.id;
+
+    let currentMenu = 0;
+
+    plans.value.forEach((plan) => {
+      if (plan.restaruantId === menuId) {
+        currentMenu = plan;
+      }
+    });
+
+   let locationStore = $store.getters.currentLocation;
+
+	async function getMenuItems() {
+		const response = await fetch(`js/data/menu-${menuId}.json`);
+		const dishes = await response.json();
+		return dishes;
+	}
+
+	getMenuItems().then(data => {
+		const content = document.querySelector('#menu-swipers');
+
+		Object.values(data).forEach(item => {
+  			item.categories.forEach(item => {
+  				const category = item.category.name;
+
+  				const title = document.createElement('div');
+  				const classes = ['block-title', 'block-title-medium'];
+  						title.textContent = category;
+  						title.classList.add(...classes);
+
+				const swiperTemplate = document.createElement('div');
+			   		swiperTemplate.classList.add('swiper');
+			   const swiperWrapper = document.createElement('div');
+			   		swiperWrapper.classList.add('swiper-wrapper');
+			   		swiperTemplate.appendChild(swiperWrapper);
+
+  				const swiper = $f7.swiper.create(swiperTemplate, {
+					// Optional parameters
+					direction: 'horizontal',
+					loop: false
+				});
+
+  				for ( const dish of item.category.items ) {
+  					const img = dish.item.image_url,
+  							name = dish.item.name,
+  							description = dish.item.description,
+  							allOfIt = name + ' ' + description;
+  					if (
+  						null !== img &&
+  						null !== name &&
+  						null !== description &&
+  						'' !== description
+  					) {
+						// Crummy vegan filter test
+						const isVeg = checkVeg(allOfIt);
+						let isVegan = false;
+
+						if (isVeg) {
+							isVegan = checkVegan(allOfIt);
+						}
+
+						if (!isVeg) {
+							return;
+						}
+
+						swiper.appendSlide(`<div
+								data-restaruant-id="${menuId}"
+								data-dish-id="${dish.item.id}"
+								data-dish-name="${name}"
+								data-dish-location="${currentMenu.dishLocation}"
+								data-dish-img="${img}?density=1&height=300&width=420"
+								class="swiper-slide">
+								<div class="card">
+								<div class="card-media">
+									<img src="${img}?density=1&height=300&width=420">
+								</div>
+								<div class="card-content card-content-padding">
+								<div class="card-meta">
+									<div class="tags">
+										${ isVeg ? '<span class="badge">vegetarian</span>' : '' }
+										${ isVegan ? '<span class="badge">vegan</span>' : '' }
+									</div>
+									<div class="card-favorite">
+										Add to favorites
+										<i class="icon f7-icons if-not-md">heart</i>
+   									<i class="icon material-icons if-md">heart</i>
+									</div>
+								</div>
+								<h3>${name}</h3>
+								<p>${description}</p>
+								</div>
+								<div class="card-footer">at ${locationStore.value[0].location.name}</p>
+								</div>
+							</div>`);
+  					}
+	  			}
+
+	  			content.appendChild(title);
+	  			content.appendChild(swiper.el);
+  			});
+  		})
+  	});
+
+  	$on('pageInit', () => {
+
+  		const foundLocation = locationLookup(menuId);
+	    console.log(menuId)
+	    console.log(foundLocation)
+	    $store.dispatch('addLocation', foundLocation);
+	    locationStore = $store.getters.currentLocation;
+
+	    console.log(locationStore.value)
+	    console.log(locationStore.value[0].location.name)
+
+    	addFavoriteListeners();
+    });
+
+    return $render;
+  };
+</script>

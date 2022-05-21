@@ -1,77 +1,74 @@
-# Student Site Boilerplate
+# Let's Get Lunch!
 
-Student Site Boilerplate aims to introduce new web development students to
-modern build tools in a simplified manner. The goal of this project is to
-be able to build and deploy a simple static site right to Github and allow
-students to explore Sass and ES6 without worrying about setting up Babel,
-Webpack, or other build tools.
+## Framework7 CLI Options
 
-[Static Site Boilerplate](http://staticsiteboilerplate.com//) is used as a
-starting point for its utility and relative simplicity. All commands are run
-through npm scripts so additional technologies like Grunt, Gulp, Yarn, etc.
-don't have to be taught. Github Pages is used to reduce the overhead of trying
-to find hosting for student projects, and keep progress in one place.
+Framework7 app created with following options:
 
-Other modifications include simplifying the output from Webpack to errors
-only so students aren't wading through a pile of success messages to find
-out if their build has successfully deployed to Github Pages and adding HTML5
-linting.
+```
+{
+  "cwd": "/Users/ashleykolodziej/Github/prototype-lets-get-lunch",
+  "type": [
+    "web"
+  ],
+  "name": "Let's Get Lunch!",
+  "framework": "core",
+  "template": "tabs",
+  "bundler": "vite",
+  "cssPreProcessor": "scss",
+  "theming": {
+    "customColor": false,
+    "color": "#007aff",
+    "darkTheme": false,
+    "iconFonts": true,
+    "fillBars": false
+  },
+  "customBuild": false
+}
+```
 
-**Static Site Boilerplate Documentation:** [https://docs.staticsiteboilerplate.com/](https://docs.staticsiteboilerplate.com/)
+## Install Dependencies
 
-The Student Site Boilerplate is part of a lesson in my web design and development class,
-and I teach Github, Tower, and VSCode alongside this boilerplate. If you are interested
-in the documentation for this process and setting up your development environment in the
-same way, you can follow along with [this Google Doc](https://docs.google.com/document/d/14usTx6c1L1MwSjRvwtk4spz40EDgHV50_53kKAiHzcM/edit?usp=sharing).
+First of all we need to install dependencies, run in terminal
+```
+npm install
+```
 
-## Prerequisites
+## NPM Scripts
 
-- [Node.js and npm (Node Package Manager)](https://nodejs.org/en/) - this repository has been tested through 14.17.5 LTS. **Windows users**, be sure to check the "Install additional tools" checkbox during your installation process, like so: ![Screen Shot 2021-08-23 at 11 18 28 PM](https://user-images.githubusercontent.com/1828613/130550518-cca0a33c-3522-4e9c-97ef-9d2d3b20fba0.png)
-- A code editor of your choice, such as [VSCode](https://code.visualstudio.com/) or [Sublime Text](https://www.sublimetext.com/)
-- A way to connect to and work with Git and Github. If you like having a user interface to do this, I recommend (and personally use) [Tower](https://www.git-tower.com/students/mac). (A Windows version is also available!)
+* 🔥 `start` - run development server
+* 🔧 `dev` - run development server
+* 🔧 `build` - build web app for production
 
-## Notes for Windows users
+## Vite
 
-- Your computer may use different linebreaks than ESLint expects. [You can add a comment to fix this.](https://stackoverflow.com/questions/37826449/expected-linebreaks-to-be-lf-but-found-crlf-linebreak-style)
-- If you see errors with Sass on your first build, try running `npm rebuild node-sass`.
+There is a [Vite](https://vitejs.dev) bundler setup. It compiles and bundles all "front-end" resources. You should work only with files located in `/src` folder. Vite config located in `vite.config.js`.
+## Assets
 
-## Installation
+Assets (icons, splash screens) source images located in `assets-src` folder. To generate your own icons and splash screen images, you will need to replace all assets in this directory with your own images (pay attention to image size and format), and run the following command in the project directory:
 
-Clone or download this repository using your favorite method (Command Line, GUI such as Tower, etc)
+```
+framework7 assets
+```
 
-Change directory to this repository on your computer (path may be different depending on where the repository is located):
+Or launch UI where you will be able to change icons and splash screens:
 
- ```bash
-cd student-site-boilerplate
- ```
+```
+framework7 assets --ui
+```
 
-Run `npm install` to install development dependencies, then see `Usage` below.
 
-## How to Use This Repository
 
-Make sure you've [set up your development environment](https://docs.google.com/document/d/14usTx6c1L1MwSjRvwtk4spz40EDgHV50_53kKAiHzcM/edit?usp=sharing). Then, use the following commands to get up and running!
+## Documentation & Resources
 
-| Command | Description |
-| --- | --- |
-| **`npm install`** | Installs dependencies |
-| **`npm run start`** | Start development. Edit your code in the `src` folder. |
-| **`npm run lint`** | Checks all code for formatting and validation errors. |
-| **`npm run fix`** | Checks all code for formatting and validation errors and attempts to automatically fix them. |
-| **`npm run test`** | Runs all tests to make sure your code meets assignment requirements. |
-| **`npm run build`** | Create a production-ready build of your code to the `dist` folder. |
-| **`npm run deploy`** | Builds and deploys your code to Github Pages. |
+* [Framework7 Core Documentation](https://framework7.io/docs/)
 
-## Features
 
-* **Modern Technologies:** Full support for HTML5, JavaScript (Vanilla and ES6) and CSS (Sass and PostCSS)
-* **Built-in Server:** Local development server with hot reloading
-* **Performance Tuning:** CSS and JavaScript transpilation, bundling, autoprefixing, and minification
-* **Image Optimization:** Optimizes images for loading speed
-* **Favicon Generation:** Automatically generates all favicons for Web, Apple and Android devices from one image file
-* **Code Linting:** Full support for JavaScript (ESLint) and CSS (StyleLint) linting
-* **Cutting Edge:** Uses Webpack for processing and bundling your code
-* **Deployment:** Built-in support for deploying `dist` to the `gh-pages` branch. Serve your site right on Github Pages!
 
-## License
+* [Framework7 Icons Reference](https://framework7.io/icons/)
+* [Community Forum](https://forum.framework7.io)
 
-The code is available under the [MIT license](LICENSE).
+## Support Framework7
+
+Love Framework7? Support project by donating or pledging on:
+- Patreon: https://patreon.com/framework7
+- OpenCollective: https://opencollective.com/framework7

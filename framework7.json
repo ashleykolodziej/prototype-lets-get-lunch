@@ -1,0 +1,19 @@
+{
+  "cwd": "/Users/ashleykolodziej/Github/prototype-lets-get-lunch",
+  "type": [
+    "web"
+  ],
+  "name": "Let's Get Lunch!",
+  "framework": "core",
+  "template": "tabs",
+  "bundler": "vite",
+  "cssPreProcessor": "scss",
+  "theming": {
+    "customColor": false,
+    "color": "#007aff",
+    "darkTheme": false,
+    "iconFonts": true,
+    "fillBars": false
+  },
+  "customBuild": false
+}

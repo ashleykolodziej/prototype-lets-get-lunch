@@ -1,0 +1,59 @@
+<template>
+<div class="page" data-name="friends">
+  <div class="navbar">
+    <div class="navbar-bg"></div>
+    <div class="navbar-inner sliding">
+    <div class="left">
+          <a href="/plans" class="link back">
+            <i class="icon icon-back"></i>
+            <span class="if-not-md">Back</span>
+          </a>
+        </div>
+      <div class="title-large"><div class="title-large-text">Friend details</div></div>
+    </div>
+  </div>
+  <div class="page-content">
+  		<div class="block block-strong inset text-align-center">
+  		  		<div class="item-profile item-media"><img src="${currentFriend.value[0].picture.large}"
+                  width="150" /></div>
+  				<div class="block-title block-title-medium no-margin-top">${currentFriend.value[0].name.first} ${currentFriend.value[0].name.last}</div>
+  				<div class="block-title block-title-small no-margin-top display-flex justify-content-center align-items-center">
+  					<div class="friend-location margin-right-half">
+							<i class="icon f7-icons if-not-md">map</i>
+							<i class="icon material-icons if-md">heart</i>
+					</div>
+  					${currentFriend.value[0].location.city}, ${currentFriend.value[0].location.state}
+  				</div>
+  		</div>
+  		<div class="block inset">
+  			<button class="button button-round button-large color-blue button-fill">Remove friend</button>
+  		</div>
+  		<div class="block margin-bottom-half">
+  			<div class="block-title block-title-small">Upcoming plans with ${currentFriend.value[0].name.first}</div>
+  		</div>
+  		<div class="block block-strong inset no-margin-top">
+
+  		</div>
+  </div>
+</div>
+</template>
+<script>
+export default (props, { $f7route, $store }) => {
+	const userId = $f7route.params.id;
+	const currentFriend = $store.getters.currentFriend;
+
+	async function getUsers() {
+		const response = await fetch('js/data/users.json');
+		const users = await response.json();
+		return users;
+	}
+
+	getUsers().then(data => {
+  		$store.state.currentFriend = data.results.filter(obj => {
+		  return obj.login.md5 === userId
+		});
+  	});
+
+    return $render;
+  }
+</script>

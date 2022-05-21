@@ -1,0 +1,45 @@
+<template>
+  <div class="page" data-name="catalog">
+    <div class="navbar">
+      <div class="navbar-bg"></div>
+      <div class="navbar-inner sliding">
+        <div class="title-large"><div class="title-large-text">Favorites</div></div>
+      </div>
+    </div>
+    <div class="page-content">
+      <div class="list media-list inset">
+        <ul>
+          ${favorites.value.map((product) => $h`
+            <li>
+            	<div class="item-content">
+            		<div class="item-dish item-media">
+            			<img src="${product.dishImg}"/>
+            		</div>
+            		<div class="item-inner">
+            			${product.dishName} at ${product.dishLocation}
+            		</div>
+            		<div class="card-favorite little-favorite">
+							<i class="icon f7-icons if-not-md">heart_fill</i>
+							<i class="icon material-icons if-md">heart</i>
+						</div>
+            	</div>
+            </li>
+          `)}
+        </ul>
+      </div>
+      ${favorites.value.length === 0 && $h`
+        <div class="block">
+          <button class="button button-fill">No favorites yet</Button>
+        </div>
+      `}
+    </div>
+  </div>
+</template>
+<script>
+  export default (props, { $store }) => {
+    const favorites = $store.getters.favorites;
+
+    return $render;
+  }
+
+</script>
