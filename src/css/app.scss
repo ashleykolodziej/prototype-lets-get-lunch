@@ -21,6 +21,9 @@
 		margin: 0 auto;
 		margin-top: 25px;
 		border-radius: 50px;
+		overflow: hidden;
+		transform: translateZ(0); // Dumb trick for Safari
+		z-index: 2; // Required by the dumb trick for Safari
 	}
 }
 
