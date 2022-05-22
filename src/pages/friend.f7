@@ -43,7 +43,7 @@ export default (props, { $f7route, $store }) => {
 	const currentFriend = $store.getters.currentFriend;
 
 	async function getUsers() {
-		const response = await fetch('js/data/users.json');
+		const response = await fetch('public/users.json');
 		const users = await response.json();
 		return users;
 	}

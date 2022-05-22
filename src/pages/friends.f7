@@ -35,7 +35,7 @@ export default (props, { $f7, $el, $theme, $on }) => {
 	let items = [];
 
 	//fetch('https://randomuser.me/api/?results=10')
-	fetch('js/data/users.json')
+	fetch('public/users.json')
 	  .then(response => response.json())
 	  .then(data => {
 	  		data.results.forEach(user => {
