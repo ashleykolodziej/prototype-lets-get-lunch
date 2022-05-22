@@ -96,7 +96,7 @@
 								data-restaruant-id="${menuId}"
 								data-dish-id="${dish.item.id}"
 								data-dish-name="${name}"
-								data-dish-location="${currentMenu.dishLocation}"
+								data-dish-location="${locationStore.value[0].location.name}"
 								data-dish-img="${img}?density=1&height=300&width=420"
 								class="swiper-slide">
 								<div class="card">
@@ -131,16 +131,9 @@
   	});
 
   	$on('pageInit', () => {
-
   		const foundLocation = locationLookup(menuId);
-	    console.log(menuId)
-	    console.log(foundLocation)
 	    $store.dispatch('addLocation', foundLocation);
 	    locationStore = $store.getters.currentLocation;
-
-	    console.log(locationStore.value)
-	    console.log(locationStore.value[0].location.name)
-
     	addFavoriteListeners();
     });
 
