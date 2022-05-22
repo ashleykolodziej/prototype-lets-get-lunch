@@ -245,3 +245,7 @@ div {
 	background-color: var(--f7-page-bg-color);
 	color: var(--f7-color-gray)
 }
+
+.block-title:empty {
+	display: none;
+}

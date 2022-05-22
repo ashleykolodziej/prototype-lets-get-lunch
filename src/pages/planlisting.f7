@@ -30,8 +30,8 @@
 		</div>
 	</div>
   	${Object.keys(plansByAttendance).map((response) => $h`
-  		<div class="block-title">${camelToTitle(response)}</div>
 	  	${Object.keys(plansByAttendance[response]).map((status) => $h`
+	  		<div class="block-title">${plansByAttendance[response][status].length !== 0 ? `${camelToTitle(response)}`:``}</div>
 	  		<div class="list inset">
 		  		<div class="list-group">
 			  		<ul>
@@ -50,9 +50,6 @@
 				         	</a>
 				         </li>
 				       `)}
-				       ${plansByAttendance[response][status].length === 0 && $h`
-					        	<li class="empty-state-listing"><p>You're all caught up. Nice work!</p></li>
-					      `}
 			      </ul>
 		  		</div>
 	  		</div>
