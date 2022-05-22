@@ -249,3 +249,8 @@ div {
 .block-title:empty {
 	display: none;
 }
+
+.plan-listing-title {
+	display: flex;
+	justify-content: space-between;
+}

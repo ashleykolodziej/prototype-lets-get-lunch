@@ -42,7 +42,12 @@
 				         	<div class="item-inner">
 				         		<div class="item-profile item-media"><img src=${plan.organizer.img} width="50" /></div>
 				         		<div class="item-title-details">
-				             		<div class="item-title">${plan.title}</div>
+				             		<div class="item-title plan-listing-title">
+				             			<div class="block-title block-title-small no-margin-top no-margin-bottom">${plan.title}</div>
+				             			${plan.id === '1' && response === 'acceptedPlans' && $h`
+			        							<span class="badge color-orange new-badge">New</span>
+			      						`}
+				             		</div>
 				             		<div class="item-subtitle">with ${plan.organizer.name.first} and ${plan.attendees.length} others</div>
 				             		<div class="item-subtitle">${plan.date}</div>
 				             	</div>

@@ -45,7 +45,7 @@
             <span class="tabbar-label">Home</span>
           </a-->
           <a href="#view-home" class="tab-link tab-link-active">
-            <i class="icon f7-icons if-not-md">calendar <span class="badge color-red">1</span></i>
+            <i class="icon f7-icons if-not-md">calendar <span class="badge color-red attendance-badge">1</span></i>
             <i class="icon material-icons if-md">home</i>
             <span class="tabbar-label">Plans</span>
           </a>
@@ -162,7 +162,7 @@
 <script>
 	import frameUrl from './assets/5cb0633d80f2cf201a4c3253.png';
 	console.log(frameUrl);
-  export default (props, { $f7, $update, $on, $ }) => {
+  export default (props, { $f7, $update, $on, $, $store }) => {
     // Login screen demo data
     let username = '';
     let password = '';
@@ -185,7 +185,6 @@
     	const frame = document.createElement('img');
     	frame.id = "phone-frame";
     	frame.src = frameUrl;
-    	console.log(frame)
     	if (null === document.querySelector('#phone-frame')) {
     		document.body.appendChild(frame);
     	}
