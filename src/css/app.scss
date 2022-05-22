@@ -1,3 +1,33 @@
+// Phone container
+
+#phone-frame {
+	display: none;
+}
+
+.device-desktop {
+	#phone-frame {
+		position: absolute;
+		left: 50%;
+		top: 0;
+		margin-left: -295px;
+		width: 590px;
+		display: block;
+		height: 892px;
+		background-size: cover;
+	}
+	#app {
+		width: 375px;
+		height: 812px;
+		margin: 0 auto;
+		margin-top: 25px;
+		border-radius: 50px;
+	}
+}
+
+.tab-link {
+	flex-direction: column !important;
+}
+
 /* Your app custom styles here */
 
 .card img {

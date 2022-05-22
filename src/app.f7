@@ -1,4 +1,3 @@
-
 <template>
   <div id="app">
 
@@ -158,11 +157,12 @@
         </div>
       </div>
     </div>
-
   </div>
 </template>
 <script>
-  export default (props, { $f7, $update }) => {
+	import frameUrl from './assets/5cb0633d80f2cf201a4c3253.png';
+	console.log(frameUrl);
+  export default (props, { $f7, $update, $on }) => {
     // Login screen demo data
     let username = '';
     let password = '';
@@ -180,6 +180,16 @@
         $f7.loginScreen.close();
       });
     }
+
+    $on('pageInit', () => {
+    	const frame = document.createElement('img');
+    	frame.id = "phone-frame";
+    	frame.src = frameUrl;
+    	console.log(frame)
+    	if (null === document.querySelector('#phone-frame')) {
+    		document.body.appendChild(frame);
+    	}
+    });
 
     return $render;
   }

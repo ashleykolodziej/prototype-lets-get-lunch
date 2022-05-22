@@ -5,11 +5,14 @@
   "description": "Let's Get Lunch!",
   "repository": "",
   "license": "UNLICENSED",
+  "homepage": "https://ashleykolodziej.github.io/prototype-lets-get-lunch",
   "scripts": {
     "start": "npm run dev",
     "dev": "cross-env NODE_ENV=development vite",
     "build": "cross-env NODE_ENV=production vite build",
-    "postinstall": "cpy --flat ./node_modules/framework7-icons/fonts/*.* ./src/fonts/ && cpy --flat ./node_modules/material-icons/iconfont/*.* ./src/fonts/"
+    "postinstall": "cpy --flat ./node_modules/framework7-icons/fonts/*.* ./src/fonts/ && cpy --flat ./node_modules/material-icons/iconfont/*.* ./src/fonts/",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d www"
   },
   "browserslist": [
     "IOS >= 13",
@@ -29,6 +32,9 @@
   "devDependencies": {
     "cpy-cli": "^4.1.0",
     "cross-env": "^7.0.3",
+    "gh-pages": "^4.0.0",
+    "postcss": "^8.4.14",
+    "postcss-loader": "^7.0.0",
     "postcss-preset-env": "^7.5.0",
     "rollup-plugin-framework7": "^1.2.1",
     "sass": "^1.51.0",

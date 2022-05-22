@@ -8,7 +8,6 @@ import 'framework7/css/bundle';
 import '../css/icons.css';
 import '../css/app.scss';
 
-
 // Import Routes
 import routes from './routes.js';
 // Import Store
