@@ -40,9 +40,13 @@
    let locationStore = $store.getters.currentLocation;
 
 	async function getMenuItems() {
-		const response = await fetch(`public/menu-${menuId}.json`);
-		const dishes = await response.json();
-		return dishes;
+		try {
+			const response = await fetch(`data/menu-${menuId}.json`);
+			const dishes = await response.json();
+			return dishes;
+		} catch (err) {
+			console.log('Error: ', err.message);
+		}
 	}
 
 	getMenuItems().then(data => {
