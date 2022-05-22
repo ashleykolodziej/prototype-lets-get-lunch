@@ -162,7 +162,7 @@ ${o.toString()}`)}return s&&(typeof s=="string"?l+=`?${s}`:Object.keys(s).length
       </div>
     </div>
   </div>
-`}}tp.id="faaf8632b2";function Bs(n,{$f7:e,$el:a,$theme:t,$on:s}){let r=[];async function i(){try{return await(await fetch("data/users.json")).json()}catch(l){console.log("Error: ",l.message)}}return i().then(l=>{l.results.forEach(o=>{r.push({id:`${o.login.md5}`,title:`${o.name.first} ${o.name.last}`,image:o.picture.large,location:`${o.location.city}, ${o.location.state}`})})}),s("pageInit",()=>{const l=e.virtualList.create({el:a.value.find(".virtual-list"),items:r,searchAll:function(o,c){for(var u=[],p=0;p<c.length;p++)(c[p].title.toLowerCase().indexOf(o.toLowerCase())>=0||o.trim()==="")&&u.push(p);return u},renderItem(o){return`
+`}}tp.id="9670fb2cca";function Bs(n,{$f7:e,$el:a,$theme:t,$on:s}){let r=[];async function i(){try{return await(await fetch("data/users.json")).json()}catch(l){console.log("Error: ",l.message)}}return i().then(l=>{l.results.forEach(o=>{r.push({id:`${o.login.md5}`,title:`${o.name.first} ${o.name.last}`,image:o.picture.large,location:`${o.location.city}, ${o.location.state}`})})}),s("pageInit",()=>{const l=e.virtualList.create({el:a.value.find(".virtual-list"),items:r,searchAll:function(o,c){for(var u=[],p=0;p<c.length;p++)(c[p].title.toLowerCase().indexOf(o.toLowerCase())>=0||o.trim()==="")&&u.push(p);return u},renderItem(o){return`
           <li>
             <a href="/friends/${o.id}/" class="item-link item-content">
             <div class="item-profile item-media"><img src="${o.image}"
@@ -205,7 +205,7 @@ ${o.toString()}`)}return s&&(typeof s=="string"?l+=`?${s}`:Object.keys(s).length
       <div class="list virtual-list media-list searchbar-found friends-list inset"></div>
   </div>
 </div>
-`}}Bs.id="48e3281d2a";function Ds(n,{$f7route:e,$store:a}){const t=e.params.id,s=a.getters.currentFriend;async function r(){return await(await fetch("public/users.json")).json()}return r().then(i=>{a.state.currentFriend=i.results.filter(l=>l.login.md5===t)}),function(i){var l=i.$,o=i.$h,c=i.$root,u=i.$f7,p=i.$f7route,d=i.$f7router,h=i.$theme,f=i.$update,m=i.$store;return o`
+`}}Bs.id="65ab07e419";function Ds(n,{$f7route:e,$store:a}){const t=e.params.id,s=a.getters.currentFriend;async function r(){return await(await fetch("data/users.json")).json()}return r().then(i=>{a.state.currentFriend=i.results.filter(l=>l.login.md5===t)}),function(i){var l=i.$,o=i.$h,c=i.$root,u=i.$f7,p=i.$f7route,d=i.$f7router,h=i.$theme,f=i.$update,m=i.$store;return o`
 <div class="page" data-name="friends">
   <div class="navbar">
     <div class="navbar-bg"></div>
@@ -243,7 +243,7 @@ ${o.toString()}`)}return s&&(typeof s=="string"?l+=`?${s}`:Object.keys(s).length
   		</div>
   </div>
 </div>
-`}}Ds.id="5f987ca5cb";function Hs(n,{$store:e,$:a,$on:t}){const s=e.getters.plans;console.log(s);function r(l){const o=l.replace(/([A-Z])/g," $1");return o.charAt(0).toUpperCase()+o.slice(1)}const i={acceptedPlans:{selection:[]},invitedPlans:{selection:[]},declinedPlans:{selection:[]}};return s.value.forEach(l=>{l.attendance==="accepted"?i.acceptedPlans[l.status].push(l):l.attendance==="declined"?i.declinedPlans[l.status].push(l):i.invitedPlans[l.status].push(l)}),t("pageInit",()=>{a(".close-card").on("click",function(){this.closest(".intro-tutorial").classList.add("animate-collapse")})}),function(l){var o=l.$,c=l.$h,u=l.$root,p=l.$f7,d=l.$f7route,h=l.$f7router,f=l.$theme,m=l.$update,v=l.$store;return c`
+`}}Ds.id="b614424bef";function Hs(n,{$store:e,$:a,$on:t}){const s=e.getters.plans;function r(l){const o=l.replace(/([A-Z])/g," $1");return o.charAt(0).toUpperCase()+o.slice(1)}const i={confirmedPlans:{selection:[]},acceptedPlans:{selection:[]},invitedPlans:{selection:[]},declinedPlans:{selection:[]}};return s.value.forEach(l=>{l.attendance==="accepted"?i.acceptedPlans[l.status].push(l):l.attendance==="declined"?i.declinedPlans[l.status].push(l):l.attendance==="confirmed"?i.confirmedPlans[l.status].push(l):i.invitedPlans[l.status].push(l)}),t("pageInit",()=>{a(".close-card").on("click",function(){this.closest(".intro-tutorial").classList.add("animate-collapse")})}),function(l){var o=l.$,c=l.$h,u=l.$root,p=l.$f7,d=l.$f7route,h=l.$f7router,f=l.$theme,m=l.$update,v=l.$store;return c`
 <div class="page" data-name="plans">
   <div class="navbar">
     <div class="navbar-bg"></div>
@@ -283,7 +283,7 @@ ${o.toString()}`)}return s&&(typeof s=="string"?l+=`?${s}`:Object.keys(s).length
 			  			<li class="list-group-title">Status: ${_}</li>
 				      ${i[g][_].map(b=>c`
 				         <li class="item-link item-content item-repsonse-${g}">
-				         	<a class="item-blocklink" href="/plans/${b.id}/">
+				         	<a class="item-blocklink" href="/plans/${b.id}/${g==="confirmedPlans"?"confirmed/":""}">
 				         	<div class="item-inner">
 				         		<div class="item-profile item-media"><img src=${b.organizer.img} width="50" /></div>
 				         		<div class="item-title-details">
@@ -295,6 +295,9 @@ ${o.toString()}`)}return s&&(typeof s=="string"?l+=`?${s}`:Object.keys(s).length
 				         	</a>
 				         </li>
 				       `)}
+				       ${i[g][_].length===0&&c`
+					        	<li class="empty-state-listing"><p>You're all caught up. Nice work!</p></li>
+					      `}
 			      </ul>
 		  		</div>
 	  		</div>
@@ -305,7 +308,7 @@ ${o.toString()}`)}return s&&(typeof s=="string"?l+=`?${s}`:Object.keys(s).length
 	</div>
   </div>
 </div>
-`}}Hs.id="bdffad35e9";function Rs(){return function(n){var e=n.$,a=n.$h,t=n.$root,s=n.$f7,r=n.$f7route,i=n.$f7router,l=n.$theme,o=n.$update,c=n.$store;return a`
+`}}Hs.id="d1363f9d16";function Rs(){return function(n){var e=n.$,a=n.$h,t=n.$root,s=n.$f7,r=n.$f7route,i=n.$f7router,l=n.$theme,o=n.$update,c=n.$store;return a`
 <div class="page" data-name="form">
   <div class="navbar">
     <div class="navbar-bg"></div>
@@ -564,7 +567,7 @@ ${o.toString()}`)}return s&&(typeof s=="string"?l+=`?${s}`:Object.keys(s).length
     </div>
   </div>
 </div>
-`}}Rs.id="7af2895a19";function Ls(n,{$store:e}){const a=e.getters.favorites;return function(t){var s=t.$,r=t.$h,i=t.$root,l=t.$f7,o=t.$f7route,c=t.$f7router,u=t.$theme,p=t.$update,d=t.$store;return r`
+`}}Rs.id="5a3a57b5da";function Ls(n,{$store:e,$on:a,$:t}){const s=e.getters.favorites;return function(r){var i=r.$,l=r.$h,o=r.$root,c=r.$f7,u=r.$f7route,p=r.$f7router,d=r.$theme,h=r.$update,f=r.$store;return l`
   <div class="page" data-name="catalog">
     <div class="navbar">
       <div class="navbar-bg"></div>
@@ -575,14 +578,14 @@ ${o.toString()}`)}return s&&(typeof s=="string"?l+=`?${s}`:Object.keys(s).length
     <div class="page-content">
       <div class="list media-list inset">
         <ul>
-          ${a.value.map(h=>r`
+          ${s.value.map(m=>l`
             <li>
             	<div class="item-content">
             		<div class="item-dish item-media">
-            			<img src="${h.dishImg}"/>
+            			<img src="${m.dishImg}"/>
             		</div>
             		<div class="item-inner">
-            			${h.dishName} at ${h.dishLocation}
+            			${m.dishName} at ${m.dishLocation}
             		</div>
             		<div class="card-favorite little-favorite">
 							<i class="icon f7-icons if-not-md">heart_fill</i>
@@ -593,14 +596,16 @@ ${o.toString()}`)}return s&&(typeof s=="string"?l+=`?${s}`:Object.keys(s).length
           `)}
         </ul>
       </div>
-      ${a.value.length===0&&r`
+      ${s.value.length===0&&l`
         <div class="block">
-          <button class="button button-fill">No favorites yet</Button>
+        	<div class="block-title block-title-medium">No favorites yet!</div>
+        		<p>Add your favorites to a plan to get started.</p>
+          	<a href="#view-home" class="button button-fill simulate-tab">Browse plans</a>
         </div>
       `}
     </div>
   </div>
-`}}Ls.id="59f004da32";function zs(n,{$f7route:e,$store:a}){const t=a.getters.plans,s=a.getters.favorites,r=e.params.id;let i=0;return t.value.forEach(l=>{l.id===r&&(i=l)}),function(l){var o=l.$,c=l.$h,u=l.$root,p=l.$f7,d=l.$f7route,h=l.$f7router,f=l.$theme,m=l.$update,v=l.$store;return c`
+`}}Ls.id="05db299433";function zs(n,{$f7route:e,$store:a}){const t=a.getters.plans,s=a.getters.favorites,r=e.params.id;let i=0;return t.value.forEach(l=>{l.id===r&&(i=l)}),function(l){var o=l.$,c=l.$h,u=l.$root,p=l.$f7,d=l.$f7route,h=l.$f7router,f=l.$theme,m=l.$update,v=l.$store;return c`
   <div class="page" data-name="product">
     <div class="navbar">
       <div class="navbar-bg"></div>
@@ -711,7 +716,9 @@ ${o.toString()}`)}return s&&(typeof s=="string"?l+=`?${s}`:Object.keys(s).length
       <div class="block no-margin-top">
       	<a class="button button-small button-round display-inline-flex">Add a suggestion</a>
       </div>
-      <div class="block-title">New for you in this area</div>
+      ${s.value.length!==0&&c`
+        <div class="block-title">Your favorites in this area</div>
+      `}
       <div class="list media-list inset">
         <ul>
           ${s.value.map(g=>c`
@@ -730,7 +737,7 @@ ${o.toString()}`)}return s&&(typeof s=="string"?l+=`?${s}`:Object.keys(s).length
       </div>
     </div>
   </div>
-`}}zs.id="2881d048c8";function Fs(n,{$:e,$f7:a,$on:t,$f7route:s,$f7view:r,$store:i}){const l=i.getters.plans,o=i.getters.favorites,c=s.params.id;let u=0;return l.value.forEach(p=>{p.id===c&&(u=p)}),t("pageInit",p=>{e(".open-confirm").on("click",function(){a.dialog.confirm(`Once you confirm, your votes will be locked and ${u.organizer.name.first} will be notified that it's time to finalize the plan.`,"Are you sure?",function(d){d.app.views.main.router.navigate(`/plans/${c}/confirmed/`,{reloadCurrent:!1})})})}),function(p){var d=p.$,h=p.$h,f=p.$root,m=p.$f7,v=p.$f7route,g=p.$f7router,_=p.$theme,b=p.$update,w=p.$store;return h`
+`}}zs.id="ac50b72bf7";function Fs(n,{$:e,$f7:a,$on:t,$f7route:s,$f7view:r,$store:i}){const l=i.getters.plans,o=i.getters.favorites,c=s.params.id;let u=0;return l.value.forEach(p=>{p.id===c&&(u=p)}),t("pageInit",p=>{e(".open-confirm").on("click",function(){u.attendance="confirmed",console.log(u),a.dialog.confirm(`Once you confirm, your votes will be locked and ${u.organizer.name.first} will be notified that it's time to finalize the plan.`,"Are you sure?",function(d){d.app.views.main.router.navigate(`/plans/${c}/confirmed/`,{reloadCurrent:!1})})})}),function(p){var d=p.$,h=p.$h,f=p.$root,m=p.$f7,v=p.$f7route,g=p.$f7router,_=p.$theme,b=p.$update,w=p.$store;return h`
   <div class="page" data-name="product">
     <div class="navbar">
       <div class="navbar-bg"></div>
@@ -854,13 +861,13 @@ ${o.toString()}`)}return s&&(typeof s=="string"?l+=`?${s}`:Object.keys(s).length
       </div>
     </div>
   </div>
-`}}Fs.id="92ff52fe89";function Ns(n,{$:e,$f7:a,$on:t,$f7route:s,$store:r}){const i=r.getters.plans,l=r.getters.favorites,o=s.params.id;let c=0;return i.value.forEach(u=>{u.id===o&&(c=u)}),t("pageInit",()=>{e(".open-progress").on("click",function(){const u=a.dialog.progress("Adding to calendar...");setTimeout(function(){u.setProgress(100),u.setTitle("Success!")},2e3),setTimeout(function(){u.close()},2500)})}),function(u){var p=u.$,d=u.$h,h=u.$root,f=u.$f7,m=u.$f7route,v=u.$f7router,g=u.$theme,_=u.$update,b=u.$store;return d`
+`}}Fs.id="1508617fbe";function Ns(n,{$:e,$f7:a,$on:t,$f7route:s,$store:r}){const i=r.getters.plans,l=r.getters.favorites,o=s.params.id;let c=0;return i.value.forEach(u=>{u.id===o&&(c=u)}),t("pageInit",()=>{e(".open-progress").on("click",function(){const u=a.dialog.progress("Adding to calendar...");setTimeout(function(){u.setProgress(100),u.setTitle("Success!")},2e3),setTimeout(function(){u.close()},2500)})}),function(u){var p=u.$,d=u.$h,h=u.$root,f=u.$f7,m=u.$f7route,v=u.$f7router,g=u.$theme,_=u.$update,b=u.$store;return d`
   <div class="page" data-name="product">
     <div class="navbar">
       <div class="navbar-bg"></div>
       <div class="navbar-inner sliding">
         <div class="left">
-          <a href="/plans/" class="link back">
+          <a href="/plans/" data-force="true" data-ignore-cache="true" class="link back">
             <i class="icon icon-back"></i>
             <span class="if-not-md">Plans</span>
           </a>
@@ -940,7 +947,7 @@ ${o.toString()}`)}return s&&(typeof s=="string"?l+=`?${s}`:Object.keys(s).length
       </div>
     </div>
   </div>
-`}}Ns.id="a40e49aee0";const ap=["beyond burger","impossible burger","vegetarian"],np=["chicken","burger","bacon","beef","lamb","bone-in","pork","wings","prosciutto","tuna","lobster","oyster","fish","meat","pepperoni","poke","salmon","steak"],sp=["vegan"],rp=["eggs","egg","omelet","bene","cheese","yogurt","whip","pesto","mayo","feta","chocolate","queso","cream","tzatziki","honey","mozzarella"];function ip(n){return ap.some(e=>n.toLowerCase().indexOf(e)>=0)?!0:!np.some(e=>n.toLowerCase().indexOf(e)>=0)}function lp(n){return sp.some(e=>n.toLowerCase().indexOf(e)>=0)?!0:!rp.some(e=>n.toLowerCase().indexOf(e)>=0)}Ie.use([ds]);Oe.use([as,ns,ss,rs,is,ls,ps,da,bs,_s,ys,ws,$s,ks,Es,Cs,xs,Ts,Ss]);var op="assets/2021-08-02.2322a5be.jpg",cp="assets/2018-07-21.5e89485c.jpg",up="assets/index.ebc11e01.jpg";const nt=ia({state:{currentFriend:[{gender:"female",name:{title:"Ms",first:"Aino",last:"Paavola"},location:{street:{number:9192,name:"Hatanp\xE4\xE4n Valtatie"},city:"Laukaa",state:"Pirkanmaa",country:"Finland",postcode:52225,coordinates:{latitude:"-5.6445",longitude:"109.4961"},timezone:{offset:"-3:30",description:"Newfoundland"}},email:"aino.paavola@example.com",login:{uuid:"0ad5e269-7e2d-4008-b160-223ceed8689c",username:"angrycat220",password:"gramma",salt:"5i2aaIne",md5:"51e93225e7d6084babe8b1150111b6f9",sha1:"800e9510a5e811672c9819aaad633377afaad4d8",sha256:"9b39fe6570699714dfb1c8748f84f980d4b1cefeb998ad4e4a3e9e19ae68f356"},dob:{date:"1955-01-20T06:20:22.362Z",age:67},registered:{date:"2015-11-07T05:17:29.585Z",age:7},phone:"09-853-557",cell:"047-026-52-45",id:{name:"HETU",value:"NaNNA506undefined"},picture:{large:"https://randomuser.me/api/portraits/women/90.jpg",medium:"https://randomuser.me/api/portraits/med/women/90.jpg",thumbnail:"https://randomuser.me/api/portraits/thumb/women/90.jpg"},nat:"FI"}],currentLocation:[{location:{accepts_tips_in_store:!0,accepts_tips_on_delivery:!0,accepts_tips_on_pickup:!0,additional_hours_text:null,categories:[46],category_names:["Other"],curbside_pickup_instructions:null,delivery_fee_amount:null,delivery_menu_url:"https://api.thelevelup.com/v15/order_ahead/menus/42811293?fulfillment_type=delivery",delivery_minimum_amount:0,delivery_time_estimate_in_minutes:null,extended_address:null,facebook_url:null,fulfillment_types:["delivery","pickup"],hours:`Store Hours:
+`}}Ns.id="c9ad43e6be";const ap=["beyond burger","impossible burger","vegetarian"],np=["chicken","burger","bacon","beef","lamb","bone-in","pork","wings","prosciutto","tuna","lobster","oyster","fish","meat","pepperoni","poke","salmon","steak"],sp=["vegan"],rp=["eggs","egg","omelet","bene","cheese","yogurt","whip","pesto","mayo","feta","chocolate","queso","cream","tzatziki","honey","mozzarella"];function ip(n){return ap.some(e=>n.toLowerCase().indexOf(e)>=0)?!0:!np.some(e=>n.toLowerCase().indexOf(e)>=0)}function lp(n){return sp.some(e=>n.toLowerCase().indexOf(e)>=0)?!0:!rp.some(e=>n.toLowerCase().indexOf(e)>=0)}Ie.use([ds]);Oe.use([as,ns,ss,rs,is,ls,ps,da,bs,_s,ys,ws,$s,ks,Es,Cs,xs,Ts,Ss]);var op="assets/2021-08-02.2322a5be.jpg",cp="assets/2018-07-21.5e89485c.jpg",up="assets/index.ebc11e01.jpg";const nt=ia({state:{currentFriend:[{gender:"female",name:{title:"Ms",first:"Aino",last:"Paavola"},location:{street:{number:9192,name:"Hatanp\xE4\xE4n Valtatie"},city:"Laukaa",state:"Pirkanmaa",country:"Finland",postcode:52225,coordinates:{latitude:"-5.6445",longitude:"109.4961"},timezone:{offset:"-3:30",description:"Newfoundland"}},email:"aino.paavola@example.com",login:{uuid:"0ad5e269-7e2d-4008-b160-223ceed8689c",username:"angrycat220",password:"gramma",salt:"5i2aaIne",md5:"51e93225e7d6084babe8b1150111b6f9",sha1:"800e9510a5e811672c9819aaad633377afaad4d8",sha256:"9b39fe6570699714dfb1c8748f84f980d4b1cefeb998ad4e4a3e9e19ae68f356"},dob:{date:"1955-01-20T06:20:22.362Z",age:67},registered:{date:"2015-11-07T05:17:29.585Z",age:7},phone:"09-853-557",cell:"047-026-52-45",id:{name:"HETU",value:"NaNNA506undefined"},picture:{large:"https://randomuser.me/api/portraits/women/90.jpg",medium:"https://randomuser.me/api/portraits/med/women/90.jpg",thumbnail:"https://randomuser.me/api/portraits/thumb/women/90.jpg"},nat:"FI"}],currentLocation:[{location:{accepts_tips_in_store:!0,accepts_tips_on_delivery:!0,accepts_tips_on_pickup:!0,additional_hours_text:null,categories:[46],category_names:["Other"],curbside_pickup_instructions:null,delivery_fee_amount:null,delivery_menu_url:"https://api.thelevelup.com/v15/order_ahead/menus/42811293?fulfillment_type=delivery",delivery_minimum_amount:0,delivery_time_estimate_in_minutes:null,extended_address:null,facebook_url:null,fulfillment_types:["delivery","pickup"],hours:`Store Hours:
 Mon-Tue: Closed
 Wed-Thu: 11:00am - 7:45pm
 Fri-Sat: 11:00am - 8:30pm
@@ -955,7 +962,7 @@ Pickup Hours:
 Mon: 11:00am - 7:45pm
 Wed-Thu: 11:00am - 7:45pm
 Fri-Sat: 11:00am - 8:30pm
-Sun: 11:00am - 7:45pm`,id:"100489",image_url:null,in_store_menu_url:null,latitude:42.441178,locality:"Melrose",location_attributes:{},longitude:-71.06816,menu_url:null,merchant_id:410569,merchant_description_html:"",merchant_description:null,merchant_name:"oceansushi",merchant_tip_preference:"no preference",name:"Taco Party",nearby_location_count:null,newsletter_url:null,open_state:"open",open_state_display:"open",opentable_url:null,phone:"(781) 388-9000",pickup_instructions:null,pickup_menu_url:"https://api.thelevelup.com/v15/order_ahead/menus/42811293?fulfillment_type=pickup",postal_code:"02176-6107",ready_time_estimate_in_minutes:null,region:"MA",street_address:"16 Oak Grove Ave",time_zone:"America/New_York",twitter_url:null,updated_at:"2022-05-20T04:36:13-04:00",yelp_url:null,shown:!0,supports_curbside_pickup:!1,supports_scheduling:!0}}],favorites:[{restaruantId:"100489",dishId:1,dishName:"Crispy Fried Tofu Taco",dishLocation:"Taco Party",dishImg:"https://www.tacopartytruck.com/tacopress/wp-content/uploads/2016/11/taco_tofu-600x600.png"},{restaruantId:"100489",dishId:2,dishName:"Torta",dishLocation:"Taco Party",dishImg:"https://www.tacopartytruck.com/tacopress/wp-content/uploads/2016/11/torta-600x600.png"}],plans:[{id:"1",title:"Lunch in Ball Square",date:"Wednesday, May 22nd",organizer:{name:{first:"Ashley",last:"Kolodziej"},img:"https://randomuser.me/api/portraits/women/73.jpg"},attendance:"accepted",status:"selection",attendees:["https://via.placeholder.com/50x50","https://randomuser.me/api/portraits/women/73.jpg","https://randomuser.me/api/portraits/women/80.jpg"],restaurants:[{id:"100489",name:"Taco Party",description:"Taco truck with vegan and gluten-free options.",img:op,votes:[{userId:2,img:"https://randomuser.me/api/portraits/women/80.jpg",count:5},{userId:1,img:"https://randomuser.me/api/portraits/women/73.jpg",count:2}]},{id:"779661",name:"Tasty Mo:Mo",description:"Quick-serve, charity-minded eatery dishing out dumplings with spicy sauces & thali platters.",img:cp,votes:[{userId:1,img:"https://randomuser.me/api/portraits/women/73.jpg",count:6},{userId:2,img:"https://randomuser.me/api/portraits/women/80.jpg",count:5}]}],suggestions:[{id:"728388",name:"Mint Indian Eatery",description:"Quick-serve, charity-minded eatery dishing out dumplings with spicy sauces & thali platters.",img:up,recommender:{userId:1,img:"https://randomuser.me/api/portraits/women/73.jpg",name:"Ashley"}}]},{id:"2",title:"Draaaaaanks in Boston",date:"Undecided",organizer:{name:{first:"Ashley",last:"Kolodziej"},img:"https://randomuser.me/api/portraits/women/73.jpg"},attendance:"invited",status:"selection",attendees:["https://via.placeholder.com/50x50","https://randomuser.me/api/portraits/women/73.jpg","https://randomuser.me/api/portraits/women/80.jpg","https://randomuser.me/api/portraits/men/55.jpg","https://randomuser.me/api/portraits/women/22.jpg","https://randomuser.me/api/portraits/men/46.jpg","https://randomuser.me/api/portraits/women/55.jpg","https://randomuser.me/api/portraits/men/10.jpg","https://randomuser.me/api/portraits/men/15.jpg"]},{id:"3",title:"Jen's B-Day in Lake Ann",date:"Saturday, May 28th",organizer:{name:{first:"Ashley",last:"Kolodziej"},img:"https://randomuser.me/api/portraits/women/73.jpg"},attendance:"declined",status:"selection",attendees:["https://via.placeholder.com/50x50","https://randomuser.me/api/portraits/women/73.jpg","https://randomuser.me/api/portraits/women/80.jpg","https://randomuser.me/api/portraits/men/55.jpg","https://randomuser.me/api/portraits/women/22.jpg","https://randomuser.me/api/portraits/men/46.jpg","https://randomuser.me/api/portraits/women/55.jpg","https://randomuser.me/api/portraits/men/10.jpg","https://randomuser.me/api/portraits/men/15.jpg","https://randomuser.me/api/portraits/women/73.jpg","https://randomuser.me/api/portraits/women/80.jpg","https://randomuser.me/api/portraits/men/55.jpg","https://randomuser.me/api/portraits/women/22.jpg","https://randomuser.me/api/portraits/men/46.jpg","https://randomuser.me/api/portraits/women/55.jpg","https://randomuser.me/api/portraits/men/10.jpg","https://randomuser.me/api/portraits/men/15.jpg"]}]},getters:{favorites({state:n}){return n.favorites},plans({state:n}){return n.plans},currentFriend({state:n}){return n.currentFriend},currentLocation({state:n}){return n.currentLocation}},actions:{addProduct({state:n},e){n.favorites=[...n.favorites,e]},addPlan({state:n},e){n.plans=[...n.plans,e]},addLocation({state:n},e){n.currentLocation=[...e]}}});function pp(n){const a=n.target.closest(".swiper-slide");if(a){const t=a.querySelector(".icon");if(t===null)return;t.textContent=t.textContent==="heart_fill"?"heart":"heart_fill";const s=Te({},a.dataset);nt.state.favorites.some(i=>i.dishId===s.dishId)?nt.state.favorites=nt.state.favorites.filter(i=>i.dishId!==s.dishId):nt.state.favorites=[...nt.state.favorites,s]}}function dp(){document.body.addEventListener("click",pp)}const fp=[{location:{accepts_tips_in_store:!0,accepts_tips_on_delivery:!0,accepts_tips_on_pickup:!0,additional_hours_text:null,categories:[46],category_names:["Other"],curbside_pickup_instructions:null,delivery_fee_amount:null,delivery_menu_url:"https://api.thelevelup.com/v15/order_ahead/menus/42811293?fulfillment_type=delivery",delivery_minimum_amount:0,delivery_time_estimate_in_minutes:null,extended_address:null,facebook_url:null,fulfillment_types:["delivery","pickup"],hours:`Store Hours:
+Sun: 11:00am - 7:45pm`,id:"100489",image_url:null,in_store_menu_url:null,latitude:42.441178,locality:"Melrose",location_attributes:{},longitude:-71.06816,menu_url:null,merchant_id:410569,merchant_description_html:"",merchant_description:null,merchant_name:"oceansushi",merchant_tip_preference:"no preference",name:"Taco Party",nearby_location_count:null,newsletter_url:null,open_state:"open",open_state_display:"open",opentable_url:null,phone:"(781) 388-9000",pickup_instructions:null,pickup_menu_url:"https://api.thelevelup.com/v15/order_ahead/menus/42811293?fulfillment_type=pickup",postal_code:"02176-6107",ready_time_estimate_in_minutes:null,region:"MA",street_address:"16 Oak Grove Ave",time_zone:"America/New_York",twitter_url:null,updated_at:"2022-05-20T04:36:13-04:00",yelp_url:null,shown:!0,supports_curbside_pickup:!1,supports_scheduling:!0}}],favorites:[],plans:[{id:"1",title:"Lunch in Ball Square",date:"Wednesday, May 22nd",organizer:{name:{first:"Ashley",last:"Kolodziej"},img:"https://randomuser.me/api/portraits/women/73.jpg"},attendance:"accepted",status:"selection",attendees:["https://via.placeholder.com/50x50","https://randomuser.me/api/portraits/women/73.jpg","https://randomuser.me/api/portraits/women/80.jpg"],restaurants:[{id:"100489",name:"Taco Party",description:"Taco truck with vegan and gluten-free options.",img:op,votes:[{userId:2,img:"https://randomuser.me/api/portraits/women/80.jpg",count:5},{userId:1,img:"https://randomuser.me/api/portraits/women/73.jpg",count:2}]},{id:"779661",name:"Tasty Mo:Mo",description:"Quick-serve, charity-minded eatery dishing out dumplings with spicy sauces & thali platters.",img:cp,votes:[{userId:1,img:"https://randomuser.me/api/portraits/women/73.jpg",count:6},{userId:2,img:"https://randomuser.me/api/portraits/women/80.jpg",count:5}]}],suggestions:[{id:"728388",name:"Mint Indian Eatery",description:"Quick-serve, charity-minded eatery dishing out dumplings with spicy sauces & thali platters.",img:up,recommender:{userId:1,img:"https://randomuser.me/api/portraits/women/73.jpg",name:"Ashley"}}]},{id:"2",title:"Draaaaaanks in Boston",date:"Undecided",organizer:{name:{first:"Ashley",last:"Kolodziej"},img:"https://randomuser.me/api/portraits/women/73.jpg"},attendance:"declined",status:"selection",attendees:["https://via.placeholder.com/50x50","https://randomuser.me/api/portraits/women/73.jpg","https://randomuser.me/api/portraits/women/80.jpg","https://randomuser.me/api/portraits/men/55.jpg","https://randomuser.me/api/portraits/women/22.jpg","https://randomuser.me/api/portraits/men/46.jpg","https://randomuser.me/api/portraits/women/55.jpg","https://randomuser.me/api/portraits/men/10.jpg","https://randomuser.me/api/portraits/men/15.jpg"]},{id:"3",title:"Jen's B-Day in Lake Ann",date:"Saturday, May 28th",organizer:{name:{first:"Ashley",last:"Kolodziej"},img:"https://randomuser.me/api/portraits/women/73.jpg"},attendance:"declined",status:"selection",attendees:["https://via.placeholder.com/50x50","https://randomuser.me/api/portraits/women/73.jpg","https://randomuser.me/api/portraits/women/80.jpg","https://randomuser.me/api/portraits/men/55.jpg","https://randomuser.me/api/portraits/women/22.jpg","https://randomuser.me/api/portraits/men/46.jpg","https://randomuser.me/api/portraits/women/55.jpg","https://randomuser.me/api/portraits/men/10.jpg","https://randomuser.me/api/portraits/men/15.jpg","https://randomuser.me/api/portraits/women/73.jpg","https://randomuser.me/api/portraits/women/80.jpg","https://randomuser.me/api/portraits/men/55.jpg","https://randomuser.me/api/portraits/women/22.jpg","https://randomuser.me/api/portraits/men/46.jpg","https://randomuser.me/api/portraits/women/55.jpg","https://randomuser.me/api/portraits/men/10.jpg","https://randomuser.me/api/portraits/men/15.jpg"]}]},getters:{favorites({state:n}){return n.favorites},plans({state:n}){return n.plans},currentFriend({state:n}){return n.currentFriend},currentLocation({state:n}){return n.currentLocation}},actions:{addProduct({state:n},e){n.favorites=[...n.favorites,e]},addPlan({state:n},e){n.plans=[...n.plans,e]},addLocation({state:n},e){n.currentLocation=[...e]}}});function pp(n){const a=n.target.closest(".swiper-slide");if(a){const t=a.querySelector(".icon");if(t===null)return;t.textContent=t.textContent==="heart_fill"?"heart":"heart_fill";const s=Te({},a.dataset);nt.state.favorites.some(i=>i.dishId===s.dishId)?nt.state.favorites=nt.state.favorites.filter(i=>i.dishId!==s.dishId):nt.state.favorites=[...nt.state.favorites,s]}}function dp(){document.body.addEventListener("click",pp)}const fp=[{location:{accepts_tips_in_store:!0,accepts_tips_on_delivery:!0,accepts_tips_on_pickup:!0,additional_hours_text:null,categories:[46],category_names:["Other"],curbside_pickup_instructions:null,delivery_fee_amount:null,delivery_menu_url:"https://api.thelevelup.com/v15/order_ahead/menus/42811293?fulfillment_type=delivery",delivery_minimum_amount:0,delivery_time_estimate_in_minutes:null,extended_address:null,facebook_url:null,fulfillment_types:["delivery","pickup"],hours:`Store Hours:
 Mon-Tue: Closed
 Wed-Thu: 11:00am - 7:45pm
 Fri-Sat: 11:00am - 8:30pm
@@ -1678,7 +1685,7 @@ Sun: 12:30pm - 8:30pm`,id:"797933",image_url:null,in_store_menu_url:null,latitud
     <div class="page-content" id="menu-swipers">
     </div>
   </div>
-`}}Vs.id="10a2d51fce";function Ys(){return function(n){var e=n.$,a=n.$h,t=n.$root,s=n.$f7,r=n.$f7route,i=n.$f7router,l=n.$theme,o=n.$update,c=n.$store;return a`
+`}}Vs.id="4c1c38a786";function Ys(){return function(n){var e=n.$,a=n.$h,t=n.$root,s=n.$f7,r=n.$f7route,i=n.$f7router,l=n.$theme,o=n.$update,c=n.$store;return a`
 <div class="page" data-name="settings">
   <div class="navbar">
     <div class="navbar-bg"></div>
@@ -1769,7 +1776,7 @@ Sun: 12:30pm - 8:30pm`,id:"797933",image_url:null,in_store_menu_url:null,latitud
     </div>
   </div>
 </div>
-`}}Ys.id="b38b8b1efc";function ga(n,{$f7:e,$on:a,$onBeforeMount:t,$onMounted:s,$onBeforeUnmount:r,$onUnmounted:i}){let l="Jimmy",o=25,c=["Tennis","Chess","Football"];const u=()=>{e.dialog.alert("Hello World")};return t(()=>{console.log("onBeforeMount")}),s(()=>{console.log("onMounted")}),r(()=>{console.log("onBeforeUnmount")}),i(()=>{console.log("onUnmounted")}),a("pageMounted",(p,d)=>{console.log("pageMounted",d)}),a("pageInit",(p,d)=>{console.log("pageInit",d)}),a("pageBeforeIn",(p,d)=>{console.log("pageBeforeIn",d)}),a("pageAfterIn",(p,d)=>{console.log("pageAfterIn",d)}),a("pageBeforeOut",(p,d)=>{console.log("pageBeforeOut",d)}),a("pageAfterOut",(p,d)=>{console.log("pageAfterOut",d)}),a("pageBeforeRemove",(p,d)=>{console.log("pageBeforeRemove",d)}),function(p){var d=p.$,h=p.$h,f=p.$root,m=p.$f7,v=p.$f7route,g=p.$f7router,_=p.$theme,b=p.$update,w=p.$store;return h`
+`}}Ys.id="37627f3efe";function ga(n,{$f7:e,$on:a,$onBeforeMount:t,$onMounted:s,$onBeforeUnmount:r,$onUnmounted:i}){let l="Jimmy",o=25,c=["Tennis","Chess","Football"];const u=()=>{e.dialog.alert("Hello World")};return t(()=>{console.log("onBeforeMount")}),s(()=>{console.log("onMounted")}),r(()=>{console.log("onBeforeUnmount")}),i(()=>{console.log("onUnmounted")}),a("pageMounted",(p,d)=>{console.log("pageMounted",d)}),a("pageInit",(p,d)=>{console.log("pageInit",d)}),a("pageBeforeIn",(p,d)=>{console.log("pageBeforeIn",d)}),a("pageAfterIn",(p,d)=>{console.log("pageAfterIn",d)}),a("pageBeforeOut",(p,d)=>{console.log("pageBeforeOut",d)}),a("pageAfterOut",(p,d)=>{console.log("pageAfterOut",d)}),a("pageBeforeRemove",(p,d)=>{console.log("pageBeforeRemove",d)}),function(p){var d=p.$,h=p.$h,f=p.$root,m=p.$f7,v=p.$f7route,g=p.$f7router,_=p.$theme,b=p.$update,w=p.$store;return h`
   <div class="page">
     <div class="navbar">
       <div class="navbar-bg"></div>
@@ -1825,7 +1832,7 @@ Sun: 12:30pm - 8:30pm`,id:"797933",image_url:null,in_store_menu_url:null,latitud
       </div>
     </div>
   </div>
-`}}ga.id="89c28a716e";ga.style=`
+`}}ga.id="c734051669";ga.style=`
   p {
     margin: 10px 0;
   }
@@ -1856,7 +1863,7 @@ Sun: 12:30pm - 8:30pm`,id:"797933",image_url:null,in_store_menu_url:null,latitud
       </div>
     </div>
   </div>
-`}}qs.id="6fe61f0cc9";function Ws(){return function(n){var e=n.$,a=n.$h,t=n.$root,s=n.$f7,r=n.$f7route,i=n.$f7router,l=n.$theme,o=n.$update,c=n.$store;return a`
+`}}qs.id="d777b2eb4b";function Ws(){return function(n){var e=n.$,a=n.$h,t=n.$root,s=n.$f7,r=n.$f7route,i=n.$f7router,l=n.$theme,o=n.$update,c=n.$store;return a`
 <div class="page">
   <div class="navbar">
     <div class="navbar-bg"></div>
@@ -1877,7 +1884,7 @@ Sun: 12:30pm - 8:30pm`,id:"797933",image_url:null,in_store_menu_url:null,latitud
     </div>
   </div>
 </div>
-`}}Ws.id="3ce4fe3bef";var hp=[{path:"/",component:Hs},{path:"/friends/",component:Bs},{path:"/friends/:id/",component:Ds},{path:"/form/",component:Rs},{path:"/favorites/",component:Ls},{path:"/plans/:id/",component:zs},{path:"/plans/:id/vote/",component:Fs},{path:"/plans/:id/confirmed/",component:Ns},{path:"/menu/:id/",component:Vs},{path:"/settings/",component:Ys},{path:"/dynamic-route/blog/:blogId/post/:postId/",component:ga},{path:"/request-and-load/user/:userId/",async:function({router:n,to:e,resolve:a}){var t=n.app;t.preloader.show();var s=e.params.userId;setTimeout(function(){var r={firstName:"Vladimir",lastName:"Kharlampidi",about:"Hello, i am creator of Framework7! Hope you like it!",links:[{title:"Framework7 Website",url:"http://framework7.io"},{title:"Framework7 Forum",url:"http://forum.framework7.io"}]};t.preloader.hide(),a({component:qs},{props:{user:r}})},1e3)}},{path:"(.*)",component:Ws}],js="assets/5cb0633d80f2cf201a4c3253.52ed667f.png";console.log(js);function Xs(n,{$f7:e,$update:a,$on:t}){let s="",r="";const i=c=>{s=c.target.value,a()},l=c=>{r=c.target.value,a()},o=()=>{e.dialog.alert("Username: "+s+"<br/>Password: "+r,()=>{e.loginScreen.close()})};return t("pageInit",()=>{const c=document.createElement("img");c.id="phone-frame",c.src=js,console.log(c),document.querySelector("#phone-frame")===null&&document.body.appendChild(c)}),function(c){var u=c.$,p=c.$h,d=c.$root,h=c.$f7,f=c.$f7route,m=c.$f7router,v=c.$theme,g=c.$update,_=c.$store;return p`
+`}}Ws.id="22b47f1c68";var hp=[{path:"/plans/",component:Hs},{path:"/friends/",component:Bs},{path:"/friends/:id/",component:Ds},{path:"/form/",component:Rs},{path:"/favorites/",component:Ls},{path:"/plans/:id/",component:zs},{path:"/plans/:id/vote/",component:Fs},{path:"/plans/:id/confirmed/",component:Ns},{path:"/menu/:id/",component:Vs},{path:"/settings/",component:Ys},{path:"/dynamic-route/blog/:blogId/post/:postId/",component:ga},{path:"/request-and-load/user/:userId/",async:function({router:n,to:e,resolve:a}){var t=n.app;t.preloader.show();var s=e.params.userId;setTimeout(function(){var r={firstName:"Vladimir",lastName:"Kharlampidi",about:"Hello, i am creator of Framework7! Hope you like it!",links:[{title:"Framework7 Website",url:"http://framework7.io"},{title:"Framework7 Forum",url:"http://forum.framework7.io"}]};t.preloader.hide(),a({component:qs},{props:{user:r}})},1e3)}},{path:"(.*)",component:Ws}],js="assets/5cb0633d80f2cf201a4c3253.52ed667f.png";console.log(js);function Xs(n,{$f7:e,$update:a,$on:t,$:s}){let r="",i="";const l=u=>{r=u.target.value,a()},o=u=>{i=u.target.value,a()},c=()=>{e.dialog.alert("Username: "+r+"<br/>Password: "+i,()=>{e.loginScreen.close()})};return t("pageInit",()=>{const u=document.createElement("img");u.id="phone-frame",u.src=js,console.log(u),document.querySelector("#phone-frame")===null&&document.body.appendChild(u),s(document).on("click",".simulate-tab",function(p){var d=s(this).attr("href"),h=s(`.tab-link[href="${d}"]`);h.click()})}),function(u){var p=u.$,d=u.$h,h=u.$root,f=u.$f7,m=u.$f7route,v=u.$f7router,g=u.$theme,_=u.$update,b=u.$store;return d`
   <div id="app">
 
     <!-- Left panel with cover effect-->
@@ -1947,7 +1954,7 @@ Sun: 12:30pm - 8:30pm`,id:"797933",image_url:null,in_store_menu_url:null,latitud
       </div>
 
       <!-- Your main view/tab, should have "view-main" class. It also has "tab-active" class -->
-      <div id="view-home" class="view view-main view-init tab tab-active" data-url="/">
+      <div id="view-home" class="view view-main view-init tab tab-active" data-url="/plans/">
         <!-- Home page will be loaded here dynamically from / route -->
       </div>
 
@@ -2007,7 +2014,7 @@ Sun: 12:30pm - 8:30pm`,id:"797933",image_url:null,in_store_menu_url:null,latitud
                   <div class="item-inner">
                     <div class="item-title item-label">Username</div>
                     <div class="item-input-wrap">
-                      <input type="text" name="username" placeholder="Your username" value="${s}" @input="${i}"/>
+                      <input type="text" name="username" placeholder="Your username" value="${r}" @input="${l}"/>
 
                     </div>
                   </div>
@@ -2016,7 +2023,7 @@ Sun: 12:30pm - 8:30pm`,id:"797933",image_url:null,in_store_menu_url:null,latitud
                   <div class="item-inner">
                     <div class="item-title item-label">Password</div>
                     <div class="item-input-wrap">
-                      <input type="password" name="password" placeholder="Your password" value="${r}" @input="${l}"/>
+                      <input type="password" name="password" placeholder="Your password" value="${i}" @input="${o}"/>
 
                     </div>
                   </div>
@@ -2026,7 +2033,7 @@ Sun: 12:30pm - 8:30pm`,id:"797933",image_url:null,in_store_menu_url:null,latitud
             <div class="list">
               <ul>
                 <li>
-                  <a href="#" class="item-link list-button login-button" @click="${o}">Sign In</a>
+                  <a href="#" class="item-link list-button login-button" @click="${c}">Sign In</a>
 
                 </li>
               </ul>
@@ -2037,4 +2044,4 @@ Sun: 12:30pm - 8:30pm`,id:"797933",image_url:null,in_store_menu_url:null,latitud
       </div>
     </div>
   </div>
-`}}Xs.id="8d9a789dd0";const vp=new Oe({name:"Lets Get Lunch!",theme:"ios",el:"#app",component:Xs,store:nt,routes:hp});
+`}}Xs.id="daab0abd46";const vp=new Oe({name:"Lets Get Lunch!",theme:"ios",el:"#app",component:Xs,store:nt,routes:hp});
