@@ -138,9 +138,8 @@
 
     $on('pageInit', (self) => {
     	$('.open-confirm').on('click', function () {
-    		currentPlan.attendance = 'confirmed';
-    		console.log(currentPlan)
         $f7.dialog.confirm(`Once you confirm, your votes will be locked and ${currentPlan.organizer.name.first} will be notified that it's time to finalize the plan.`, 'Are you sure?', function (self) {
+          currentPlan.attendance = 'confirmed';
           self.app.views.main.router.navigate(`/plans/${planId}/confirmed/`, {reloadCurrent: false});
           $('.attendance-badge').remove();
           $('.new-badge').remove();

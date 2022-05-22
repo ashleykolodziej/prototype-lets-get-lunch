@@ -39,10 +39,12 @@
 	      <div class="progressbar color-multi" data-progress="25">
 			  <span></span>
 			</div>
-			<p>You're in! ${currentPlan.organizer.name.first} wants to know what sounds good to you in Somerville. Add your favorites below, then let her know you're ready to vote.</p>
-			<a href="/plans/${planId}/vote/" class="button">I'm ready, let's vote!</a>
+			<p>You're in! ${currentPlan.organizer.name.first} wants to know what sounds good to you in Somerville. Add your favorites and let her know you're ready to vote below.</p>
+			${favorites.value.length !== 0 && $h`
+	        <a href="/plans/${planId}/vote/" class="button">I'm ready, let's vote!</a>
+	      `}
       </div>
-      <div class="block-title">Group favorites</div>
+      <div class="block-title block-title-medium">Up for voting</div>
       <div class="block">
       <div
       	class="swiper swiper-init group-favorites"
@@ -70,7 +72,7 @@
 							   )}
 					        </div>
             			<p class="item-subtitle">${favorite.description}</p>
-            			<a class="button button-small button-round button-fill display-inline-flex" href="/menu/${favorite.id}/">Browse menu</a>
+            			<a class="button button-small button-round button-fill display-inline-flex" href="/menu/${favorite.id}/">Add favorites</a>
             		</div>
             	</div>
             	</div>
@@ -81,7 +83,8 @@
         <div class="swiper-pagination"></div>
       </div>
       </div>
-      <div class="block-title">Group suggestions</div>
+      <div class="block-title block-title-medium">Runner-ups</div>
+      <p class="block">Get these restaurants in the running by faving at least one dish.</p>
       <div class="list media-list inset margin-bottom">
         <ul>
           ${currentPlan.suggestions.map((favorite) => $h`
@@ -95,7 +98,7 @@
             			<div class="item-title">${favorite.name} <span class="badge color-orange">New</span></div>
             			<div class="item-subtitle">${favorite.description}</div>
             			<div class="chip chip-outline thing">
-					          <span>Recommended by ${favorite.recommender.name}</span>
+					          <span>Suggested by ${favorite.recommender.name}</span>
 					          <div class="chip-media">
 					            <img src="${favorite.recommender.img}" />
 					          </div>
@@ -108,32 +111,41 @@
         </ul>
       </div>
       <div class="block no-margin-top">
-      	<a class="button button-small button-round display-inline-flex">Add a suggestion</a>
+      	<a class="button button-small button-round display-inline-flex">Suggest a restaurant</a>
       </div>
+      <div class="block-title">Your favorites</div>
       ${favorites.value.length !== 0 && $h`
-        <div class="block-title">Your favorites in this area</div>
+         <div class="list media-list inset">
+	        <ul>
+	          ${favorites.value.map((favorite) => $h`
+	            <li>
+	            	<div class="item-content">
+	            		<div class="item-dish item-media">
+	            			<img src="${favorite.dishImg}"/>
+	            		</div>
+	            		<div class="item-inner">
+	            			${favorite.dishName} at ${favorite.dishLocation}
+	            		</div>
+	            	</div>
+	            </li>
+	          `)}
+	        </ul>
+	      </div>
+	      <div class="block fave-confirm">
+	      	<p>Nice work! If you like what you see, start voting.</p>
+	      	<a href="/plans/${planId}/vote/" class="button button-outline">I'm ready, let's vote!</a>
+	      </div>
       `}
-      <div class="list media-list inset">
-        <ul>
-          ${favorites.value.map((favorite) => $h`
-            <li>
-            	<div class="item-content">
-            		<div class="item-dish item-media">
-            			<img src="${favorite.dishImg}"/>
-            		</div>
-            		<div class="item-inner">
-            			${favorite.dishName} at ${favorite.dishLocation}
-            		</div>
-            	</div>
-            </li>
-          `)}
-        </ul>
-      </div>
+      ${favorites.value.length === 0 && $h`
+        	<div class="block no-margin-top fave-confirm">
+      		Add some favorites from the menus above or suggest a new restaurant to continue.
+      	</div>
+      `}
     </div>
   </div>
 </template>
 <script>
-  export default (props, { $f7route, $store }) => {
+  export default (props, { $f7route, $store, $on, $ }) => {
     const plans = $store.getters.plans;
     const favorites = $store.getters.favorites;
     const planId = $f7route.params.id;

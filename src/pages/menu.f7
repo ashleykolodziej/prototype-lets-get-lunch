@@ -18,6 +18,13 @@
 
     <!-- Scrollable page content-->
     <div class="page-content" id="menu-swipers">
+    <div class="block">
+    	<div class="chip">
+    		<div class="chip-label">
+    			Filtered by vegetarian
+    		</div>
+    	</div>
+    </div>
     </div>
   </div>
 </template>
@@ -73,6 +80,8 @@
 					loop: false
 				});
 
+  				let slideCount = 0;
+
   				for ( const dish of item.category.items ) {
   					const img = dish.item.image_url,
   							name = dish.item.name,
@@ -95,6 +104,8 @@
 						if (!isVeg) {
 							return;
 						}
+
+						slideCount++;
 
 						swiper.appendSlide(`<div
 								data-restaruant-id="${menuId}"
@@ -128,8 +139,10 @@
   					}
 	  			}
 
-	  			content.appendChild(title);
-	  			content.appendChild(swiper.el);
+	  			if (slideCount > 0) {
+	  				content.appendChild(title);
+	  				content.appendChild(swiper.el);
+	  			}
   			});
   		})
   	});
@@ -138,7 +151,8 @@
   		const foundLocation = locationLookup(menuId);
 	    $store.dispatch('addLocation', foundLocation);
 	    locationStore = $store.getters.currentLocation;
-    	addFavoriteListeners();
+    	 const planId = 0;
+    	 addFavoriteListeners(planId, menuId);
     });
 
     return $render;

@@ -48,7 +48,6 @@
       <div class="block margin-top">
       <div
       	class="swiper swiper-init group-favorites"
-      	data-pagination='{"el": ".swiper-pagination"}'
       	data-space-between="40"
       >
         <div class="swiper-wrapper">
