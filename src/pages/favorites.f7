@@ -29,15 +29,23 @@
       </div>
       ${favorites.value.length === 0 && $h`
         <div class="block">
-          <button class="button button-fill">No favorites yet</Button>
+        	<div class="block-title block-title-medium">No favorites yet!</div>
+        		<p>Add your favorites to a plan to get started.</p>
+          	<a href="#view-home" class="button button-fill simulate-tab">Browse plans</a>
         </div>
       `}
     </div>
   </div>
 </template>
 <script>
-  export default (props, { $store }) => {
+  export default (props, { $store, $on, $ }) => {
     const favorites = $store.getters.favorites;
+
+    $(document).on('click', '.simulate-tab', function (e) {
+	  var hrefSelector = $(this).attr('href');
+	  var $tab = $(`.tab-link[href="${hrefSelector}"]`);
+	  $tab.click();
+	});
 
     return $render;
   }

@@ -120,20 +120,7 @@ const store = createStore({
 			"supports_scheduling": true
 		}
 	},],
-	favorites: [{
-			restaruantId: '100489',
-			dishId: 1,
-			dishName: 'Crispy Fried Tofu Taco',
-			dishLocation: 'Taco Party',
-			dishImg: 'https://www.tacopartytruck.com/tacopress/wp-content/uploads/2016/11/taco_tofu-600x600.png'
-		},
-		{
-			restaruantId: '100489',
-			dishId: 2,
-			dishName: 'Torta',
-			dishLocation: 'Taco Party',
-			dishImg: 'https://www.tacopartytruck.com/tacopress/wp-content/uploads/2016/11/torta-600x600.png'
-		}],
+	favorites: [],
    plans: [{
 			id: '1',
 			title: 'Lunch in Ball Square',
