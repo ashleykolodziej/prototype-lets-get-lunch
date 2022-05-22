@@ -38,7 +38,7 @@
 			  			<li class="list-group-title">Status: ${status}</li>
 				      ${plansByAttendance[response][status].map((plan) => $h`
 				         <li class="item-link item-content item-repsonse-${response}">
-				         	<a class="item-blocklink" href="/plans/${plan.id}/">
+				         	<a class="item-blocklink" href="/plans/${plan.id}/${response === 'confirmedPlans' ? `confirmed/`:``}">
 				         	<div class="item-inner">
 				         		<div class="item-profile item-media"><img src=${plan.organizer.img} width="50" /></div>
 				         		<div class="item-title-details">
@@ -67,7 +67,6 @@
 <script>
 	export default (props, { $store, $, $on }) => {
     const plans = $store.getters.plans;
-    console.log(plans)
 
     function camelToTitle(str) {
 		const result = str.replace(/([A-Z])/g, " $1");
@@ -75,6 +74,9 @@
     }
 
     const plansByAttendance = {
+		confirmedPlans: {
+			selection: []
+		},
 		acceptedPlans: {
 			selection: []
 		},
@@ -91,6 +93,8 @@
 			plansByAttendance['acceptedPlans'][plan.status].push(plan);
       } else if (plan.attendance === 'declined') {
 			plansByAttendance['declinedPlans'][plan.status].push(plan);
+      } else if (plan.attendance === 'confirmed') {
+			plansByAttendance['confirmedPlans'][plan.status].push(plan);
       } else {
       	plansByAttendance['invitedPlans'][plan.status].push(plan);
       }
