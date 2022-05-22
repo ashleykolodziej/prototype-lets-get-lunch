@@ -50,6 +50,9 @@
 				         	</a>
 				         </li>
 				       `)}
+				       ${plansByAttendance[response][status].length === 0 && $h`
+					        	<li class="empty-state-listing"><p>You're all caught up. Nice work!</p></li>
+					      `}
 			      </ul>
 		  		</div>
 	  		</div>

@@ -25,8 +25,8 @@ var routes = [
    }
   },*/
   {
-    // path: '/plans/',
-    path: '/',
+    path: '/plans/',
+    //path: '/',
     component: PlanListingPage,
   },
   {

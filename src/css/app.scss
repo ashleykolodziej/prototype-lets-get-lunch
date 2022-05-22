@@ -235,3 +235,13 @@ div {
 .animate-collapse {
 	max-height: 0;
 }
+
+// Temporary
+.list-group-title {
+	display: none !important;
+}
+
+.empty-state-listing {
+	background-color: var(--f7-page-bg-color);
+	color: var(--f7-color-gray)
+}

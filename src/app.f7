@@ -68,7 +68,7 @@
       </div>
 
       <!-- Your main view/tab, should have "view-main" class. It also has "tab-active" class -->
-      <div id="view-home" class="view view-main view-init tab tab-active" data-url="/">
+      <div id="view-home" class="view view-main view-init tab tab-active" data-url="/plans/">
         <!-- Home page will be loaded here dynamically from / route -->
       </div>
 
@@ -162,7 +162,7 @@
 <script>
 	import frameUrl from './assets/5cb0633d80f2cf201a4c3253.png';
 	console.log(frameUrl);
-  export default (props, { $f7, $update, $on }) => {
+  export default (props, { $f7, $update, $on, $ }) => {
     // Login screen demo data
     let username = '';
     let password = '';
@@ -189,6 +189,12 @@
     	if (null === document.querySelector('#phone-frame')) {
     		document.body.appendChild(frame);
     	}
+
+    	$(document).on('click', '.simulate-tab', function (e) {
+		  var hrefSelector = $(this).attr('href');
+		  var $tab = $(`.tab-link[href="${hrefSelector}"]`);
+		  $tab.click();
+		});
     });
 
     return $render;

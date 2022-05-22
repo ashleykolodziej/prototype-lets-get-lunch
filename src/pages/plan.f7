@@ -110,7 +110,9 @@
       <div class="block no-margin-top">
       	<a class="button button-small button-round display-inline-flex">Add a suggestion</a>
       </div>
-      <div class="block-title">New for you in this area</div>
+      ${favorites.value.length !== 0 && $h`
+        <div class="block-title">Your favorites in this area</div>
+      `}
       <div class="list media-list inset">
         <ul>
           ${favorites.value.map((favorite) => $h`

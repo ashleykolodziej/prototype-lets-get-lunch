@@ -40,13 +40,6 @@
 <script>
   export default (props, { $store, $on, $ }) => {
     const favorites = $store.getters.favorites;
-
-    $(document).on('click', '.simulate-tab', function (e) {
-	  var hrefSelector = $(this).attr('href');
-	  var $tab = $(`.tab-link[href="${hrefSelector}"]`);
-	  $tab.click();
-	});
-
     return $render;
   }
 

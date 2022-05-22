@@ -202,7 +202,7 @@ const store = createStore({
 				},
 				img: 'https://randomuser.me/api/portraits/women/73.jpg'
 			},
-			attendance: 'invited',
+			attendance: 'declined',
 			status: 'selection',
 			attendees: [
 				'https://via.placeholder.com/50x50',

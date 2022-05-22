@@ -4,7 +4,7 @@
       <div class="navbar-bg"></div>
       <div class="navbar-inner sliding">
         <div class="left">
-          <a href="/plans/" class="link back">
+          <a href="/plans/" data-force="true" data-ignore-cache="true" class="link back">
             <i class="icon icon-back"></i>
             <span class="if-not-md">Plans</span>
           </a>
