@@ -1,0 +1,369 @@
+{
+    "menu":
+    {
+        "id": 41454308,
+        "allows_special_instructions": true,
+        "special_instructions_character_limit": 400,
+        "categories":
+        [
+            {
+                "category":
+                {
+                    "id": 666660937,
+                    "name": "Tacos",
+                    "category_group_id": null,
+                    "description": null,
+                    "display_order": 2,
+                    "hidden": false,
+                    "timescopes":
+                    [],
+                    "image_url": null,
+                    "items":
+                    [
+                        {
+                            "item":
+                            {
+                                "id": 9100161151,
+                                "name": "Crispy Fried Tofu Taco",
+                                "allows_special_instructions": true,
+                                "description": "Tofu fried in a seasoned panko bread crumb mix, topped with shredded lettuce, mango salsa and vegan roasted garlic crema.",
+                                "display_order": 1,
+                                "hidden": false,
+                                "maximum_quantity": null,
+                                "metadata":
+                                {},
+                                "minimum_quantity": null,
+                                "price_amount": 500,
+                                "price_with_defaults_amount": 1199,
+                                "image_url": "https://www.tacopartytruck.com/tacopress/wp-content/uploads/2016/11/taco_tofu-600x600.png",
+                                "nutrition":
+                                {},
+                                "special_instructions_character_limit": 400,
+                                "tax_rate": 0.07,
+                                "upc": null,
+                                "timescopes":
+                                [],
+                                "option_groups":
+                                []
+                            }
+                        },
+                        {
+                            "item":
+                            {
+                                "id": 9100161152,
+                                "name": "Jackfruit Tinga Taco",
+                                "allows_special_instructions": true,
+                                "description": "Jackfruit cooked in a spicy tomato sauce. Topped with cabbage slaw, avocado & vegan chipotle mayo.",
+                                "display_order": 1,
+                                "hidden": false,
+                                "maximum_quantity": null,
+                                "metadata":
+                                {},
+                                "minimum_quantity": null,
+                                "price_amount": 500,
+                                "price_with_defaults_amount": 1199,
+                                "image_url": "https://www.tacopartytruck.com/tacopress/wp-content/uploads/2019/02/tinga-1-600x600.png",
+                                "nutrition":
+                                {},
+                                "special_instructions_character_limit": 400,
+                                "tax_rate": 0.07,
+                                "upc": null,
+                                "timescopes":
+                                [],
+                                "option_groups":
+                                []
+                            }
+                        },
+                        {
+                            "item":
+                            {
+                                "id": 9100161152,
+                                "name": "Lentils Al Pastor Taco",
+                                "allows_special_instructions": true,
+                                "description": "Lentils grilled in Al Pastor sauce topped with lime cilantro onion, grilled pineapple and vegan almond cotija cheese.",
+                                "display_order": 1,
+                                "hidden": false,
+                                "maximum_quantity": null,
+                                "metadata":
+                                {},
+                                "minimum_quantity": null,
+                                "price_amount": 500,
+                                "price_with_defaults_amount": 1199,
+                                "image_url": "https://www.tacopartytruck.com/tacopress/wp-content/uploads/2019/01/lentil-600x600.png",
+                                "nutrition":
+                                {},
+                                "special_instructions_character_limit": 400,
+                                "tax_rate": 0.07,
+                                "upc": null,
+                                "timescopes":
+                                [],
+                                "option_groups":
+                                []
+                            }
+                        },
+                        {
+                            "item":
+                            {
+                                "id": 9100161152,
+                                "name": "Cheezy Potato Taco",
+                                "allows_special_instructions": true,
+                                "description": "Fried potatoes with vegan nacho cheese, Al Pastor sauce, lettuce, diced tomato, and vegan cashew crema.",
+                                "display_order": 1,
+                                "hidden": false,
+                                "maximum_quantity": null,
+                                "metadata":
+                                {},
+                                "minimum_quantity": null,
+                                "price_amount": 500,
+                                "price_with_defaults_amount": 1199,
+                                "image_url": "https://www.tacopartytruck.com/tacopress/wp-content/uploads/2021/04/newtaco.png",
+                                "nutrition":
+                                {},
+                                "special_instructions_character_limit": 400,
+                                "tax_rate": 0.07,
+                                "upc": null,
+                                "timescopes":
+                                [],
+                                "option_groups":
+                                []
+                            }
+                        },
+                        {
+                            "item":
+                            {
+                                "id": 9100161152,
+                                "name": "Chorizo Seitan Taco",
+                                "allows_special_instructions": true,
+                                "description": "Spicy ground seitan with green cabbage and chipotle salsa.",
+                                "display_order": 1,
+                                "hidden": false,
+                                "maximum_quantity": null,
+                                "metadata":
+                                {},
+                                "minimum_quantity": null,
+                                "price_amount": 500,
+                                "price_with_defaults_amount": 1199,
+                                "image_url": "https://www.tacopartytruck.com/tacopress/wp-content/uploads/2016/11/taco_chorizo_seitan-600x600.png",
+                                "nutrition":
+                                {},
+                                "special_instructions_character_limit": 400,
+                                "tax_rate": 0.07,
+                                "upc": null,
+                                "timescopes":
+                                [],
+                                "option_groups":
+                                []
+                            }
+                        },
+                        {
+                            "item":
+                            {
+                                "id": 9100161152,
+                                "name": "Chimchurri Tempeh Taco",
+                                "allows_special_instructions": true,
+                                "description": "Savory grilled tempeh with lettuce, chimchurri sauce, and vegan cashew crema.",
+                                "display_order": 1,
+                                "hidden": false,
+                                "maximum_quantity": null,
+                                "metadata":
+                                {},
+                                "minimum_quantity": null,
+                                "price_amount": 500,
+                                "price_with_defaults_amount": 1199,
+                                "image_url": "https://www.tacopartytruck.com/tacopress/wp-content/uploads/2016/11/taco_chimchurri-600x600.png",
+                                "nutrition":
+                                {},
+                                "special_instructions_character_limit": 400,
+                                "tax_rate": 0.07,
+                                "upc": null,
+                                "timescopes":
+                                [],
+                                "option_groups":
+                                []
+                            }
+                        }
+                    ]
+                }
+            },
+                        {
+                "category":
+                {
+                    "id": 666660937,
+                    "name": "Chalupas",
+                    "category_group_id": null,
+                    "description": null,
+                    "display_order": 2,
+                    "hidden": false,
+                    "timescopes":
+                    [],
+                    "image_url": null,
+                    "items":
+                    [
+                        {
+                            "item":
+                            {
+                                "id": 9100161151,
+                                "name": "Potoo Taco",
+                                "allows_special_instructions": true,
+                                "description": "Tofu fried in a seasoned panko bread crumb mix, topped with shredded lettuce, mango salsa and vegan roasted garlic crema.",
+                                "display_order": 1,
+                                "hidden": false,
+                                "maximum_quantity": null,
+                                "metadata":
+                                {},
+                                "minimum_quantity": null,
+                                "price_amount": 500,
+                                "price_with_defaults_amount": 1199,
+                                "image_url": "https://www.tacopartytruck.com/tacopress/wp-content/uploads/2016/11/taco_tofu-600x600.png",
+                                "nutrition":
+                                {},
+                                "special_instructions_character_limit": 400,
+                                "tax_rate": 0.07,
+                                "upc": null,
+                                "timescopes":
+                                [],
+                                "option_groups":
+                                []
+                            }
+                        },
+                        {
+                            "item":
+                            {
+                                "id": 9100161152,
+                                "name": "Jackfruit Tinga Taco",
+                                "allows_special_instructions": true,
+                                "description": "Jackfruit cooked in a spicy tomato sauce. Topped with cabbage slaw, avocado & vegan chipotle mayo.",
+                                "display_order": 1,
+                                "hidden": false,
+                                "maximum_quantity": null,
+                                "metadata":
+                                {},
+                                "minimum_quantity": null,
+                                "price_amount": 500,
+                                "price_with_defaults_amount": 1199,
+                                "image_url": "https://www.tacopartytruck.com/tacopress/wp-content/uploads/2019/02/tinga-1-600x600.png",
+                                "nutrition":
+                                {},
+                                "special_instructions_character_limit": 400,
+                                "tax_rate": 0.07,
+                                "upc": null,
+                                "timescopes":
+                                [],
+                                "option_groups":
+                                []
+                            }
+                        },
+                        {
+                            "item":
+                            {
+                                "id": 9100161152,
+                                "name": "Lentils Al Pastor Taco",
+                                "allows_special_instructions": true,
+                                "description": "Lentils grilled in Al Pastor sauce topped with lime cilantro onion, grilled pineapple and vegan almond cotija cheese.",
+                                "display_order": 1,
+                                "hidden": false,
+                                "maximum_quantity": null,
+                                "metadata":
+                                {},
+                                "minimum_quantity": null,
+                                "price_amount": 500,
+                                "price_with_defaults_amount": 1199,
+                                "image_url": "https://www.tacopartytruck.com/tacopress/wp-content/uploads/2019/01/lentil-600x600.png",
+                                "nutrition":
+                                {},
+                                "special_instructions_character_limit": 400,
+                                "tax_rate": 0.07,
+                                "upc": null,
+                                "timescopes":
+                                [],
+                                "option_groups":
+                                []
+                            }
+                        },
+                        {
+                            "item":
+                            {
+                                "id": 9100161152,
+                                "name": "Cheezy Potato Taco",
+                                "allows_special_instructions": true,
+                                "description": "Fried potatoes with vegan nacho cheese, Al Pastor sauce, lettuce, diced tomato, and vegan cashew crema.",
+                                "display_order": 1,
+                                "hidden": false,
+                                "maximum_quantity": null,
+                                "metadata":
+                                {},
+                                "minimum_quantity": null,
+                                "price_amount": 500,
+                                "price_with_defaults_amount": 1199,
+                                "image_url": "https://www.tacopartytruck.com/tacopress/wp-content/uploads/2021/04/newtaco.png",
+                                "nutrition":
+                                {},
+                                "special_instructions_character_limit": 400,
+                                "tax_rate": 0.07,
+                                "upc": null,
+                                "timescopes":
+                                [],
+                                "option_groups":
+                                []
+                            }
+                        },
+                        {
+                            "item":
+                            {
+                                "id": 9100161152,
+                                "name": "Chorizo Seitan Taco",
+                                "allows_special_instructions": true,
+                                "description": "Spicy ground seitan with green cabbage and chipotle salsa.",
+                                "display_order": 1,
+                                "hidden": false,
+                                "maximum_quantity": null,
+                                "metadata":
+                                {},
+                                "minimum_quantity": null,
+                                "price_amount": 500,
+                                "price_with_defaults_amount": 1199,
+                                "image_url": "https://www.tacopartytruck.com/tacopress/wp-content/uploads/2016/11/taco_chorizo_seitan-600x600.png",
+                                "nutrition":
+                                {},
+                                "special_instructions_character_limit": 400,
+                                "tax_rate": 0.07,
+                                "upc": null,
+                                "timescopes":
+                                [],
+                                "option_groups":
+                                []
+                            }
+                        },
+                        {
+                            "item":
+                            {
+                                "id": 9100161152,
+                                "name": "Chimchurri Tempeh Taco",
+                                "allows_special_instructions": true,
+                                "description": "Savory grilled tempeh with lettuce, chimchurri sauce, and vegan cashew crema.",
+                                "display_order": 1,
+                                "hidden": false,
+                                "maximum_quantity": null,
+                                "metadata":
+                                {},
+                                "minimum_quantity": null,
+                                "price_amount": 500,
+                                "price_with_defaults_amount": 1199,
+                                "image_url": "https://www.tacopartytruck.com/tacopress/wp-content/uploads/2016/11/taco_chimchurri-600x600.png",
+                                "nutrition":
+                                {},
+                                "special_instructions_character_limit": 400,
+                                "tax_rate": 0.07,
+                                "upc": null,
+                                "timescopes":
+                                [],
+                                "option_groups":
+                                []
+                            }
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+}
