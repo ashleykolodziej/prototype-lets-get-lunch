@@ -13,7 +13,7 @@ const locations = [
 			"pickup_menu_url": "data/menu-728388.json"
 		}
 	},
-	{
+	/*{
 		location: {
 			"id": "755898",
 			"name": "Casa Pizza",
@@ -47,7 +47,7 @@ const locations = [
 			"name": "Sound Bites Cafe",
 			"pickup_menu_url": "data/menu-801423.json"
 		}
-	}
+	}*/
 ]
 
 export default locations;

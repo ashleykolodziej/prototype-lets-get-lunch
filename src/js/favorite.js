@@ -1,5 +1,5 @@
 import store from './store.js';
-import getKeyByValue from './utilities.js';
+import getObjectKeyByKeyValuePair from './utilities.js';
 
 function favoriteIconClick(planId, menuId, e) {
 	const $this = e.target;
@@ -29,7 +29,7 @@ function favoriteIconClick(planId, menuId, e) {
 		} else {
 			const testy = store.state.plans[planId].restaurants[menuId];
 
-			let theRestaurantKey = getKeyByValue(store.state.plans[planId].restaurants, menuId);
+			let theRestaurantKey = getObjectKeyByKeyValuePair(store.state.plans[planId].restaurants, 'id', menuId);
 			console.log(theRestaurantKey);
 
 			if ( undefined === theRestaurantKey ) {
@@ -58,7 +58,7 @@ function favoriteIconClick(planId, menuId, e) {
 			let userAlreadyVoted;
 
 			if ( undefined !== store.state.plans[planId].restaurants[theRestaurantKey].votes ) {
-				userAlreadyVoted = getKeyByValue(store.state.plans[planId].restaurants[theRestaurantKey].votes, '3');
+				userAlreadyVoted = getObjectKeyByKeyValuePair(store.state.plans[planId].restaurants[theRestaurantKey].votes, 'id', '3');
 			}
 
 			console.log('alreadyFaved', userAlreadyVoted)

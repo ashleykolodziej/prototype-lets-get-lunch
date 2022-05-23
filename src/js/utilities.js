@@ -1,9 +1,9 @@
-function getKeyByValue(array, value) {
+function getObjectKeyByKeyValuePair(array, key, value) {
 	for (var i = array.length - 1; i >= 0; i--) {
-		if (array[i].id == value) {
+		if (array[i][key] == value) {
 			return i;
 		}
 	}
 }
 
-export default getKeyByValue;
+export default getObjectKeyByKeyValuePair;
