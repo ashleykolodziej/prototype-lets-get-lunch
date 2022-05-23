@@ -32,6 +32,7 @@
 	import { checkVeg, checkVegan } from '../js/checkdishes';
 	import addFavoriteListeners from '../js/favorite';
 	import locationLookup from '../js/locationLookup';
+	import getMenuData from '../js/getMenuData';
 	export default (props, { $f7route, $store, $f7, $on }) => {
     const plans = $store.getters.favorites;
     const menuId = $f7route.params.id;
@@ -46,17 +47,7 @@
 
    let locationStore = $store.getters.currentLocation;
 
-	async function getMenuItems() {
-		try {
-			const response = await fetch(`data/menu-${menuId}.json`);
-			const dishes = await response.json();
-			return dishes;
-		} catch (err) {
-			console.log('Error: ', err.message);
-		}
-	}
-
-	getMenuItems().then(data => {
+	getMenuData(`data/menu-${menuId}.json`).then(data => {
 		const content = document.querySelector('#menu-swipers');
 
 		Object.values(data).forEach(item => {

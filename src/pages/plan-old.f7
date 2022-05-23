@@ -39,12 +39,52 @@
 	      <div class="progressbar color-multi" data-progress="25">
 			  <span></span>
 			</div>
-			<p>You're in! ${currentPlan.organizer.name.first} wants to know what sounds good to you in this area.</p>
+			<p>You're in! ${currentPlan.organizer.name.first} wants to know what sounds good to you in Somerville. Add your favorites and let her know you're ready to vote below.</p>
 			${favorites.value.length !== 0 && $h`
 	        <a href="/plans/${planId}/vote/" class="button">I'm ready, let's vote!</a>
 	      `}
       </div>
-      <div class="block-title block-title-medium">Dishes in this area</div>
+      <div class="block-title block-title-medium">Up for voting</div>
+      <div class="block">
+      <div
+      	class="swiper swiper-init group-favorites"
+      	data-pagination='{"el": ".swiper-pagination"}'
+      	data-space-between="40"
+      >
+        <div class="swiper-wrapper">
+          ${currentPlan.restaurants.map((favorite) => $h`
+            <div class="swiper-slide group-faves">
+            	<div class="card no-margin">
+            	<div style="background-image:url(${favorite.img})"
+          			class="card-header align-items-flex-end"><div>${favorite.name}</div></div>
+            	<div class="card-content">
+            	<div class="card-content card-content-padding">
+            		<div class="item-inner">
+            		   <div>
+	            			<span>Loved by: </span>
+	            			${favorite.votes.map((vote) => $h`
+		            			<div class="chip chip-outline">
+							          <div class="chip-media">
+							            <img src="${vote.img}" />
+							          </div>
+							          <div class="chip-label">${vote.count} dishes</div>
+							        </div>`
+							   )}
+					        </div>
+            			<p class="item-subtitle">${favorite.description}</p>
+            			<a class="button button-small button-round button-fill display-inline-flex" href="/menu/${favorite.id}/">Add favorites</a>
+            		</div>
+            	</div>
+            	</div>
+            	</div>
+            </div>
+          `)}
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+      </div>
+      <div class="block-title block-title-medium">Runner-ups</div>
+      <p class="block">Get these restaurants in the running by faving at least one dish.</p>
       <div class="list media-list inset margin-bottom">
         <ul>
           ${currentPlan.suggestions.map((favorite) => $h`
