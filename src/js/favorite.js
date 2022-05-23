@@ -1,4 +1,5 @@
 import store from './store.js';
+import getKeyByValue from './utilities.js';
 
 function favoriteIconClick(planId, menuId, e) {
 	const $this = e.target;
@@ -27,14 +28,6 @@ function favoriteIconClick(planId, menuId, e) {
 			});
 		} else {
 			const testy = store.state.plans[planId].restaurants[menuId];
-
-			function getKeyByValue(array, value) {
-				for (var i = array.length - 1; i >= 0; i--) {
-					if (array[i].id == value) {
-						return i;
-					}
-				}
-			}
 
 			let theRestaurantKey = getKeyByValue(store.state.plans[planId].restaurants, menuId);
 			console.log(theRestaurantKey);
