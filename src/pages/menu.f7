@@ -18,13 +18,13 @@
 
     <!-- Scrollable page content-->
     <div class="page-content" id="menu-swipers">
-    <div class="block">
-    	<div class="chip">
-    		<div class="chip-label">
-    			Filtered by vegetarian
-    		</div>
-    	</div>
-    </div>
+	    <div class="block">
+		    	<div class="chip">
+		    		<div class="chip-label">
+		    			Filtered by vegetarian
+		    		</div>
+		    	</div>
+	    </div>
     </div>
   </div>
 </template>

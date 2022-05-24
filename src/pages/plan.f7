@@ -26,13 +26,13 @@
 	      </div>
 	      <div class="block-title no-margin-left margin-top">Who's going?</div>
 	      <div class="display-flex">
-		      <!--div class="item-attendees justify-content-center">
+		      <div class="item-attendees justify-content-center">
 		            ${[...currentPlan.attendees].map((attendee) => $h`
 		         <div class="item-profile item-media">
 		   			<img src="${attendee}" width="40" />
 		   		</div>
 		       `)}
-		      </div-->
+		      </div>
 		      <p>You and ${currentPlan.attendees.length - 1} others so far</p>
 		   </div>
 	      <div class="block-title no-margin-left margin-top">Progress</div>
@@ -45,6 +45,15 @@
 	      `}
       </div>
       <div class="block-title block-title-medium">Dishes in this area</div>
+      <div id="menu-swipers">
+		    <div class="block">
+			    	<div class="chip">
+			    		<div class="chip-label">
+			    			Filtered by vegetarian
+			    		</div>
+			    	</div>
+		    </div>
+	    </div>
       <div class="list media-list inset margin-bottom">
         <ul>
           ${currentPlan.suggestions.map((favorite) => $h`
@@ -105,7 +114,11 @@
   </div>
 </template>
 <script>
-  export default (props, { $f7route, $store, $on, $ }) => {
+	import addFavoriteListeners from '../js/favorite';
+	import getAllDishesByLocation from '../js/getAllDishesByLocation';
+	import buildSlidersByCategory from '../js/buildSlidersByCategory';
+
+  	export default (props, { $f7route, $store, $on, $, $f7 }) => {
     const plans = $store.getters.plans;
     const favorites = $store.getters.favorites;
     const planId = $f7route.params.id;
@@ -114,6 +127,20 @@
       if (plan.id === planId) {
         currentPlan = plan;
       }
+    });
+
+    $on('pageInit', () => {
+  		const content = document.querySelector('#menu-swipers');
+  		//const dishes = getAllDishesByLocation(locationsArr);
+
+  		getAllDishesByLocation().then(data => {
+			buildSlidersByCategory(data, $f7).then(sliders => {
+				content.appendChild(sliders);
+			});
+		});
+
+    	 const planId = 0;
+    	 addFavoriteListeners(planId);
     });
 
     return $render;

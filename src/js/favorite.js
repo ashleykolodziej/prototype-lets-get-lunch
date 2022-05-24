@@ -1,7 +1,7 @@
 import store from './store.js';
 import getObjectKeyByKeyValuePair from './utilities.js';
 
-function favoriteIconClick(planId, menuId, e) {
+function favoriteIconClick(planId, e) {
 	const $this = e.target;
 	const $delegated = $this.closest('.swiper-slide');
 
@@ -27,14 +27,14 @@ function favoriteIconClick(planId, menuId, e) {
 			  return object.dishId !== theFaved.dishId;
 			});
 		} else {
-			const testy = store.state.plans[planId].restaurants[menuId];
+			const testy = store.state.plans[planId].restaurants[$delegated.dataset.restaurantId];
 
-			let theRestaurantKey = getObjectKeyByKeyValuePair(store.state.plans[planId].restaurants, 'id', menuId);
+			let theRestaurantKey = getObjectKeyByKeyValuePair(store.state.plans[planId].restaurants, 'id', $delegated.dataset.restaurantId);
 			console.log(theRestaurantKey);
 
 			if ( undefined === theRestaurantKey ) {
 				const theNewRestaurant = [{
-					id: `${menuId}`,
+					id: `${$delegated.dataset.restaurantId}`,
 					name: `${$delegated.dataset.dishLocation}`,
 					img: 'tacoPartyImg',
 					votes: [
@@ -82,8 +82,8 @@ function favoriteIconClick(planId, menuId, e) {
 	}
 }
 
-function addFavoriteListeners(planId, menuId) {
-	document.body.addEventListener( 'click', favoriteIconClick.bind(this, planId, menuId) );
+function addFavoriteListeners(planId) {
+	document.body.addEventListener( 'click', favoriteIconClick.bind(this, planId) );
 }
 
 export default addFavoriteListeners;
