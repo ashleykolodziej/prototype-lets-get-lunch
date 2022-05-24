@@ -45,9 +45,7 @@
       <div id="favesByRestaurant" class="list media-list margin-bottom">
       </div>
       <div class="block no-margin-top">
-      	<a class="button button-small button-round display-inline-flex">Find<div class="block no-margin-top">
       	<a class="button button-small button-round display-inline-flex">Suggest a restaurant</a>
-      </div> more restaurants</a>
       </div>
       <div class="block block-title-medium margin-bottom">Group suggestions</div>
       <div class="list media-list inset margin-bottom">

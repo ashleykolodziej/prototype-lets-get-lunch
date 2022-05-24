@@ -40,20 +40,21 @@
 			  <span></span>
 			</div>
 			<p>It's all you, boo! The rest of your crew has voted. Vote for your favorites below.</p>
-			<button class="button open-confirm">I'm done voting</button>
       </div>
       <div class="block block-title-medium margin-bottom">The finalists</div>
       <div class="block margin-top">
       <p>Let ${currentPlan.organizer.name.first} know where you're most excited to go.</p>
+      </div>
       <div
       	class="swiper swiper-init group-favorites"
       	data-pagination='{"el": ".swiper-pagination"}'
       	data-space-between="40"
+      	data-effect="cards"
       >
         <div class="swiper-wrapper">
           ${currentPlan.restaurants.map((favorite) => $h`
             <div class="swiper-slide group-faves">
-            	<div class="card no-margin">
+            	<div class="card">
             	<div style="background-image:url(${favorite.img})"
           			class="card-header align-items-flex-end"><div>${favorite.name}</div></div>
 	            	<div class="card-content">
@@ -120,6 +121,8 @@
         </div>
         <div class="swiper-pagination"></div>
       </div>
+      <div class="block">
+      	<button class="button open-confirm button-round button-outline">I'm done voting</button>
       </div>
     </div>
   </div>

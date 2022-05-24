@@ -45,47 +45,13 @@
 			</div>
       </div>
       <div class="block block-title-medium margin-bottom">Where you're going</div>
-      <div class="block margin-top">
-      <div
-      	class="swiper swiper-init group-favorites"
-      	data-space-between="40"
-      >
-        <div class="swiper-wrapper">
-          ${currentPlan.restaurants.map((favorite) => $h`
-            <div class="swiper-slide group-faves">
-            	<div class="card no-margin">
-            	<div style="background-image:url(${favorite.img})"
-          			class="card-header align-items-flex-end"><div>${favorite.name}</div></div>
-	            	<div class="card-content">
-		            	<div class="card-content card-content-padding">
-		            		<div class="item-inner">
-		         		   	<div>
-			            			<span>Loved by: </span>
-			            			${favorite.votes.map((vote) => $h`
-				            			<div class="chip chip-outline">
-									          <div class="chip-media">
-									            <img src="${vote.img}" />
-									          </div>
-									          <div class="chip-label">${vote.count} dishes</div>
-									        </div>`
-									   )}
-						        </div>
-		            			<p class="item-subtitle">${favorite.description}</p>
-		            			<a class="button button-small button-round button-fill display-inline-flex" href="/menu/${favorite.id}/">Browse menu</a>
-		            		</div>
-		            	</div>
-	            	</div>
-            	</div>
-            </div>
-          `)}
-        </div>
-        <div class="swiper-pagination"></div>
-      </div>
+      <div id="result" class="block margin-top group-faves">
       </div>
     </div>
   </div>
 </template>
 <script>
+	import locationLookup from '../js/locationLookup';
   export default (props, { $, $f7, $on, $f7route, $store }) => {
     const plans = $store.getters.plans;
     const favorites = $store.getters.favorites;
@@ -98,6 +64,28 @@
     });
 
     $on('pageInit', () => {
+    	// Taco Party always wins in this prototype.
+    	const foundLocation = locationLookup('100489');
+
+    	foundLocation.map((location) => {
+    		const resultContainer = document.querySelector('#result')
+    		const resultHtml = `<div class="card no-margin">
+         	<div style="background-image:url(${location.location.image_url})"class="card-header align-items-flex-end">
+       			<div>${location.location.name}</div>
+       		</div>
+         	<div class="card-content">
+            	<div class="card-content card-content-padding">
+            		<div class="item-inner">
+            			<p class="item-subtitle">${location.location.merchant_description}</p>
+            			<a class="button button-small button-round button-fill display-inline-flex" href="/menu/${location.location.id}/">Browse menu</a>
+            		</div>
+            	</div>
+         	</div>
+      	</div>`;
+
+      	resultContainer.insertAdjacentHTML('beforeend', resultHtml);
+    	})
+
     	$('.open-progress').on('click', function () {
         const calendarProgress = $f7.dialog.progress('Adding to calendar...');
 	     setTimeout(function () {

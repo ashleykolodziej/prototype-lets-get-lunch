@@ -1,10 +1,24 @@
+import tacoPartyImg from '../../assets/2021-08-02.jpg'
+import tastyMoMoImg from '../../assets/2018-07-21.jpg'
+import mintImg from '../../assets/index.jpg'
+
 const locations = [
 	{
 		location: {
 			"id": "100489",
 			"name": "Taco Party",
 			"pickup_menu_url": "data/menu-100489.json",
-			"image_url": null,
+			"image_url": tacoPartyImg,
+			"merchant_description": "Taco truck with vegan and gluten-free options.",
+		}
+	},
+	{
+		location: {
+			"id": "779661",
+			"name": "Tasty Mo:Mo",
+			"pickup_menu_url": "data/menu-779661.json",
+			"image_url": tacoPartyImg,
+			"merchant_description": "Quick-serve, charity-minded eatery dishing out dumplings with spicy sauces & thali platters.",
 		}
 	},
 	{
@@ -20,7 +34,7 @@ const locations = [
 			"id": "728388",
 			"name": "Mint Indian Eatery",
 			"pickup_menu_url": "data/menu-728388.json",
-			"image_url": null,
+			"image_url": mintImg,
 		}
 	},
 	{
