@@ -5344,7 +5344,7 @@
       {
         "category": {
           "id": 634952382,
-          "name": "Kebab's Special Vegetarian Entrees",
+          "name": "Indian",
           "category_group_id": null,
           "description": null,
           "display_order": 12,
@@ -6832,7 +6832,7 @@
       {
         "category": {
           "id": 634952386,
-          "name": "Kebab's Special Non-Vegetarian Entrees",
+          "name": "Indian",
           "category_group_id": null,
           "description": null,
           "display_order": 13,

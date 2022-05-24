@@ -277,6 +277,21 @@ div {
 	transform-style: initial !important;
 }
 
-.sticky {
-	position: sticky;
+.fave-restaurant-card {
+	.chip-media {
+		width: 32px;
+		height: 32px;
+		padding-bottom: 0;
+		margin-left: 0;
+		box-sizing: content-box;
+	}
+}
+
+.item-dishlist {
+	display: flex;
+	margin-left: 10px;
+
+	.item-media {
+		margin-left: -10px;
+	}
 }

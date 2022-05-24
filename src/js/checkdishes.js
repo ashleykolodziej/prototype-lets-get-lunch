@@ -22,7 +22,10 @@ const simpleVegCheck = [
 	'pepperoni',
 	'poke',
 	'salmon',
-	'steak'
+	'steak',
+	'mortadella',
+	'salami',
+	'capicolla'
 ]
 
 const veganSafe = [

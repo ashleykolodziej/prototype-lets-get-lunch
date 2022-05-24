@@ -1,0 +1,126 @@
+{
+    "menu":
+    {
+        "id": 41454308,
+        "allows_special_instructions": true,
+        "special_instructions_character_limit": 400,
+        "categories":
+        [
+            {
+                "category":
+                {
+                    "id": 631737504,
+                    "name": "Specials",
+                    "category_group_id": null,
+                    "description": null,
+                    "display_order": 2,
+                    "hidden": false,
+                    "timescopes":
+                    [],
+                    "image_url": null,
+                    "items":
+                    [
+                        {
+                            "item":
+                            {
+                                "id": 469628217,
+                                "name": "Vegan Mile High Impossible Lasagna",
+                                "allows_special_instructions": true,
+                                "description": "Housemade Lasagna with Violife cheese, housemade vegan ricotta, impossible meat sauce.",
+                                "display_order": 1,
+                                "hidden": false,
+                                "maximum_quantity": null,
+                                "metadata":
+                                {},
+                                "minimum_quantity": null,
+                                "price_amount": 1900,
+                                "price_with_defaults_amount": 1199,
+                                "image_url": "https://www.thewholesomedish.com/wp-content/uploads/2018/07/Best-Lasagna-3.jpg",
+                                "nutrition":
+                                {},
+                                "special_instructions_character_limit": 400,
+                                "tax_rate": 0.07,
+                                "upc": null,
+                                "timescopes":
+                                [],
+                                "option_groups":
+                                []
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "category":
+                {
+                    "id": 666660938,
+                    "name": "Shareable",
+                    "category_group_id": null,
+                    "description": null,
+                    "display_order": 2,
+                    "hidden": false,
+                    "timescopes":
+                    [],
+                    "image_url": null,
+                    "items":
+                    [
+                        {
+                            "item":
+                            {
+                                "id": 469628218,
+                                "name": "Rocoto Buffalo Cauliflower",
+                                "allows_special_instructions": true,
+                                "description": "Fried cauliflower tossed in a spicy Peruvian style buffalo sauce.",
+                                "display_order": 1,
+                                "hidden": false,
+                                "maximum_quantity": null,
+                                "metadata":
+                                {},
+                                "minimum_quantity": null,
+                                "price_amount": 1300,
+                                "price_with_defaults_amount": 1199,
+                                "image_url": "https://images.immediate.co.uk/production/volatile/sites/30/2020/10/Buffalo-cauliflower-7825216.jpg",
+                                "nutrition":
+                                {},
+                                "special_instructions_character_limit": 400,
+                                "tax_rate": 0.07,
+                                "upc": null,
+                                "timescopes":
+                                [],
+                                "option_groups":
+                                []
+                            }
+                        },
+                        {
+                            "item":
+                            {
+                                "id": 469628219,
+                                "name": "Famous Garlic Knots",
+                                "allows_special_instructions": true,
+                                "description": "Hand knotted dough, baked fresh to order. Topped with a buttery blend of spices, garlic & parmesan cheese. A neighborhood favorite. Can be made vegan.",
+                                "display_order": 1,
+                                "hidden": false,
+                                "maximum_quantity": null,
+                                "metadata":
+                                {},
+                                "minimum_quantity": null,
+                                "price_amount": 900,
+                                "price_with_defaults_amount": 1199,
+                                "image_url": "https://tastesbetterfromscratch.com/wp-content/uploads/2022/03/Garlic-Knots-Web-13-500x375.jpg",
+                                "nutrition":
+                                {},
+                                "special_instructions_character_limit": 400,
+                                "tax_rate": 0.07,
+                                "upc": null,
+                                "timescopes":
+                                [],
+                                "option_groups":
+                                []
+                            }
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+}

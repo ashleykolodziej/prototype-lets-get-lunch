@@ -12,6 +12,10 @@ async function buildSlidersByCategory(data, $f7) {
 		//item.categories.forEach(item => {
 			const category = item.name;
 
+			if (category === 'Beverages') {
+				return;
+			}
+
 			const title = document.createElement('div');
 			const classes = ['block-title', 'block-title-medium'];
 					title.textContent = category;
@@ -75,7 +79,7 @@ async function buildSlidersByCategory(data, $f7) {
 									${ isVegan ? '<span class="badge">vegan</span>' : '' }
 								</div>
 								<div class="card-favorite">
-									I like it!
+									I'm interested
 									<i class="icon f7-icons if-not-md">heart</i>
 									<i class="icon material-icons if-md">heart</i>
 								</div>

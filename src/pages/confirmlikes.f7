@@ -9,11 +9,11 @@
             <span class="if-not-md">Plans</span>
           </a>
         </div>
-        <div class="title-large"><div class="title-large-text">Your restaurants</div></div>
+        <div class="title-large"><div class="title-large-text">Confirm restaurants</div></div>
       </div>
     </div>
     <div class="page-content">
-      <div class="block block-strong inset">
+      <!--div class="block block-strong inset">
       	<div class="display-flex align-items-center">
 	      	<div class="item-profile item-media">
 					<img src="${currentPlan.organizer.img}" width="75" />
@@ -40,15 +40,16 @@
 			  <span></span>
 			</div>
 			<p>Looks like there are a few restaurants that work for you!</p>
+      </div-->
+      <div class="block block-title-medium margin-bottom">Your suggestions</div>
+      <div id="favesByRestaurant" class="list media-list margin-bottom">
       </div>
-      <div class="block block-title-medium margin-bottom">The finalists</div>
-      <div id="favesByRestaurant" class="list media-list inset margin-bottom">
-
+      <div class="block no-margin-top">
+      	<a class="button button-small button-round display-inline-flex">Find<div class="block no-margin-top">
+      	<a class="button button-small button-round display-inline-flex">Suggest a restaurant</a>
+      </div> more restaurants</a>
       </div>
-      <div class="block block-title-medium margin-bottom">Your group's suggestions</div>
-      <div class="block margin-top">
-      <p>Check out these restaurants that worked well for others in your group.</p>
-      </div>
+      <div class="block block-title-medium margin-bottom">Group suggestions</div>
       <div class="list media-list inset margin-bottom">
         <ul>
           ${currentPlan.suggestions.map((favorite) => $h`
@@ -74,13 +75,14 @@
           `)}
         </ul>
       </div>
-      <div class="block no-margin-top">
-      	<a class="button button-small button-round display-inline-flex">Suggest a restaurant</a>
+      <div class="block fave-confirm">
+      	<a href="/plans/${planId}/vote/" class="button button-outline">Looks great, let's vote!</a>
       </div>
     </div>
   </div>
 </template>
 <script>
+	import locationLookup from '../js/locationLookup';
   export default (props, { $, $f7, $on, $f7route, $f7view, $store }) => {
     const plans = $store.getters.plans;
     const favorites = $store.getters.favorites;
@@ -108,37 +110,30 @@
   		 const faveContainer = document.querySelector('#favesByRestaurant');
 
 	    Object.keys(favesByRestaruantId).map((restaruantId) => {
-	    	const theFavesHtml = document.createElement('div');
 	    	const theFaves = favesByRestaruantId[restaruantId];
+	    	const foundLocation = locationLookup(restaruantId)[0].location;
+	    	console.log(foundLocation)
+
+	    	let theFaveHtml = `<div class="card fave-restaurant-card">
+	      	<a class="display-flex" href="/menu/${restaruantId}/">
+	      	<div class="item-dish item-media">
+				<img src="${foundLocation.image_url}"/>
+	   		</div>
+	   		<div class="item-inner">
+	      	<div class="item-title">${foundLocation.name}</div>
+	      	<div class="item-subtitle">You liked ${theFaves.length} dish${theFaves.length > 1 ? 'es':''} here</div>
+	      	<div class="item-dishlist">`;
 
 	    	for (var i = 0; i < theFaves.length; i++) {
-	    		if ( i === 0 ) {
-	    			const title = document.createElement('div');
-	    			title.classList.add('block-title');
-	    			title.textContent = theFaves[i].dishLocation;
-	    			faveContainer.appendChild(title);
-	    		}
-
 	    		const thisFave = theFaves[i];
-	    		const listItem = `<div class="card">
-		    		<div class="item-dish item-media">
-	      			<img src="${thisFave.dishImg}"/>
-	      		</div>
-	      		<div class="item-inner">
-	      			${i === 0 ? `
-				      	<div class="item-title">${theFaves[i].dishLocation}</div>
-				      	<div>You liked ${theFaves.length} dishes here</div>
-				      ` : ``}
-	      			<div class="item-dish item-media">
+	    		theFaveHtml +=`<div class="item-dish item-media chip-media">
 	            			<img src="${thisFave.dishImg}"/>
-	            	</div>
-	      		</div>
-		    	</div>`;
-
-            theFavesHtml.insertAdjacentHTML('beforeend', listItem);
+	            		</div>`;
 	    	}
 
-	    	faveContainer.appendChild(theFavesHtml);
+	    	theFaveHtml += `</div></div></a></div>`;
+
+	    	faveContainer.insertAdjacentHTML('beforeend', theFaveHtml);
 	    });
     });
 
