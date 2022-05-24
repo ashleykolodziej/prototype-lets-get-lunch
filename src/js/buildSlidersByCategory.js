@@ -5,15 +5,12 @@ function isEmpty(obj) {
 }
 
 async function buildSlidersByCategory(data, $f7) {
-	console.log("4")
 	const sliderMarkup = document.createElement('div');
-	console.log('the data we got', data)
-	console.log(data[0])
-	console.log("5")
+	console.log(data)
 
 	Object.values(data).forEach(item => {
 		//item.categories.forEach(item => {
-			const category = item.category.name;
+			const category = item.name;
 
 			const title = document.createElement('div');
 			const classes = ['block-title', 'block-title-medium'];
@@ -29,22 +26,25 @@ async function buildSlidersByCategory(data, $f7) {
 			const swiper = $f7.swiper.create(swiperTemplate, {
 				// Optional parameters
 				direction: 'horizontal',
-				loop: false
+				loop: false,
+				effect: "cards",
+				preventClicks: false,
+				preventClicksPropagation: false
 			});
 
 			let slideCount = 0;
 
-			for ( const dish of item.category.items ) {
-					const img = dish.item.image_url,
-							name = dish.item.name,
-							description = dish.item.description,
-							allOfIt = name + ' ' + description;
-					if (
-						null !== img &&
-						null !== name &&
-						null !== description &&
-						'' !== description
-					) {
+			for ( const dish of item.items ) {
+				const img = dish.item.image_url,
+						name = dish.item.name,
+						description = dish.item.description,
+						allOfIt = name + ' ' + description;
+				if (
+					null !== img &&
+					null !== name &&
+					null !== description &&
+					'' !== description
+				) {
 					// Crummy vegan filter test
 					const isVeg = checkVeg(allOfIt);
 					let isVegan = false;

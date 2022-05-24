@@ -9,14 +9,15 @@
             <span class="if-not-md">Plans</span>
           </a>
         </div>
+        <div class="right">${$store.getters.favorites.length} Favorites</div>
         <div class="title-large"><div class="title-large-text">Plan Details</div></div>
       </div>
     </div>
     <div class="page-content">
-      <div class="block block-strong inset">
+      <div class="block block-strong inset sticky">
       	<div class="display-flex align-items-center">
 	      	<div class="item-profile item-media">
-					<!--img src="${currentPlan.organizer.img}" width="75" /-->
+					<img src="${currentPlan.organizer.img}" width="75" />
 				</div>
 		      <div class="plan-title block no-margin-top no-margin-bottom">
 		      	<div class="no-margin-top no-margin-bottom">${currentPlan.organizer.name.first} invited you to</div>
@@ -44,44 +45,17 @@
 	        <a href="/plans/${planId}/vote/" class="button">I'm ready, let's vote!</a>
 	      `}
       </div>
-      <div class="block-title block-title-medium">Dishes in this area</div>
-      <div id="menu-swipers">
-		    <div class="block">
+		<div class="block display-flex justify-content-space-between">
+		    	<div class="block-title block-title-medium">Dishes in this area</div>
 			    	<div class="chip">
 			    		<div class="chip-label">
-			    			Filtered by vegetarian
+			    			Vegetarian
 			    		</div>
+			    		<a href="#" class="chip-delete"></a>
 			    	</div>
 		    </div>
+		 <div id="menu-swipers">
 	    </div>
-      <div class="list media-list inset margin-bottom">
-        <ul>
-          ${currentPlan.suggestions.map((favorite) => $h`
-            <li>
-            	<a href="/menu/${favorite.id}/">
-            	<div class="item-content">
-            		<div class="item-dish item-media">
-            			<img src="${favorite.img}"/>
-            		</div>
-            		<div class="item-inner">
-            			<div class="item-title">${favorite.name} <span class="badge color-orange">New</span></div>
-            			<div class="item-subtitle">${favorite.description}</div>
-            			<div class="chip chip-outline thing">
-					          <span>Suggested by ${favorite.recommender.name}</span>
-					          <div class="chip-media">
-					            <img src="${favorite.recommender.img}" />
-					          </div>
-							</div>
-            		</div>
-            	</div>
-            	</a>
-            </li>
-          `)}
-        </ul>
-      </div>
-      <div class="block no-margin-top">
-      	<a class="button button-small button-round display-inline-flex">Suggest a restaurant</a>
-      </div>
       <div class="block-title">Your favorites</div>
       ${favorites.value.length !== 0 && $h`
          <div class="list media-list inset">

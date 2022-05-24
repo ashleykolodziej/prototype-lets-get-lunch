@@ -254,3 +254,29 @@ div {
 	display: flex;
 	justify-content: space-between;
 }
+
+.swiper-cards {
+	width: 90%;
+}
+
+.swiper-slide-active {
+	.card {
+		box-shadow: var(--f7-elevation-7);
+	}
+}
+
+.swiper-slide-shadow {
+	display: none;
+}
+
+.card-favorite:hover {
+	cursor: pointer;
+}
+
+.swiper-3d .swiper-wrapper {
+	transform-style: initial !important;
+}
+
+.sticky {
+	position: sticky;
+}

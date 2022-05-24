@@ -49,6 +49,7 @@
 
   	$on('pageInit', () => {
   		const foundLocation = locationLookup(menuId);
+  		console.log(foundLocation)
   		const content = document.querySelector('#menu-swipers');
   		//const dishes = getAllDishesByLocation(locationsArr);
 

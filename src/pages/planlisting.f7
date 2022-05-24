@@ -40,7 +40,7 @@
 				         <li class="item-link item-content item-repsonse-${response}">
 				         	<a class="item-blocklink" href="/plans/${plan.id}/${response === 'confirmedPlans' ? `confirmed/`:``}">
 				         	<div class="item-inner">
-				         		<!--div class="item-profile item-media"><img src=${plan.organizer.img} width="50" /></div-->
+				         		<div class="item-profile item-media"><img src=${plan.organizer.img} width="50" /></div>
 				         		<div class="item-title-details">
 				             		<div class="item-title plan-listing-title">
 				             			<div class="block-title block-title-small no-margin-top no-margin-bottom">${plan.title}</div>

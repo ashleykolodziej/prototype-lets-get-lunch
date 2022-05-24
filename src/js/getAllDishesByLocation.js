@@ -23,7 +23,7 @@ async function getAllDishesByLocation( locationArr = locations ) {
 
 				if ( undefined === categoryKey ) {
 					// Add the new category to the list
-					dishesByCategory.push(category);
+					dishesByCategory.push(category.category);
 				} else {
 					// Combine this restaurant's dishes into this category
 					dishesByCategory[categoryKey].items = [...dishesByCategory[categoryKey].items, ...category.category.items]
