@@ -16,7 +16,7 @@
       <div class="block block-strong inset">
       	<div class="display-flex align-items-center">
 	      	<div class="item-profile item-media">
-					<img src="${currentPlan.organizer.img}" width="75" />
+					<!--img src="${currentPlan.organizer.img}" width="75" /-->
 				</div>
 		      <div class="plan-title block no-margin-top no-margin-bottom">
 		      	<div class="no-margin-top no-margin-bottom">${currentPlan.organizer.name.first} invited you to</div>
@@ -26,13 +26,13 @@
 	      </div>
 	      <div class="block-title no-margin-left margin-top">Who's going?</div>
 	      <div class="display-flex">
-		      <div class="item-attendees justify-content-center">
+		      <!--div class="item-attendees justify-content-center">
 		            ${[...currentPlan.attendees].map((attendee) => $h`
 		         <div class="item-profile item-media">
 		   			<img src="${attendee}" width="40" />
 		   		</div>
 		       `)}
-		      </div>
+		      </div-->
 		      <p>You and ${currentPlan.attendees.length - 1} others so far</p>
 		   </div>
 	      <div class="block-title no-margin-left margin-top">Progress</div>

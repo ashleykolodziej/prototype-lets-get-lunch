@@ -1,8 +1,7 @@
-async function getMenuData(url) {
+function getMenuData(url) {
 	try {
-		const response = await fetch(url);
-		const dishes = await response.json();
-		return dishes;
+		const response = fetch(url).then(response => response.json());
+		return response;
 	} catch (err) {
 		console.log('Error: ', err.message);
 	}

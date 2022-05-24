@@ -2,13 +2,12 @@ import getObjectKeyByKeyValuePair from './utilities.js';
 import locations from './data/locations';
 import getMenuData from './getMenuData';
 
-const dishesByCategory = [];
+async function getAllDishesByLocation( locationArr = locations ) {
+	let dishesByCategory = [];
 
-function getAllDishesByLocation() {
-	locations.map((location) => {
-		getMenuData(location.location.pickup_menu_url).then((data) => {
+	for (let location of locationArr) {
+		await getMenuData(location.location.pickup_menu_url).then(data => {
 			data.menu.categories.map((category) => {
-
 				// Add an association point between items and restaurants
 				category.category.items.map((item) => {
 					item.item.restaurantName = location.location.name;
@@ -24,15 +23,16 @@ function getAllDishesByLocation() {
 
 				if ( undefined === categoryKey ) {
 					// Add the new category to the list
-					dishesByCategory.push(category.category);
+					dishesByCategory.push(category);
 				} else {
 					// Combine this restaurant's dishes into this category
 					dishesByCategory[categoryKey].items = [...dishesByCategory[categoryKey].items, ...category.category.items]
 				}
 			});
-			console.log(dishesByCategory)
 		});
-	})
+	}
+
+	return dishesByCategory;
 }
 
 export default getAllDishesByLocation;
