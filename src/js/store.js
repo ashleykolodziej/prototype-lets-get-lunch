@@ -190,7 +190,7 @@ const store = createStore({
 					}
 				}
 			]
-		},
+		}/*,
 		{
 			id: '2',
 			title: 'Draaaaaanks in Boston',
@@ -248,7 +248,7 @@ const store = createStore({
 				'https://randomuser.me/api/portraits/men/10.jpg',
 				'https://randomuser.me/api/portraits/men/15.jpg',
 			]
-		}]
+		}*/]
   },
   getters: {
     favorites({ state }) {
