@@ -66,9 +66,6 @@
 
 .card-media {
 	overflow: hidden;
-	img[src*="jgp"] {
-		transform: scale(1.2);
-	}
 }
 
 .card-meta {
@@ -279,8 +276,8 @@ div {
 
 .fave-restaurant-card {
 	.chip-media {
-		width: 32px;
-		height: 32px;
+		width: 28px;
+		height: 28px;
 		padding-bottom: 0;
 		margin-left: 0;
 		box-sizing: content-box;
@@ -294,4 +291,8 @@ div {
 	.item-media {
 		margin-left: -10px;
 	}
+}
+
+.fave-restaurant-card a {
+	padding-left: 16px;
 }

@@ -74,7 +74,7 @@
         </ul>
       </div>
       <div class="block fave-confirm">
-      	<a href="/plans/${planId}/vote/" class="button button-outline">Looks great, let's vote!</a>
+      	<a href="/plans/${planId}/vote/" class="button button-outline">Send suggestions and vote</a>
       </div>
     </div>
   </div>
@@ -110,7 +110,6 @@
 	    Object.keys(favesByRestaruantId).map((restaruantId) => {
 	    	const theFaves = favesByRestaruantId[restaruantId];
 	    	const foundLocation = locationLookup(restaruantId)[0].location;
-	    	console.log(foundLocation)
 
 	    	let theFaveHtml = `<div class="card fave-restaurant-card">
 	      	<a class="display-flex" href="/menu/${restaruantId}/">
