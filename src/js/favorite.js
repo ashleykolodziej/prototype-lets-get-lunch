@@ -1,7 +1,6 @@
 import store from './store.js';
-import getObjectKeyByKeyValuePair from './utilities.js';
 
-function favoriteIconClick(planId, e) {
+function favoriteIconClick(e) {
 	const $this = e.target;
 	const $delegated = $this.closest('.swiper-slide');
 
@@ -27,63 +26,13 @@ function favoriteIconClick(planId, e) {
 			  return object.dishId !== theFaved.dishId;
 			});
 		} else {
-			const testy = store.state.plans[planId].restaurants[$delegated.dataset.restaurantId];
-
-			let theRestaurantKey = getObjectKeyByKeyValuePair(store.state.plans[planId].restaurants, 'id', $delegated.dataset.restaurantId);
-			console.log(theRestaurantKey);
-
-			if ( undefined === theRestaurantKey ) {
-				const theNewRestaurant = [{
-					id: `${$delegated.dataset.restaurantId}`,
-					name: `${$delegated.dataset.dishLocation}`,
-					img: 'tacoPartyImg',
-					votes: [
-						{
-							userId: 2,
-							img: 'https://randomuser.me/api/portraits/women/80.jpg',
-							count: 5
-						}]
-				}]
-
-				store.state.plans[planId].restaurants = [...store.state.plans[planId].restaurants, theNewRestaurant]
-				theRestaurantKey = store.state.plans[planId].restaurants.length - 1;
-			}
-
 			store.state.favorites = [...store.state.favorites, theFaved];
-
-			console.log(theRestaurantKey)
-
-			console.log(store.state.plans[planId].restaurants[theRestaurantKey]);
-
-			let userAlreadyVoted;
-
-			if ( undefined !== store.state.plans[planId].restaurants[theRestaurantKey].votes ) {
-				userAlreadyVoted = getObjectKeyByKeyValuePair(store.state.plans[planId].restaurants[theRestaurantKey].votes, 'id', '3');
-			}
-
-			console.log('alreadyFaved', userAlreadyVoted)
-
-			if ( undefined === userAlreadyVoted ) {
-				const theVoted = [{
-					userId: 3,
-					img: '#',
-					count: 1
-				}]
-
-				if ( undefined === store.state.plans[planId].restaurants[theRestaurantKey].votes) {
-					store.state.plans[planId].restaurants[theRestaurantKey].votes = [...theVoted];
-				} else {
-					store.state.plans[planId].restaurants[theRestaurantKey].votes = [...store.state.plans[planId].restaurants[theRestaurantKey].votes, ...theVoted];
-				}
-
-				console.log(store.state.plans)
-			}
 		}
 	}
 }
 
-function addFavoriteListeners(planId) {
-	document.body.addEventListener( 'click', favoriteIconClick.bind(this, planId) );
+function addFavoriteListeners() {
+	document.body.addEventListener( 'click', favoriteIconClick );
 }
 
 export default addFavoriteListeners;

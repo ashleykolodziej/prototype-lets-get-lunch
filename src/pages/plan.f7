@@ -9,7 +9,7 @@
             <span class="if-not-md">Plans</span>
           </a>
         </div>
-        <div class="right">${$store.getters.favorites.length} Favorites</div>
+        <div class="right">${$store.getters.favorites.value.length} Likes</div>
         <div class="title-large"><div class="title-large-text">Plan Details</div></div>
       </div>
     </div>
@@ -40,10 +40,7 @@
 	      <div class="progressbar color-multi" data-progress="25">
 			  <span></span>
 			</div>
-			<p>You're in! ${currentPlan.organizer.name.first} wants to know what sounds good to you in this area.</p>
-			${favorites.value.length !== 0 && $h`
-	        <a href="/plans/${planId}/vote/" class="button">I'm ready, let's vote!</a>
-	      `}
+			<p>You're in! Now, tell your group know what dishes work well for you in this area.</p>
       </div>
 		<div class="block display-flex justify-content-space-between">
 		    	<div class="block-title block-title-medium">Dishes in this area</div>
@@ -56,32 +53,19 @@
 		    </div>
 		 <div id="menu-swipers">
 	    </div>
-      <div class="block-title">Your favorites</div>
       ${favorites.value.length !== 0 && $h`
-         <div class="list media-list inset">
-	        <ul>
-	          ${favorites.value.map((favorite) => $h`
-	            <li>
-	            	<div class="item-content">
-	            		<div class="item-dish item-media">
-	            			<img src="${favorite.dishImg}"/>
-	            		</div>
-	            		<div class="item-inner">
-	            			${favorite.dishName} at ${favorite.dishLocation}
-	            		</div>
-	            	</div>
-	            </li>
-	          `)}
-	        </ul>
-	      </div>
+      	<div class="block-title block-title-medium">Nice work!</div>
 	      <div class="block fave-confirm">
-	      	<p>Nice work! If you like what you see, start voting.</p>
-	      	<a href="/plans/${planId}/vote/" class="button button-outline">I'm ready, let's vote!</a>
+	      	<p>Looks like you've got ${favorites.value.length} dishes that work for you in this area.</p>
+	      	<a href="/plans/${planId}/likes/" class="button button-outline">Confirm your restaurants</a>
 	      </div>
       `}
       ${favorites.value.length === 0 && $h`
-        	<div class="block no-margin-top fave-confirm">
-      		Add some favorites from the menus above or suggest a new restaurant to continue.
+      	<div class="block-title block-title-medium">Oh no!</div>
+        	<div class="block no-margin-top">
+      		<p>It looks like you're having a hard time finding something that works for you in this area. Would you like to ask for a location change?</p>
+      		<a href="#" class="button button-outline margin-bottom-half">Ask for a location change</a>
+      		<a href="/plans/${planId}/vote/" class="button button-outline">Continue anyway</a>
       	</div>
       `}
     </div>
@@ -103,7 +87,7 @@
       }
     });
 
-    $on('pageInit', () => {
+    $on('pageInit', (self) => {
   		const content = document.querySelector('#menu-swipers');
   		//const dishes = getAllDishesByLocation(locationsArr);
 

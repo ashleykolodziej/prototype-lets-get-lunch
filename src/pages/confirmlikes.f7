@@ -1,0 +1,147 @@
+<template>
+  <div class="page" data-name="product">
+    <div class="navbar">
+      <div class="navbar-bg"></div>
+      <div class="navbar-inner sliding">
+        <div class="left">
+          <a href="/" class="link back">
+            <i class="icon icon-back"></i>
+            <span class="if-not-md">Plans</span>
+          </a>
+        </div>
+        <div class="title-large"><div class="title-large-text">Your restaurants</div></div>
+      </div>
+    </div>
+    <div class="page-content">
+      <div class="block block-strong inset">
+      	<div class="display-flex align-items-center">
+	      	<div class="item-profile item-media">
+					<img src="${currentPlan.organizer.img}" width="75" />
+				</div>
+		      <div class="plan-title block no-margin-top no-margin-bottom">
+		      	<div class="no-margin-top no-margin-bottom">${currentPlan.organizer.name.first} invited you to</div>
+		      	<div class="block-title-medium no-margin-top">${currentPlan.title}!</div>
+		      	<div class="no-margin-top no-margin-bottom">${currentPlan.date}</div>
+		      </div>
+	      </div>
+	      <div class="block-title no-margin-left margin-top">Who's going?</div>
+	      <div class="display-flex">
+		      <div class="item-attendees justify-content-center">
+		            ${[...currentPlan.attendees].map((attendee) => $h`
+		         <div class="item-profile item-media">
+		   			<img src="${attendee}" width="40" />
+		   		</div>
+		       `)}
+		      </div>
+		      <p>You and ${currentPlan.attendees.length - 1} others</p>
+		   </div>
+	      <div class="block-title no-margin-left margin-top">Progress</div>
+	      <div class="progressbar color-multi" data-progress="50">
+			  <span></span>
+			</div>
+			<p>Looks like there are a few restaurants that work for you!</p>
+      </div>
+      <div class="block block-title-medium margin-bottom">The finalists</div>
+      <div id="favesByRestaurant" class="list media-list inset margin-bottom">
+
+      </div>
+      <div class="block block-title-medium margin-bottom">Your group's suggestions</div>
+      <div class="block margin-top">
+      <p>Check out these restaurants that worked well for others in your group.</p>
+      </div>
+      <div class="list media-list inset margin-bottom">
+        <ul>
+          ${currentPlan.suggestions.map((favorite) => $h`
+            <li>
+            	<a href="/menu/${favorite.id}/">
+            	<div class="item-content">
+            		<div class="item-dish item-media">
+            			<img src="${favorite.img}"/>
+            		</div>
+            		<div class="item-inner">
+            			<div class="item-title">${favorite.name}</div>
+            			<div class="item-subtitle">${favorite.description}</div>
+            			<div class="chip chip-outline thing">
+					          <span>Suggested by ${favorite.recommender.name}</span>
+					          <div class="chip-media">
+					            <img src="${favorite.recommender.img}" />
+					          </div>
+							</div>
+            		</div>
+            	</div>
+            	</a>
+            </li>
+          `)}
+        </ul>
+      </div>
+      <div class="block no-margin-top">
+      	<a class="button button-small button-round display-inline-flex">Suggest a restaurant</a>
+      </div>
+    </div>
+  </div>
+</template>
+<script>
+  export default (props, { $, $f7, $on, $f7route, $f7view, $store }) => {
+    const plans = $store.getters.plans;
+    const favorites = $store.getters.favorites;
+    const planId = $f7route.params.id;
+    let currentPlan = 0;
+    plans.value.forEach((plan) => {
+      if (plan.id === planId) {
+        currentPlan = plan;
+      }
+    });
+
+    const favesByRestaruantId = {};
+
+    favorites.value.map(favorite => {
+    	const restaruantId = favorite.restaruantId;
+
+    	if ( undefined === favesByRestaruantId[restaruantId]) {
+    		favesByRestaruantId[`${restaruantId}`] = [];
+    	}
+
+    	favesByRestaruantId[restaruantId].push(favorite);
+    })
+
+    $on('pageInit', () => {
+  		 const faveContainer = document.querySelector('#favesByRestaurant');
+
+	    Object.keys(favesByRestaruantId).map((restaruantId) => {
+	    	const theFavesHtml = document.createElement('div');
+	    	const theFaves = favesByRestaruantId[restaruantId];
+
+	    	for (var i = 0; i < theFaves.length; i++) {
+	    		if ( i === 0 ) {
+	    			const title = document.createElement('div');
+	    			title.classList.add('block-title');
+	    			title.textContent = theFaves[i].dishLocation;
+	    			faveContainer.appendChild(title);
+	    		}
+
+	    		const thisFave = theFaves[i];
+	    		const listItem = `<div class="card">
+		    		<div class="item-dish item-media">
+	      			<img src="${thisFave.dishImg}"/>
+	      		</div>
+	      		<div class="item-inner">
+	      			${i === 0 ? `
+				      	<div class="item-title">${theFaves[i].dishLocation}</div>
+				      	<div>You liked ${theFaves.length} dishes here</div>
+				      ` : ``}
+	      			<div class="item-dish item-media">
+	            			<img src="${thisFave.dishImg}"/>
+	            	</div>
+	      		</div>
+		    	</div>`;
+
+            theFavesHtml.insertAdjacentHTML('beforeend', listItem);
+	    	}
+
+	    	faveContainer.appendChild(theFavesHtml);
+	    });
+    });
+
+    return $render;
+  };
+</script>

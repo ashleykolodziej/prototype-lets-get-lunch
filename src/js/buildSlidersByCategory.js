@@ -27,9 +27,7 @@ async function buildSlidersByCategory(data, $f7) {
 				// Optional parameters
 				direction: 'horizontal',
 				loop: false,
-				effect: "cards",
-				preventClicks: false,
-				preventClicksPropagation: false
+				effect: "cards"
 			});
 
 			let slideCount = 0;
@@ -77,7 +75,7 @@ async function buildSlidersByCategory(data, $f7) {
 									${ isVegan ? '<span class="badge">vegan</span>' : '' }
 								</div>
 								<div class="card-favorite">
-									Add to favorites
+									I like it!
 									<i class="icon f7-icons if-not-md">heart</i>
 									<i class="icon material-icons if-md">heart</i>
 								</div>
