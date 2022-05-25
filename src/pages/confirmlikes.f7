@@ -4,48 +4,47 @@
       <div class="navbar-bg"></div>
       <div class="navbar-inner sliding">
         <div class="left">
-          <a href="/" class="link back">
+          <a href="/plans/" class="link back">
             <i class="icon icon-back"></i>
-            <span class="if-not-md">Plans</span>
+            <span class="if-not-md">Back</span>
           </a>
         </div>
-        <div class="title-large"><div class="title-large-text">Confirm restaurants</div></div>
+        <div class="title-large"><div class="title-large-text">${currentPlan.title}</div></div>
       </div>
     </div>
     <div class="page-content">
-      <!--div class="block block-strong inset">
-      	<div class="display-flex align-items-center">
-	      	<div class="item-profile item-media">
-					<img src="${currentPlan.organizer.img}" width="75" />
-				</div>
-		      <div class="plan-title block no-margin-top no-margin-bottom">
-		      	<div class="no-margin-top no-margin-bottom">${currentPlan.organizer.name.first} invited you to</div>
-		      	<div class="block-title-medium no-margin-top">${currentPlan.title}!</div>
-		      	<div class="no-margin-top no-margin-bottom">${currentPlan.date}</div>
-		      </div>
-	      </div>
-	      <div class="block-title no-margin-left margin-top">Who's going?</div>
-	      <div class="display-flex">
-		      <div class="item-attendees justify-content-center">
-		            ${[...currentPlan.attendees].map((attendee) => $h`
-		         <div class="item-profile item-media">
-		   			<img src="${attendee}" width="40" />
-		   		</div>
-		       `)}
-		      </div>
-		      <p>You and ${currentPlan.attendees.length - 1} others</p>
-		   </div>
-	      <div class="block-title no-margin-left margin-top">Progress</div>
-	      <div class="progressbar color-multi" data-progress="50">
+      <div class="block margin-bottom-half margin-top">
+    		<div class="progressbar color-multi" data-progress="55">
 			  <span></span>
 			</div>
-			<p>Looks like there are a few restaurants that work for you!</p>
-      </div-->
-      <div class="block block-title-medium margin-bottom">Your suggestions</div>
+		</div>
+      <div class="block no-margin-top">
+	   <div class="breadcrumbs">
+		  	<div class="breadcrumbs-item">
+			    <a href="/plans/${planId}/" class="link back">
+			      Respond
+			    </a>
+			  </div>
+			  <div class="breadcrumbs-item breadcrumbs-item-active">
+			    <a href="/plans/${planId}/browse/" class="link">
+			      Browse
+			    </a>
+			  </div>
+			  <div class="breadcrumbs-item">
+			    <a href="/plans/${planId}/vote/" class="link">
+			      Vote
+			    </a>
+			  </div>
+			  <div class="breadcrumbs-item">
+			    Confirm
+			  </div>
+			</div>
+		</div>
+      <div class="block block-title-medium margin-bottom">Restaurants you're suggesting</div>
       <div id="favesByRestaurant" class="list media-list margin-bottom">
       </div>
       <div class="block no-margin-top">
-      	<a class="button button-small button-round display-inline-flex">Suggest a restaurant</a>
+      	<a class="button button-small button-round display-inline-flex">Browse additional restaurants</a>
       </div>
       <div class="block block-title-medium margin-bottom">Group suggestions</div>
       <div class="list media-list inset margin-bottom">

@@ -7,22 +7,24 @@
       </div>
     </div>
     <div class="page-content">
-      <div class="list media-list inset">
-        <ul>
+      <div class="list media-list">
+        <ul class="fave-items">
           ${favorites.value.map((product) => $h`
-            <li>
-            	<div class="item-content">
+            <li class="card">
+         		<div class="item-content">
             		<div class="item-dish item-media">
             			<img src="${product.dishImg}"/>
             		</div>
             		<div class="item-inner">
-            			${product.dishName} at ${product.dishLocation}
+            			<div class="item-title">${product.dishName}</div>
+            			<div class="item-subtitle">at ${product.dishLocation}</div>
             		</div>
             		<div class="card-favorite little-favorite">
 							<i class="icon f7-icons if-not-md">heart_fill</i>
 							<i class="icon material-icons if-md">heart</i>
 						</div>
-            	</div>
+         		</div>
+         		<p class="fave-description">${product.dishDescription}</p>
             </li>
           `)}
         </ul>

@@ -1,0 +1,118 @@
+<template>
+  <div class="page" data-name="product">
+    <div class="navbar">
+      <div class="navbar-bg"></div>
+      <div class="navbar-inner sliding">
+        <div class="left">
+          <a href="/plans/" class="link back">
+            <i class="icon icon-back"></i>
+            <span class="if-not-md">Back</span>
+          </a>
+        </div>
+        <div class="title-large"><div class="title-large-text">${currentPlan.title}</div></div>
+      </div>
+    </div>
+    <div class="page-content">
+    	<div class="block margin-bottom-half margin-top">
+    		<div class="progressbar color-multi" data-progress="40">
+			  <span></span>
+			</div>
+		</div>
+      <div class="block no-margin-top">
+	   <div class="breadcrumbs">
+		  	<div class="breadcrumbs-item">
+			    <a href="/plans/${planId}/" class="back link">
+			      Respond
+			    </a>
+			  </div>
+			  <div class="breadcrumbs-item">
+			    <a href="/plans/${planId}/browse/" class="link">
+			      Browse
+			    </a>
+			  </div>
+			  <div class="breadcrumbs-item">
+			    <a href="/plans/${planId}/vote/" class="link">
+			      Vote
+			    </a>
+			  </div>
+			  <div class="breadcrumbs-item">
+			    Confirm
+			  </div>
+			</div>
+		</div>
+	   <div class="card intro-tutorial">
+			<div class="card-header">
+			😋 Let's see what's around!
+				<i class="f7-icons close-card">multiply</i>
+			</div>
+			<div class="card-content card-content-padding">
+				<div class="card-content">
+					<p class="no-margin-top">Let your friends know what works for you, and we'll help you find restaurants everyone agrees on.</p>
+				</div>
+			</div>
+		</div>
+		<div class="block-title block-title-large no-margin-top">Dishes in Ball Square</div>
+		<div class="block display-flex justify-content-space-between browse-title">
+	    	<div class="chip">
+	    		<div class="chip-label">
+	    			Vegetarian only
+	    		</div>
+	    		<a href="#" class="chip-delete"></a>
+	    	</div>
+	    </div>
+		 <div id="menu-swipers">
+		 </div>
+      ${favorites.value.length !== 0 && $h`
+      	<div class="block-title block-title-medium">Nice work!</div>
+	      <div class="block fave-confirm">
+	      	<p>Looks like you've got ${favorites.value.length} dishes that work for you in this area.</p>
+	      	<a href="/plans/${planId}/likes/" class="button button-outline">Confirm your restaurants</a>
+	      </div>
+      `}
+      ${favorites.value.length === 0 && $h`
+      	<div class="block-title block-title-medium">Oh no!</div>
+        	<div class="block no-margin-top">
+      		<p>It looks like you're having a hard time finding something that works for you in this area. Would you like to ask for a location change?</p>
+      		<a href="#" class="button button-outline margin-bottom-half">Ask for a location change</a>
+      		<a href="/plans/${planId}/vote/" class="button button-outline">Continue anyway</a>
+      	</div>
+      `}
+    </div>
+  </div>
+</template>
+<script>
+	import addFavoriteListeners from '../js/favorite';
+	import getAllDishesByLocation from '../js/getAllDishesByLocation';
+	import buildSlidersByCategory from '../js/buildSlidersByCategory';
+
+  	export default (props, { $f7route, $store, $on, $, $f7 }) => {
+    const plans = $store.getters.plans;
+    const favorites = $store.getters.favorites;
+    const planId = $f7route.params.id;
+    let currentPlan = 0;
+    plans.value.forEach((plan) => {
+      if (plan.id === planId) {
+        currentPlan = plan;
+      }
+    });
+
+    $on('pageInit', (self) => {
+  		const content = document.querySelector('#menu-swipers');
+
+  		getAllDishesByLocation().then(data => {
+			buildSlidersByCategory(data, $f7).then(sliders => {
+				content.appendChild(sliders);
+			});
+		});
+
+    	 const planId = 0;
+    	 addFavoriteListeners(planId);
+
+    	 $('.close-card').on('click', function () {
+        this.closest('.intro-tutorial').classList.add('animate-collapse')
+      })
+    });
+
+    return $render;
+  };
+</script>

@@ -5,6 +5,7 @@ import PlanListingPage from '../pages/planlisting.f7';
 import FormPage from '../pages/form.f7';
 import FavoritesPage from '../pages/favorites.f7';
 import PlanPage from '../pages/plan.f7';
+import BrowsePage from '../pages/browse.f7';
 import ConfirmLikes from '../pages/confirmlikes.f7';
 import VotePage from '../pages/vote.f7';
 import ConfirmedPage from '../pages/confirmation.f7';
@@ -49,6 +50,10 @@ var routes = [
   {
     path: '/plans/:id/',
     component: PlanPage,
+  },
+  {
+    path: '/plans/:id/browse/',
+    component: BrowsePage,
   },
   {
     path: '/plans/:id/likes/',

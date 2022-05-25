@@ -6,7 +6,6 @@ function isEmpty(obj) {
 
 async function buildSlidersByCategory(data, $f7) {
 	const sliderMarkup = document.createElement('div');
-	console.log(data)
 
 	Object.values(data).forEach(item => {
 		//item.categories.forEach(item => {
@@ -66,6 +65,7 @@ async function buildSlidersByCategory(data, $f7) {
 							data-dish-id="${dish.item.id}"
 							data-dish-name="${name}"
 							data-dish-location="${dish.item.restaurantName}"
+							data-dish-description="${description}"
 							data-dish-img="${img}?density=1&height=300&width=420"
 							class="swiper-slide">
 							<div class="card">
@@ -94,6 +94,7 @@ async function buildSlidersByCategory(data, $f7) {
   			}
 
   			if (slideCount > 0) {
+  				title.textContent += ` (${slideCount})`;
   				sliderMarkup.appendChild(title);
   				sliderMarkup.appendChild(swiper.el);
   			}

@@ -9,10 +9,31 @@
             <span class="if-not-md">Plans</span>
           </a>
         </div>
-        <div class="title-large"><div class="title-large-text">Confirmed</div></div>
+        <div class="title-large"><div class="title-large-text">${currentPlan.title}</div></div>
       </div>
     </div>
     <div class="page-content">
+      <div class="block margin-bottom-half margin-top">
+    		<div class="progressbar color-green" data-progress="100">
+			  <span></span>
+			</div>
+		</div>
+      <div class="block no-margin-top">
+	   <div class="breadcrumbs">
+		  	<div class="breadcrumbs-item">
+			      Respond
+			  </div>
+			  <div class="breadcrumbs-item">
+			      Respond
+			  </div>
+			  <div class="breadcrumbs-item">
+			      Vote
+			  </div>
+			  <div class="breadcrumbs-item breadcrumbs-item-active">
+			    Confirm
+			  </div>
+			</div>
+		</div>
     	<div class="block block-title-large margin-bottom text-align-center">That's a wrap!</div>
       <div class="block block-strong inset">
       	<div class="display-flex align-items-center">
@@ -21,7 +42,7 @@
 				</div>
 		      <div class="plan-title block no-margin-top no-margin-bottom">
 		      	<div class="no-margin-top no-margin-bottom">You're going to</div>
-		      	<div class="block-title-medium no-margin-top">${currentPlan.title}!</div>
+		      	<div class="block-title-medium no-margin-top">${currentPlan.title}</div>
 		      	<div class="no-margin-top no-margin-bottom">${currentPlan.date}</div>
 		      </div>
 	      </div>
@@ -36,9 +57,9 @@
 		      </div>
 		      <p>You and ${currentPlan.attendees.length - 1} others</p>
 		   </div>
-	      <div class="block-title no-margin-left margin-top">Plan complete!</div>
-	      <div class="progressbar color-green" data-progress="100">
-			  <span></span>
+		   <div class="block-title no-margin-left margin-top">Notes from the organizer</div>
+			<div class="block">
+				<p>Let's meet in Ball Square around 11:30am. Bring friends if you want!</p>
 			</div>
 			<div class="block">
 				<button class="button button-outline open-progress">Add to calendar</button>
@@ -46,6 +67,11 @@
       </div>
       <div class="block block-title-medium margin-bottom">Where you're going</div>
       <div id="result" class="block margin-top group-faves">
+      </div>
+      <div class="block block-title-medium margin-bottom">Dishes you like here</div>
+      <div class="list media-list">
+        <ul id="favesByRestaurant">
+        </ul>
       </div>
     </div>
   </div>
@@ -65,13 +91,18 @@
 
     $on('pageInit', () => {
     	// Taco Party always wins in this prototype.
-    	const foundLocation = locationLookup('100489');
+    	const theWinner = '100489';
+    	const foundLocation = locationLookup(theWinner);
 
     	foundLocation.map((location) => {
     		const resultContainer = document.querySelector('#result')
     		const resultHtml = `<div class="card no-margin">
          	<div style="background-image:url(${location.location.image_url})"class="card-header align-items-flex-end">
        			<div>${location.location.name}</div>
+       			<div class="card-address">
+       				<i class="icon f7-icons if-not-md">map</i>
+       				${location.location.street_address}, ${location.location.locality} ${location.location.region}
+       			</div>
        		</div>
          	<div class="card-content">
             	<div class="card-content card-content-padding">
@@ -84,7 +115,34 @@
       	</div>`;
 
       	resultContainer.insertAdjacentHTML('beforeend', resultHtml);
-    	})
+    	});
+
+    	const faveContainer = document.querySelector('#favesByRestaurant');
+
+    	favorites.value.map(favorite => {
+	    	const restaruantId = favorite.restaruantId;
+
+	    	if ( theWinner === restaruantId) {
+	    		const theFaveHtml = `
+	            <li class="card">
+	         		<div class="item-content">
+	            		<div class="item-dish item-media">
+	            			<img src="${favorite.dishImg}"/>
+	            		</div>
+	            		<div class="item-inner">
+	            			<div class="item-title">${favorite.dishName}</div>
+	            		</div>
+	            		<div class="card-favorite little-favorite">
+								<i class="icon f7-icons if-not-md">heart_fill</i>
+								<i class="icon material-icons if-md">heart</i>
+							</div>
+	         		</div>
+	         		<p class="fave-description">${favorite.dishDescription}</p>
+	            </li>
+	    		`;
+	    		faveContainer.insertAdjacentHTML('beforeend', theFaveHtml);
+	    	}
+	    })
 
     	$('.open-progress').on('click', function () {
         const calendarProgress = $f7.dialog.progress('Adding to calendar...');

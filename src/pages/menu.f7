@@ -21,8 +21,9 @@
 	    <div class="block">
 		    	<div class="chip">
 		    		<div class="chip-label">
-		    			Filtered by vegetarian
+		    			Vegetarian only
 		    		</div>
+		    		<a href="#" class="chip-delete"></a>
 		    	</div>
 	    </div>
     </div>
@@ -49,7 +50,6 @@
 
   	$on('pageInit', () => {
   		const foundLocation = locationLookup(menuId);
-  		console.log(foundLocation)
   		const content = document.querySelector('#menu-swipers');
   		//const dishes = getAllDishesByLocation(locationsArr);
 

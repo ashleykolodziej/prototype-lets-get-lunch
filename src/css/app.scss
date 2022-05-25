@@ -108,6 +108,8 @@
   font-size: 1.75em;
   font-weight: bold;
   position: relative;
+  flex-wrap: wrap;
+  align-content: flex-end;
 
   &::before {
   	content: "";
@@ -123,6 +125,16 @@
   div {
   	position: relative;
   	z-index: 2;
+  	width: 100%;
+  }
+
+  .card-address {
+  	font-size: 13px;
+
+  	.icon {
+  		font-size: 16px;
+  		margin-right: 0.25em;
+  	}
   }
 }
 
@@ -295,4 +307,53 @@ div {
 
 .fave-restaurant-card a {
 	padding-left: 16px;
+}
+
+.fave-items,
+#favesByRestaurant {
+	background-color: transparent !important;
+
+	&::before,
+	&::after {
+		display: none !important;
+	}
+
+	.item-inner {
+		align-self: center;
+
+		&::after {
+			display: none;
+		}
+	}
+
+	.item-title {
+		white-space: normal;
+	}
+
+	.card-favorite {
+		padding-right: 16px;
+		align-self: flex-start;
+		margin-top: 16px;
+	}
+}
+
+.fave-description {
+	font-size: 13px;
+	padding: 16px;
+	margin: 0;
+	padding-top: 0;
+}
+
+.breadcrumbs {
+	justify-content: space-between;
+}
+
+.browse-title {
+	.block-title {
+		white-space: normal;
+	}
+}
+
+#menu-swipers {
+	min-height: 50vh;
 }
