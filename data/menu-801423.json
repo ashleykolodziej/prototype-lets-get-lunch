@@ -5129,7 +5129,7 @@
       {
         "category": {
           "id": 673873438,
-          "name": "Omelets",
+          "name": "Breakfast",
           "category_group_id": null,
           "description": null,
           "display_order": 5,
@@ -15115,7 +15115,7 @@
       {
         "category": {
           "id": 673873575,
-          "name": "Challah French Toast",
+          "name": "Breakfast",
           "category_group_id": null,
           "description": null,
           "display_order": 6,
@@ -15711,7 +15711,7 @@
       {
         "category": {
           "id": 673873600,
-          "name": "Stuffed French Toast",
+          "name": "Breakfast",
           "category_group_id": null,
           "description": null,
           "display_order": 7,
@@ -22267,7 +22267,7 @@
       {
         "category": {
           "id": 673873858,
-          "name": "Appetizers",
+          "name": "Shareable",
           "category_group_id": null,
           "description": null,
           "display_order": 16,
@@ -26102,7 +26102,7 @@
       {
         "category": {
           "id": 673873975,
-          "name": "drinks ",
+          "name": "Beverages ",
           "category_group_id": null,
           "description": null,
           "display_order": 25,
