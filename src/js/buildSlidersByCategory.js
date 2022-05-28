@@ -104,4 +104,4 @@ async function buildSlidersByCategory(data, $f7) {
 	return sliderMarkup;
 }
 
-export default await buildSlidersByCategory;
+export default buildSlidersByCategory;

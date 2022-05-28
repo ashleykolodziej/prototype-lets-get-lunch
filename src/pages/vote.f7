@@ -27,7 +27,7 @@
 			  </div>
 			  <div class="breadcrumbs-item">
 			    <a href="/plans/${planId}/browse/" class="link back">
-			      Browse
+			      Suggest
 			    </a>
 			  </div>
 			  <div class="breadcrumbs-item  breadcrumbs-item-active">
