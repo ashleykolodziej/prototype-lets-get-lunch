@@ -83,7 +83,9 @@
 <script>
 	import addFavoriteListeners from '../js/favorite';
 	import getAllDishesByLocation from '../js/getAllDishesByLocation';
-	import buildSlidersByCategory from '../js/buildSlidersByCategory';
+	//import buildSlidersByCategory from '../js/buildSlidersByCategory';
+	import buildSlidersByLocation from '../js/buildSlidersByLocation';
+	import locations from '../js/data/locations';
 
   	export default (props, { $f7route, $store, $on, $, $f7 }) => {
     const plans = $store.getters.plans;
@@ -99,11 +101,20 @@
     $on('pageInit', (self) => {
   		const content = document.querySelector('#menu-swipers');
 
-  		getAllDishesByLocation().then(data => {
+  		/*
+		By category
+
+  		getAllDishesByLocation(undefined, true).then(data => {
 			buildSlidersByCategory(data, $f7).then(sliders => {
 				content.appendChild(sliders);
 			});
-		});
+		});*/
+
+		getAllDishesByLocation().then(data => {
+			buildSlidersByLocation(data, $f7).then(sliders => {
+				content.appendChild(sliders);
+			});
+		})
 
     	 const planId = 0;
     	 addFavoriteListeners(planId);
