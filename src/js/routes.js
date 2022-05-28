@@ -5,6 +5,7 @@ import PlanListingPage from '../pages/planlisting.f7';
 import FormPage from '../pages/form.f7';
 import FavoritesPage from '../pages/favorites.f7';
 import PlanPage from '../pages/plan.f7';
+import NewPlan from '../pages/newplan.f7';
 import BrowsePage from '../pages/browse.f7';
 import ConfirmLikes from '../pages/confirmlikes.f7';
 import VotePage from '../pages/vote.f7';
@@ -75,7 +76,10 @@ var routes = [
     path: '/settings/',
     component: SettingsPage,
   },
-
+  {
+    path: '/newplan/',
+    component: NewPlan,
+  },
   {
     path: '/dynamic-route/blog/:blogId/post/:postId/',
     component: DynamicRoutePage,

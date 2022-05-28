@@ -1,0 +1,87 @@
+<template>
+<div class="page" data-name="product">
+	<div class="navbar">
+		<div class="navbar-bg"></div>
+		<div class="navbar-inner sliding">
+			<div class="left">
+				<a href="/plans/" class="link back">
+					<i class="icon icon-back"></i>
+					<span class="if-not-md">Back</span>
+				</a>
+			</div>
+			<div class="title-large"><div class="title-large-text">Start New Plan</div></div>
+		</div>
+	</div>
+	<div class="page-content">
+		<div class="block-title block-title-medium">Plan information</div>
+		<div class="list inset">
+			<ul>
+				<li class="item-content item-input">
+					<div class="item-inner">
+						<div class="item-title item-label">Plan name</div>
+						<div class="item-input-wrap">
+							<input type="text" placeholder="Lunch in Boston" />
+							<span class="input-clear-button"></span>
+						</div>
+					</div>
+				</li>
+				<li class="item-content item-input">
+					<div class="item-inner">
+						<div class="item-title item-label">Location</div>
+						<div class="item-input-wrap">
+							<input type="text" placeholder="Boston, MA" />
+							<span class="input-clear-button"></span>
+						</div>
+					</div>
+				</li>
+				<li class="item-content item-input">
+					<div class="item-inner">
+						<div class="item-title item-label">Date and time</div>
+						<div class="item-input-wrap">
+							<input type="datetime-local" placeholder="Please choose..." />
+						</div>
+					</div>
+				</li>
+				<li class="item-content item-input">
+					<div class="item-inner">
+						<div class="item-title item-label">Note to invitees</div>
+						<div class="item-input-wrap">
+							<textarea placeholder="Hope you can make it!"></textarea>
+							<span class="input-clear-button"></span>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+		<div class="block-title block-title-medium">Plan settings</div>
+		<div class="list simple-list inset">
+			<ul>
+				<li>
+					<span>Require responses to vote</span>
+					<label class="toggle toggle-init">
+						<input type="checkbox" />
+						<span class="toggle-icon"></span>
+					</label>
+				</li>
+				<li>
+					<span>Allow invitees to invite others</span>
+					<label class="toggle toggle-init toggle-active-state">
+						<input type="checkbox" checked />
+						<span class="toggle-icon"></span>
+					</label>
+				</li>
+			</ul>
+		</div>
+		<div class="block inset">
+			<a href="#" class="button button-outline">Create plan</a>
+		</div>
+	</div>
+</div>
+</template>
+<script>
+	export default (props, { $f7route, $store, $on, $, $f7 }) => {
+$on('pageInit', (self) => {
+});
+return $render;
+};
+</script>

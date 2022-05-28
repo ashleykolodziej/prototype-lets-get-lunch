@@ -61,7 +61,7 @@
 	  	`)}
   	`)}
   	<div class="block">
-		<button class="button button-outline button-round">Start a new plan</button>
+		<a href="/newplan/" class="button button-outline button-round">Start a new plan</a>
 	</div>
   </div>
 </div>
